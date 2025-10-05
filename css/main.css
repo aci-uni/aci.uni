@@ -1,0 +1,152 @@
+body {
+  font-family: 'Inter', 'Montserrat', 'Poppins', Arial, sans-serif;
+  background: #F2F4F7;
+  color: #1E1E1E;
+  margin: 0;
+  padding: 0;
+}
+
+header nav {
+  background: #0056A6;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  height: 70px;
+}
+
+.logo {
+  height: 48px;
+  margin-right: 2rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+nav ul li a:hover {
+  color: #0096D6;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0096D6;
+  color: #fff;
+  padding: 2rem;
+}
+
+.hero-logo {
+  height: 100px;
+}
+
+.hero-content {
+  max-width: 45%;
+}
+
+.hero-buttons {
+  margin-top: 1rem;
+}
+
+.button, .button-outline {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-right: 1rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.button {
+  background: #0056A6;
+  color: #fff;
+  border: none;
+}
+
+.button-outline {
+  background: #fff;
+  color: #0056A6;
+  border: 2px solid #0056A6;
+}
+
+.button:hover, .button-outline:hover {
+  background: #003A73;
+  color: #fff;
+}
+
+.hero-image img {
+  max-height: 260px;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+}
+
+main {
+  padding: 2rem;
+  background: #FFFFFF;
+}
+
+h2 {
+  color: #0056A6;
+  margin-top: 0;
+}
+
+.team-grid, .gallery, .sponsors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.team-member, .sponsors-grid img {
+  background: #F2F4F7;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.team-member img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+}
+
+input, select, button {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  background: #0056A6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  background: #0056A6;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
