@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ACI UNI - Capítulo Estudiantil</title>
+  <title>Eventos, Cursos y Talleres | ACI UNI</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
-  <script src="js/main.js" defer></script>
   <style>
     :root {
       --primary: #0056A6;
@@ -23,15 +22,9 @@
       font-family: 'Inter', sans-serif;
       color: var(--text);
       background-color: var(--light);
-      scroll-behavior: smooth;
     }
 
-    header {
-      position: relative;
-      width: 100%;
-    }
-
-    /* ─── Navbar ─────────────────────────── */
+    /* NAVBAR */
     nav {
       display: flex;
       justify-content: space-between;
@@ -88,102 +81,64 @@
       border-radius: 2px;
     }
 
-    /* ─── Hero Section ─────────────────────────── */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 9rem 3rem 5rem;
-      background: linear-gradient(135deg, #e7f1fb 0%, #ffffff 100%);
-      min-height: 90vh;
-      overflow: hidden;
+    /* CONTENIDO PRINCIPAL */
+    main {
+      padding: 8rem 2rem 4rem;
+      max-width: 1100px;
+      margin: auto;
     }
 
-    .hero-content {
-      max-width: 540px;
-      z-index: 2;
-    }
-
-    .hero-logo {
-      height: 100px;
-      margin-bottom: 1rem;
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
-    }
-
-    .hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin: 0.5rem 0;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--dark);
-      margin-bottom: 1.8rem;
-      line-height: 1.6;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .button, .button-outline {
-      padding: 0.8rem 1.8rem;
-      font-weight: 600;
-      border-radius: var(--radius);
-      text-decoration: none;
-      transition: all 0.3s ease;
+    h2 {
       text-align: center;
-    }
-
-    .button {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .button:hover {
-      background: var(--secondary);
-      transform: translateY(-2px);
-    }
-
-    .button-outline {
-      border: 2px solid var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.4rem;
       color: var(--primary);
-      background: transparent;
+      margin-bottom: 2rem;
     }
 
-    .button-outline:hover {
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+      padding-left: 2rem;
+      border-left: 3px solid var(--primary);
+    }
+
+    .event {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .event::before {
+      content: "";
+      position: absolute;
+      left: -11px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
       background: var(--primary);
-      color: #fff;
-      transform: translateY(-2px);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #e0f2fe;
     }
 
-    .hero-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-width: 300px;
+    .event h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: var(--dark);
     }
 
-    .hero-image img {
-      width: 95%;
-      max-width: 580px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      transition: transform 0.4s ease;
+    .event span {
+      display: block;
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 0.5rem;
     }
 
-    .hero-image img:hover {
-      transform: scale(1.03);
+    .event p {
+      margin: 0.4rem 0 0;
+      line-height: 1.6;
+      color: var(--text);
     }
 
-    /* ─── Footer ─────────────────────────── */
     footer {
       background-color: var(--dark);
       color: #e2e8f0;
@@ -197,27 +152,6 @@
       margin: 0;
     }
 
-    /* ─── Responsive ─────────────────────────── */
-    @media (max-width: 900px) {
-      nav ul {
-        gap: 1rem;
-      }
-
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 8rem 1.5rem 4rem;
-      }
-
-      .hero-content {
-        max-width: 100%;
-      }
-
-      .hero-image img {
-        max-width: 420px;
-      }
-    }
-
     @media (max-width: 600px) {
       nav {
         flex-direction: column;
@@ -227,6 +161,9 @@
         flex-wrap: wrap;
         justify-content: center;
       }
+      main {
+        padding: 7rem 1rem 3rem;
+      }
     }
   </style>
 </head>
@@ -235,10 +172,10 @@
     <nav>
       <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
       <ul>
-        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="index.html">Inicio</a></li>
         <li><a href="about.html">Sobre Nosotros</a></li>
         <li><a href="areas.html">Áreas</a></li>
-        <li><a href="events.html">Eventos</a></li>
+        <li><a href="events.html" class="active">Eventos</a></li>
         <li><a href="projects.html">Proyectos</a></li>
         <li><a href="team.html">Equipo</a></li>
         <li><a href="gallery.html">Galería</a></li>
@@ -247,25 +184,42 @@
         <li><a href="sponsors.html">Patrocinadores</a></li>
       </ul>
     </nav>
-
-    <section class="hero">
-      <div class="hero-content">
-        <img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="hero-logo">
-        <h1>Always Advancing</h1>
-        <p>Bienvenido al Capítulo Estudiantil ACI UNI — fomentando la innovación, la investigación y el liderazgo en ingeniería del concreto.</p>
-        <div class="hero-buttons">
-          <a href="join.html" class="button">Únete</a>
-          <a href="events.html" class="button-outline">Próximos eventos</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="assets/hero-placeholder.jpg" alt="Foto del equipo o concurso">
-      </div>
-    </section>
   </header>
 
   <main>
-    <!-- Sección introductoria o misión -->
+    <h2>Eventos, Cursos y Talleres</h2>
+    <div class="timeline">
+      <div class="event">
+        <h3>ACI Play II Edition</h3>
+        <span>28 de septiembre de 2025 – Parque de la Exposición</span>
+        <p>Encuentro de capítulos ACI de Lima con dinámicas, integración y coffee break para fortalecer los lazos entre estudiantes.</p>
+      </div>
+      <div class="event">
+        <h3>Curso: Diseño de Mezclas Avanzadas</h3>
+        <span>15 de agosto de 2025 – Laboratorio de Materiales UNI</span>
+        <p>Capacitación técnica enfocada en la optimización de mezclas de concreto según normativa ACI, con ensayos prácticos.</p>
+      </div>
+      <div class="event">
+        <h3>Taller: Inteligencia Artificial en Ingeniería Civil</h3>
+        <span>30 de julio de 2025 – Facultad de Ingeniería Civil UNI</span>
+        <p>Exploración de herramientas digitales e inteligencia artificial aplicadas al modelamiento y análisis estructural.</p>
+      </div>
+      <div class="event">
+        <h3>Conferencia Técnica ACI LATAM</h3>
+        <span>20 de mayo de 2025 – Virtual</span>
+        <p>Evento internacional sobre innovación y sostenibilidad en el concreto, con ponentes de capítulos ACI de Latinoamérica.</p>
+      </div>
+      <div class="event">
+        <h3>Taller de Modelado BIM para Infraestructura</h3>
+        <span>10 de abril de 2025 – Centro de Innovación UNI</span>
+        <p>Capacitación en el uso de herramientas BIM aplicadas a proyectos de estructuras y pavimentos de concreto.</p>
+      </div>
+      <div class="event">
+        <h3>ChocoACI 2024</h3>
+        <span>20 de diciembre de 2024 – Lima, Perú</span>
+        <p>Actividad benéfica navideña organizada por el capítulo ACI UNI para niños en situación vulnerable.</p>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -273,4 +227,3 @@
   </footer>
 </body>
 </html>
->
