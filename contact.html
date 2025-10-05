@@ -4,33 +4,167 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto | ACI UNI</title>
-  <link rel="stylesheet" href="css/main.css">
-  <!-- Font Awesome CDN para iconos de redes sociales -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
+    /* ---------- ESTILOS GENERALES ---------- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a2342;
+      padding: 15px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin: auto;
+    }
+
+    nav .logo {
+      height: 45px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ffc107;
+    }
+
+    /* ---------- CONTENIDO PRINCIPAL ---------- */
+    main {
+      width: 90%;
+      max-width: 1000px;
+      margin: 60px auto;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2.2em;
+      color: #0a2342;
+      margin-bottom: 10px;
+    }
+
+    main p, main ul {
+      color: #555;
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+
+    section ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 25px;
+    }
+
+    section ul li {
+      margin: 15px 0;
+      background: #fff;
+      padding: 18px 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section ul li:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    }
+
+    section ul li a {
+      color: #0a2342;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section ul li a:hover {
+      color: #ffc107;
+    }
+
+    /* ---------- REDES SOCIALES ---------- */
     .social-list {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
-      margin: 1rem 0;
+      margin: 1.5rem 0 0 0;
       padding: 0;
       list-style: none;
     }
+
     .social-list li a {
       display: flex;
       align-items: center;
-      color: #0056A6;
+      color: #0a2342;
       text-decoration: none;
       font-size: 1.1rem;
       font-weight: 500;
-      transition: color 0.2s;
+      transition: all 0.3s ease;
+      background: #fff;
+      padding: 12px 18px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     .social-list li a:hover {
-      color: #0096D6;
+      background-color: #0a2342;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
+
     .social-list li i {
       font-size: 1.6rem;
-      margin-right: 0.5rem;
+      margin-right: 0.6rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #0a2342;
+      color: white;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .social-list {
+        justify-content: center;
+      }
+
+      section ul li {
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -52,12 +186,13 @@
       </ul>
     </nav>
   </header>
+
   <main>
     <section>
       <h2>Contacto y Redes Sociales</h2>
       <ul>
-        <li>Email: <a href="mailto:aci.uni@uni.edu.pe">aci@uni.edu.pe</a></li>
-        <li>Ubicación: Universidad Nacional de Ingeniería (UNI)</li>
+        <li><strong>Email:</strong> <a href="mailto:aci@uni.edu.pe">aci@uni.edu.pe</a></li>
+        <li><strong>Ubicación:</strong> Universidad Nacional de Ingeniería (UNI)</li>
         <li>
           <strong>Redes:</strong>
           <ul class="social-list">
@@ -96,8 +231,9 @@
       </ul>
     </section>
   </main>
+
   <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI.</p>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
