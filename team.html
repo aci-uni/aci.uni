@@ -1,137 +1,111 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equipo Directivo 2025 | ACI UNI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <style>
-    :root {
-      --primary: #0056A6;
-      --secondary: #00AEEF;
-      --dark: #1E293B;
-      --light: #F8FAFC;
-      --text: #334155;
-      --radius: 14px;
-      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    }
-
     body {
+      background-color: #f8f9fb;
+      font-family: "Poppins", sans-serif;
+      color: #333;
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--light);
-      color: var(--text);
     }
 
-    /* ─── Navbar ─────────────────────────── */
+    header {
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
     nav {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #fff;
-      padding: 1rem 3rem;
-      box-shadow: var(--shadow);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
+      padding: 0.8rem 2rem;
     }
 
     .logo {
-      height: 55px;
-      transition: transform 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.05);
+      height: 50px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.8rem;
+      gap: 1.5rem;
       margin: 0;
       padding: 0;
     }
 
     nav ul li a {
       text-decoration: none;
+      color: #0056a6;
       font-weight: 500;
-      color: var(--dark);
-      transition: color 0.3s ease;
-      position: relative;
+      transition: color 0.2s ease;
     }
 
-    nav ul li a.active,
     nav ul li a:hover {
-      color: var(--primary);
+      color: #0096d6;
     }
 
-    nav ul li a.active::after,
-    nav ul li a:hover::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--primary);
-      border-radius: 2px;
+    nav ul li a.active {
+      border-bottom: 2px solid #0096d6;
+      padding-bottom: 3px;
     }
 
-    /* ─── Team Section ─────────────────────────── */
     .team-section {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 9rem 2rem 4rem;
+      padding: 60px 20px;
       text-align: center;
     }
 
     .team-section h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.2rem;
-      color: var(--primary);
-      margin-bottom: 10px;
+      color: #0056a6;
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
 
     .team-intro {
-      color: var(--dark);
-      font-size: 1.05rem;
-      margin-bottom: 3rem;
-      line-height: 1.6;
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 40px;
     }
 
     .top-row {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 50px;
+      gap: 40px;
       margin-bottom: 50px;
     }
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
       justify-items: center;
     }
 
     .team-member {
-      background-color: #fff;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 25px 20px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 25px 15px;
       text-align: center;
-      width: 100%;
+      transition: all 0.25s ease;
       max-width: 260px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .team-member:hover {
       transform: translateY(-6px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     }
 
     .team-member img {
@@ -139,77 +113,47 @@
       height: 150px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid var(--secondary);
-      margin-bottom: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .team-member img:hover {
-      transform: scale(1.05);
+      margin-bottom: 10px;
+      border: 3px solid #0096d6;
     }
 
     .team-member h3 {
       margin: 10px 0 5px;
-      font-size: 1.15rem;
-      color: var(--dark);
-      font-weight: 600;
+      font-size: 1.1rem;
+      color: #0056a6;
     }
 
     .team-member p {
       font-size: 0.95rem;
-      color: var(--primary);
-      font-weight: 500;
+      color: #555;
+      margin-bottom: 10px;
     }
 
-    /* ─── Footer ─────────────────────────── */
+    .social-links a {
+      color: #0096d6;
+      font-size: 1.3rem;
+      margin: 0 6px;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: #0056a6;
+    }
+
     footer {
-      background-color: var(--dark);
-      color: #e2e8f0;
+      background: #f1f1f1;
+      padding: 20px;
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.95rem;
-      margin-top: 3rem;
-    }
-
-    footer p {
-      margin: 0;
-    }
-
-    /* ─── Responsive ─────────────────────────── */
-    @media (max-width: 900px) {
-      nav {
-        flex-direction: column;
-        padding: 1rem;
-      }
-
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-
-      .team-section {
-        padding: 8rem 1.5rem 4rem;
-      }
-
-      .team-member img {
-        width: 130px;
-        height: 130px;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .team-section h2 {
-        font-size: 1.8rem;
-      }
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 50px;
     }
   </style>
 </head>
-
 <body>
   <header>
     <nav>
-      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
+      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo" /></a>
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="about.html">Sobre Nosotros</a></li>
@@ -228,87 +172,117 @@
   <main>
     <section class="team-section">
       <h2>Equipo Directivo 2025</h2>
-      <p class="team-intro">
-        Conoce a quienes lideran el Capítulo Estudiantil ACI UNI en el año 2025.  
-        Cada uno de ellos aporta su talento y compromiso para continuar <strong>¡Always Advancing!</strong>
-      </p>
+      <p class="team-intro">Conoce a quienes lideran el Capítulo Estudiantil ACI UNI en el año 2025. Cada uno de ellos aporta su talento y compromiso para continuar ¡Always Advancing!</p>
 
-      <!-- Fila superior: Presidente y Vicepresidente -->
+      <!-- Fila superior -->
       <div class="top-row">
         <div class="team-member">
-          <img src="assets/directivo-placeholder.jpg" alt="José Segura">
+          <img src="assets/directivo-placeholder.jpg" alt="José Segura" />
           <h3>José Segura</h3>
           <p>Presidente</p>
+          <div class="social-links">
+            <a href="https://linkedin.com/in/jose-segura" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
-          <img src="assets/directivo-placeholder.jpg" alt="Raúl Martínez">
+          <img src="assets/directivo-placeholder.jpg" alt="Raúl Martínez" />
           <h3>Raúl Martínez</h3>
           <p>Vicepresidente</p>
+          <div class="social-links">
+            <a href="https://linkedin.com/in/raul-martinez" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
 
-      <!-- Fila inferior: Directores -->
+      <!-- Directores -->
       <div class="team-grid">
         <div class="team-member">
-          <img src="assets/directivo-placeholder.jpg" alt="Johana Chira">
+          <img src="assets/directivo-placeholder.jpg" alt="Johana Chira" />
           <h3>Johana Chira</h3>
           <p>Directora de Finanzas</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
-          <img src="assets/directivo-placeholder.jpg" alt="Karol Agreda">
+          <img src="assets/directivo-placeholder.jpg" alt="Karol Agreda" />
           <h3>Karol Agreda</h3>
           <p>Directora de Relaciones Públicas</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
-          <img src="assets/directivo-placeholder.jpg" alt="Jhonny Valverde">
+          <img src="assets/directivo-placeholder.jpg" alt="Jhonny Valverde" />
           <h3>Jhonny Valverde</h3>
           <p>Director de Relaciones Públicas</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
-          <img src="assets/directivo-placeholder.jpg" alt="Poul Romero">
+          <img src="assets/directivo-placeholder.jpg" alt="Poul Romero" />
           <h3>Poul Romero</h3>
           <p>Director de Marketing - Imagen</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
-          <img src="assets/directivo-placeholder.jpg" alt="Hugo Barzola">
+          <img src="assets/directivo-placeholder.jpg" alt="Hugo Barzola" />
           <h3>Hugo Barzola</h3>
           <p>Director de Marketing - Audiovisual</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
-          <img src="assets/directivo-placeholder.jpg" alt="Rosa Cubas">
+          <img src="assets/directivo-placeholder.jpg" alt="Rosa Cubas" />
           <h3>Rosa Cubas</h3>
           <p>Directora de Investigación</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
-          <img src="assets/directivo-placeholder.jpg" alt="Martin Yañez">
+          <img src="assets/directivo-placeholder.jpg" alt="Martin Yañez" />
           <h3>Martin Yañez</h3>
           <p>Director de Investigación</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
-          <img src="assets/directivo-placeholder.jpg" alt="Kevin Centeno">
+          <img src="assets/directivo-placeholder.jpg" alt="Kevin Centeno" />
           <h3>Kevin Centeno</h3>
           <p>Director de Logística</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
-          <img src="assets/directivo-placeholder.jpg" alt="Gianella Pomalia">
+          <img src="assets/directivo-placeholder.jpg" alt="Gianella Pomalia" />
           <h3>Gianella Pomalia</h3>
           <p>Directora de Logística</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI.</p>
   </footer>
 </body>
 </html>
