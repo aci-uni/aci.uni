@@ -4,8 +4,145 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patrocinadores | ACI UNI</title>
-  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- ESTILO CLEAN INSTITUTIONAL BLUE-GOLD ---------- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    header {
+      background-color: #0a2342;
+      padding: 15px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin: auto;
+    }
+
+    nav .logo {
+      height: 45px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ffc107;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero-small {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(120deg, #0a2342, #102f60);
+      color: #fff;
+    }
+
+    .hero-small h1 {
+      font-size: 2.4em;
+      margin-bottom: 10px;
+    }
+
+    .hero-small p {
+      color: #ddd;
+      font-size: 1.1em;
+      margin: 0;
+    }
+
+    /* ---------- MAIN CONTENT ---------- */
+    main {
+      width: 90%;
+      max-width: 1200px;
+      margin: 60px auto;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2em;
+      color: #0a2342;
+      margin-bottom: 15px;
+    }
+
+    main p {
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    /* ---------- SPONSORS GRID ---------- */
+    .sponsors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      align-items: center;
+      justify-items: center;
+      padding: 20px;
+    }
+
+    .sponsors-grid img {
+      max-width: 180px;
+      height: auto;
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .sponsors-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #0a2342;
+      color: white;
+      margin-top: 50px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.95em;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <nav>
@@ -23,19 +160,27 @@
         <li><a href="sponsors.html" class="active">Patrocinadores</a></li>
       </ul>
     </nav>
-  </header>
-  <main>
-    <section>
-      <h2>Patrocinadores</h2>
-      <div class="sponsors-grid">
-        <img src="assets/sponsor1-placeholder.png" alt="Sponsor 1">
-        <img src="assets/sponsor2-placeholder.png" alt="Sponsor 2">
-        <!-- Más imágenes/logos -->
-      </div>
+
+    <section class="hero-small">
+      <h1>Patrocinadores</h1>
+      <p>Aliados estratégicos que impulsan el desarrollo y la innovación en el ACI UNI</p>
     </section>
+  </header>
+
+  <main>
+    <h2>Nuestros Aliados</h2>
+    <p>El Capítulo Estudiantil ACI UNI agradece a las instituciones, empresas y organizaciones que confían en nosotros y apoyan nuestras actividades académicas, de investigación y proyección social.</p>
+
+    <div class="sponsors-grid">
+      <img src="assets/sponsor1-placeholder.png" alt="Patrocinador 1">
+      <img src="assets/sponsor2-placeholder.png" alt="Patrocinador 2">
+      <img src="assets/sponsor3-placeholder.png" alt="Patrocinador 3">
+      <img src="assets/sponsor4-placeholder.png" alt="Patrocinador 4">
+    </div>
   </main>
+
   <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI.</p>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
