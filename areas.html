@@ -4,138 +4,141 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Áreas del Capítulo | ACI UNI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* ---------- ESTILOS GENERALES ---------- */
     body {
-      font-family: "Inter", sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
+      padding: 0;
       background-color: #fafafa;
-      color: #222;
-      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a2342;
+      padding: 15px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     }
 
     nav {
-      background: #fff;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      justify-content: space-between;
+      width: 90%;
+      margin: auto;
+    }
+
+    nav .logo {
+      height: 45px;
     }
 
     nav ul {
-      display: flex;
       list-style: none;
-      gap: 1.5rem;
+      display: flex;
+      gap: 25px;
       margin: 0;
       padding: 0;
     }
 
-    nav a {
+    nav ul li a {
       text-decoration: none;
-      font-weight: 600;
-      color: #333;
+      color: white;
+      font-weight: 500;
       transition: color 0.3s ease;
     }
 
-    nav a:hover,
-    nav a.active {
-      color: #007bff;
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ffc107;
     }
 
-    .logo {
-      height: 50px;
-    }
-
-    /* Hero section */
+    /* ---------- HERO ---------- */
     .hero-small {
       text-align: center;
-      padding: 4rem 1rem 2rem;
-      background: linear-gradient(120deg, #007bff, #004080);
+      padding: 60px 20px 40px;
+      background: linear-gradient(120deg, #0a2342, #102f60);
       color: #fff;
     }
 
     .hero-small h1 {
-      font-family: "Montserrat", sans-serif;
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.4em;
+      margin-bottom: 10px;
     }
 
     .hero-small p {
-      font-size: 1.1rem;
-      opacity: 0.9;
+      color: #ddd;
+      font-size: 1.1em;
+      margin: 0;
     }
 
-    /* Áreas */
-    .areas {
-      max-width: 1100px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
+    /* ---------- SECCIÓN PRINCIPAL ---------- */
+    main {
+      width: 90%;
+      max-width: 1200px;
+      margin: 60px auto;
       text-align: center;
     }
 
-    .areas h2 {
-      font-family: "Montserrat", sans-serif;
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: #004080;
+    main h2 {
+      font-size: 2em;
+      color: #0a2342;
+      margin-bottom: 15px;
     }
 
-    .areas p {
+    main p {
+      color: #555;
       max-width: 800px;
-      margin: 0 auto 3rem;
-      color: #444;
+      margin: 0 auto 40px;
     }
 
+    /* ---------- TARJETAS DE ÁREAS ---------- */
     .areas-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
 
-    .area {
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
-      padding: 2rem;
+    .area-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 25px;
       text-align: left;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .area:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    .area-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
 
-    .area h3 {
-      font-family: "Poppins", sans-serif;
-      color: #007bff;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
+    .area-card h3 {
+      color: #0a2342;
+      font-size: 1.3em;
+      margin-bottom: 10px;
     }
 
-    .area p {
-      color: #333;
-      font-size: 0.95rem;
+    .area-card p {
+      color: #555;
+      font-size: 0.95em;
+      line-height: 1.6;
     }
 
+    /* ---------- FOOTER ---------- */
     footer {
-      background: #111;
-      color: #ccc;
       text-align: center;
-      padding: 1.5rem 0;
-      font-size: 0.9rem;
-      margin-top: 4rem;
+      padding: 25px;
+      background-color: #0a2342;
+      color: white;
+      margin-top: 50px;
     }
 
     @media (max-width: 768px) {
       nav ul {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 15px;
       }
     }
   </style>
@@ -166,41 +169,40 @@
   </header>
 
   <main>
-    <section class="areas">
-      <p>El Capítulo Estudiantil ACI UNI se organiza en diferentes áreas que permiten un funcionamiento integral, fomentando el aprendizaje, la gestión y la participación activa de sus miembros.</p>
+    <h2>Nuestras Áreas</h2>
+    <p>El Capítulo Estudiantil ACI UNI se organiza en distintas áreas que impulsan la formación, investigación y gestión de sus miembros, fomentando el trabajo en equipo y el desarrollo integral.</p>
 
-      <div class="areas-grid">
-        <div class="area">
-          <h3>Recursos Humanos</h3>
-          <p>Encargada de promover la integración, motivación y bienestar de los miembros. Organiza reuniones presenciales o virtuales, dinámicas de equipo e iniciativas solidarias como el <strong>ChocoACI</strong>. Además, modera presentaciones y fortalece el ambiente de compañerismo dentro y fuera del capítulo.</p>
-        </div>
-
-        <div class="area">
-          <h3>Investigación</h3>
-          <p>Fomenta el desarrollo académico y técnico mediante proyectos, papers y ensayos experimentales relacionados con la ingeniería del concreto. Colabora con docentes, laboratorios y otras universidades para fortalecer la investigación y la innovación.</p>
-        </div>
-
-        <div class="area">
-          <h3>Marketing</h3>
-          <p>Gestiona la identidad visual y comunicación del capítulo. Diseña publicaciones, maneja redes sociales y difunde actividades, logros y convocatorias. Su misión es proyectar la imagen del ACI UNI como una comunidad activa e innovadora.</p>
-        </div>
-
-        <div class="area">
-          <h3>Relaciones Públicas</h3>
-          <p>Se encarga de la coordinación con otros capítulos, instituciones y empresas. Promueve alianzas estratégicas, gestiona invitaciones y representa al capítulo en eventos nacionales e internacionales. Refuerza la presencia del ACI UNI dentro del ecosistema estudiantil y profesional.</p>
-        </div>
-
-        <div class="area">
-          <h3>Finanzas</h3>
-          <p>Administra los recursos económicos del capítulo con transparencia y eficiencia. Elabora presupuestos, gestiona fondos, patrocinios y control de gastos para garantizar la sostenibilidad de las actividades y concursos.</p>
-        </div>
-
-        <div class="area">
-          <h3>Logística</h3>
-          <p>Coordina los recursos materiales y la organización de eventos, talleres y concursos. Se encarga de la disposición de materiales, equipos y espacios, asegurando que cada actividad se desarrolle de manera ordenada y segura.</p>
-        </div>
+    <div class="areas-grid">
+      <div class="area-card">
+        <h3>Recursos Humanos</h3>
+        <p>Promueve la integración, motivación y bienestar de los miembros. Organiza reuniones, actividades de integración y proyectos solidarios como el <strong>ChocoACI</strong>, fortaleciendo la comunidad dentro y fuera del capítulo.</p>
       </div>
-    </section>
+
+      <div class="area-card">
+        <h3>Investigación</h3>
+        <p>Impulsa proyectos académicos, papers y ensayos experimentales en ingeniería del concreto. Promueve la colaboración con docentes, laboratorios y universidades para fortalecer la innovación y el conocimiento técnico.</p>
+      </div>
+
+      <div class="area-card">
+        <h3>Marketing</h3>
+        <p>Gestiona la comunicación visual y digital del capítulo. Diseña contenido, maneja redes sociales y difunde actividades y logros, reforzando la identidad del ACI UNI como una comunidad activa e innovadora.</p>
+      </div>
+
+      <div class="area-card">
+        <h3>Relaciones Públicas</h3>
+        <p>Coordina con otros capítulos, instituciones y empresas para establecer alianzas estratégicas. Representa al capítulo en eventos nacionales e internacionales, fortaleciendo su presencia académica y profesional.</p>
+      </div>
+
+      <div class="area-card">
+        <h3>Finanzas</h3>
+        <p>Administra los recursos económicos con transparencia. Se encarga de presupuestos, patrocinios y control de gastos para garantizar la sostenibilidad de las actividades y concursos del capítulo.</p>
+      </div>
+
+      <div class="area-card">
+        <h3>Logística</h3>
+        <p>Organiza los recursos materiales y la gestión de eventos. Supervisa la disposición de materiales, equipos y espacios, asegurando que cada actividad se desarrolle de forma eficiente y segura.</p>
+      </div>
+    </div>
   </main>
 
   <footer>
