@@ -4,9 +4,231 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ACI UNI - Capítulo Estudiantil</title>
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,700|Montserrat:400,700|Poppins:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <script src="js/main.js" defer></script>
+  <style>
+    :root {
+      --primary: #0056A6;
+      --secondary: #00AEEF;
+      --dark: #1E293B;
+      --light: #F8FAFC;
+      --text: #334155;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background-color: var(--light);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: relative;
+      width: 100%;
+    }
+
+    /* ─── Navbar ─────────────────────────── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 1rem 3rem;
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      height: 55px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--dark);
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+
+    nav ul li a.active::after,
+    nav ul li a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* ─── Hero Section ─────────────────────────── */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9rem 3rem 5rem;
+      background: linear-gradient(135deg, #e7f1fb 0%, #ffffff 100%);
+      min-height: 90vh;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 540px;
+      z-index: 2;
+    }
+
+    .hero-logo {
+      height: 100px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin: 0.5rem 0;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .button, .button-outline {
+      padding: 0.8rem 1.8rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .button {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .button:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .button-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 300px;
+    }
+
+    .hero-image img {
+      width: 95%;
+      max-width: 580px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.4s ease;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.03);
+    }
+
+    /* ─── Footer ─────────────────────────── */
+    footer {
+      background-color: var(--dark);
+      color: #e2e8f0;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.95rem;
+      margin-top: 3rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* ─── Responsive ─────────────────────────── */
+    @media (max-width: 900px) {
+      nav ul {
+        gap: 1rem;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 8rem 1.5rem 4rem;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      .hero-image img {
+        max-width: 420px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -25,11 +247,12 @@
         <li><a href="sponsors.html">Patrocinadores</a></li>
       </ul>
     </nav>
+
     <section class="hero">
       <div class="hero-content">
         <img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="hero-logo">
         <h1>Always Advancing</h1>
-        <p>Bienvenido al Capítulo Estudiantil ACI UNI</p>
+        <p>Bienvenido al Capítulo Estudiantil ACI UNI — fomentando la innovación, la investigación y el liderazgo en ingeniería del concreto.</p>
         <div class="hero-buttons">
           <a href="join.html" class="button">Únete</a>
           <a href="events.html" class="button-outline">Próximos eventos</a>
@@ -40,11 +263,14 @@
       </div>
     </section>
   </header>
+
   <main>
-    <!-- Puedes agregar un resumen de la misión aquí si lo deseas -->
+    <!-- Sección introductoria o misión -->
   </main>
+
   <footer>
     <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
+>
