@@ -4,81 +4,102 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equipo Directivo 2025 | ACI UNI</title>
-  <link rel="stylesheet" href="css/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
   <style>
+    /* ---------- ESTILO CLEAN INSTITUTIONAL BLUE-GOLD ---------- */
     body {
-      background-color: #f8f9fb;
-      font-family: "Poppins", sans-serif;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
     }
 
+    /* ---------- HEADER Y NAVBAR ---------- */
     header {
-      background: #ffffff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      background-color: #0a2342;
+      padding: 15px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     nav {
-      max-width: 1200px;
-      margin: 0 auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0.8rem 2rem;
+      justify-content: space-between;
+      width: 90%;
+      margin: auto;
     }
 
-    .logo {
+    nav .logo {
       height: 50px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 25px;
       margin: 0;
       padding: 0;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: #0056a6;
+      color: white;
       font-weight: 500;
-      transition: color 0.2s ease;
+      transition: color 0.3s ease;
     }
 
-    nav ul li a:hover {
-      color: #0096d6;
-    }
-
+    nav ul li a:hover,
     nav ul li a.active {
-      border-bottom: 2px solid #0096d6;
-      padding-bottom: 3px;
+      color: #ffc107;
     }
 
-    /* ---------- SECCIÓN DE EQUIPO ---------- */
+    /* ---------- HERO ---------- */
+    .hero-small {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(120deg, #0a2342, #102f60);
+      color: #fff;
+    }
+
+    .hero-small h1 {
+      font-size: 2.4em;
+      margin-bottom: 10px;
+    }
+
+    .hero-small p {
+      color: #ddd;
+      font-size: 1.1em;
+      margin: 0;
+    }
+
+    /* ---------- SECCIÓN EQUIPO ---------- */
     .team-section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
       text-align: center;
     }
 
     .team-section h2 {
-      color: #0056a6;
-      font-size: 2rem;
-      margin-bottom: 20px;
+      font-size: 2em;
+      color: #0a2342;
+      margin-bottom: 15px;
     }
 
     .team-intro {
       color: #555;
-      font-size: 1rem;
-      margin-bottom: 40px;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      font-size: 1em;
     }
 
+    /* ---------- TARJETAS DE EQUIPO ---------- */
     .top-row {
       display: flex;
       justify-content: center;
@@ -89,83 +110,88 @@
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
       justify-items: center;
     }
 
     .team-member {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       padding: 25px 15px;
       text-align: center;
-      transition: all 0.25s ease;
-      max-width: 260px;
-      width: 100%;
-      height: 320px; /* 👈 Fija la altura uniforme de todos los cuadros */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
+      transition: all 0.3s ease;
+      max-width: 270px;
     }
 
     .team-member:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
 
     .team-member img {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid #0096d6;
+      border: 3px solid #ffc107;
     }
 
     .team-member h3 {
-      margin: 10px 0 5px;
+      margin: 12px 0 4px;
       font-size: 1.1rem;
-      color: #0056a6;
+      color: #0a2342;
     }
 
     .team-member p {
       font-size: 0.95rem;
       color: #555;
-      margin: 0 0 8px;
+      margin-bottom: 10px;
     }
 
-    .social-links {
-      margin-top: 5px;
-    }
-
+    /* ---------- ICONOS DE REDES ---------- */
     .social-links a {
-      color: #0096d6;
+      color: #0a2342;
       font-size: 1.3rem;
       margin: 0 6px;
-      transition: color 0.2s;
+      transition: color 0.3s ease;
     }
 
     .social-links a:hover {
-      color: #0056a6;
+      color: #ffc107;
     }
 
+    /* ---------- FOOTER ---------- */
     footer {
-      background: #f1f1f1;
-      padding: 20px;
       text-align: center;
-      font-size: 0.9rem;
-      color: #555;
+      padding: 25px;
+      background-color: #0a2342;
+      color: white;
       margin-top: 50px;
     }
 
+    footer p {
+      margin: 0;
+      font-size: 0.95em;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
-      .team-member {
-        height: auto;
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .team-member img {
+        width: 120px;
+        height: 120px;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
@@ -183,12 +209,19 @@
         <li><a href="sponsors.html">Patrocinadores</a></li>
       </ul>
     </nav>
+
+    <section class="hero-small">
+      <h1>Equipo Directivo 2025</h1>
+      <p>Conoce a quienes lideran el Capítulo Estudiantil ACI UNI en el año 2025</p>
+    </section>
   </header>
 
   <main>
     <section class="team-section">
-      <h2>Equipo Directivo 2025</h2>
-      <p class="team-intro">Conoce a quienes lideran el Capítulo Estudiantil ACI UNI en el año 2025. Cada uno de ellos aporta su talento y compromiso para continuar ¡Always Advancing!</p>
+      <h2>Nuestro Equipo</h2>
+      <p class="team-intro">
+        Cada integrante del equipo directivo aporta su compromiso, liderazgo y pasión por la ingeniería civil y el concreto. Unidos seguimos la visión de ¡Always Advancing!
+      </p>
 
       <!-- Fila superior -->
       <div class="top-row">
@@ -298,7 +331,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI.</p>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
