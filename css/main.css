@@ -38,6 +38,13 @@ nav ul li a:hover {
   color: #0096D6;
 }
 
+nav ul li a.active, nav ul li a:active {
+  background: #F2F4F7;
+  color: #0056A6 !important;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
 .hero {
   display: flex;
   align-items: center;
