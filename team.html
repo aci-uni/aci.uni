@@ -59,6 +59,7 @@
       padding-bottom: 3px;
     }
 
+    /* ---------- SECCIÓN DE EQUIPO ---------- */
     .team-section {
       max-width: 1100px;
       margin: 0 auto;
@@ -78,7 +79,6 @@
       margin-bottom: 40px;
     }
 
-    /* --- Distribución de miembros --- */
     .top-row {
       display: flex;
       justify-content: center;
@@ -89,12 +89,11 @@
 
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
       justify-items: center;
     }
 
-    /* --- Cuadros uniformes --- */
     .team-member {
       background: #fff;
       border-radius: 15px;
@@ -102,12 +101,13 @@
       padding: 25px 15px;
       text-align: center;
       transition: all 0.25s ease;
-      width: 260px;
-      height: 340px;
+      max-width: 260px;
+      width: 100%;
+      height: 320px; /* 👈 Fija la altura uniforme de todos los cuadros */
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: space-between;
     }
 
     .team-member:hover {
@@ -120,7 +120,6 @@
       height: 150px;
       object-fit: cover;
       border-radius: 50%;
-      margin-bottom: 10px;
       border: 3px solid #0096d6;
     }
 
@@ -133,11 +132,11 @@
     .team-member p {
       font-size: 0.95rem;
       color: #555;
-      margin-bottom: 10px;
+      margin: 0 0 8px;
     }
 
     .social-links {
-      margin-top: auto;
+      margin-top: 5px;
     }
 
     .social-links a {
@@ -158,6 +157,12 @@
       font-size: 0.9rem;
       color: #555;
       margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .team-member {
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -212,63 +217,81 @@
           <img src="assets/directivo-placeholder.jpg" alt="Johana Chira" />
           <h3>Johana Chira</h3>
           <p>Directora de Finanzas</p>
-          <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a></div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
           <img src="assets/directivo-placeholder.jpg" alt="Karol Agreda" />
           <h3>Karol Agreda</h3>
           <p>Directora de Relaciones Públicas</p>
-          <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a></div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
           <img src="assets/directivo-placeholder.jpg" alt="Jhonny Valverde" />
           <h3>Jhonny Valverde</h3>
           <p>Director de Relaciones Públicas</p>
-          <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a></div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
           <img src="assets/directivo-placeholder.jpg" alt="Poul Romero" />
           <h3>Poul Romero</h3>
           <p>Director de Marketing - Imagen</p>
-          <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a></div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
           <img src="assets/directivo-placeholder.jpg" alt="Hugo Barzola" />
           <h3>Hugo Barzola</h3>
           <p>Director de Marketing - Audiovisual</p>
-          <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a></div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
           <img src="assets/directivo-placeholder.jpg" alt="Rosa Cubas" />
           <h3>Rosa Cubas</h3>
           <p>Directora de Investigación</p>
-          <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a></div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
           <img src="assets/directivo-placeholder.jpg" alt="Martin Yañez" />
           <h3>Martin Yañez</h3>
           <p>Director de Investigación</p>
-          <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a></div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
           <img src="assets/directivo-placeholder.jpg" alt="Kevin Centeno" />
           <h3>Kevin Centeno</h3>
           <p>Director de Logística</p>
-          <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a></div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
 
         <div class="team-member">
           <img src="assets/directivo-placeholder.jpg" alt="Gianella Pomalia" />
           <h3>Gianella Pomalia</h3>
           <p>Directora de Logística</p>
-          <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a></div>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
     </section>
@@ -279,3 +302,4 @@
   </footer>
 </body>
 </html>
+
