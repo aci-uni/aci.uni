@@ -26,13 +26,8 @@
       scroll-behavior: smooth;
     }
 
-    header {
-      position: relative;
-      width: 100%;
-    }
-
-    /* ─── Navbar ─────────────────────────── */
-    nav {
+    /* ─── Header y Navbar ─────────────────────────── */
+    header nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -94,7 +89,7 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      padding: 9rem 3rem 5rem;
+      padding: 10rem 3rem 5rem;
       background: linear-gradient(135deg, #e7f1fb 0%, #ffffff 100%);
       min-height: 90vh;
       overflow: hidden;
@@ -103,10 +98,11 @@
     .hero-content {
       max-width: 540px;
       z-index: 2;
+      text-align: left;
     }
 
     .hero-logo {
-      height: 160px; /* aumentado */
+      height: 160px;
       margin-bottom: 1.5rem;
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
       transition: transform 0.3s ease;
@@ -144,6 +140,7 @@
       text-decoration: none;
       transition: all 0.3s ease;
       text-align: center;
+      display: inline-block;
     }
 
     .button {
@@ -205,14 +202,10 @@
 
     /* ─── Responsive ─────────────────────────── */
     @media (max-width: 900px) {
-      nav ul {
-        gap: 1rem;
-      }
-
       .hero {
         flex-direction: column-reverse;
         text-align: center;
-        padding: 8rem 1.5rem 4rem;
+        padding: 9rem 1.5rem 4rem;
       }
 
       .hero-content {
@@ -236,6 +229,11 @@
 
       nav ul {
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .hero-buttons {
         justify-content: center;
       }
     }
@@ -277,7 +275,7 @@
   </header>
 
   <main>
-    <!-- Sección introductoria o misión -->
+    <!-- Aquí puedes agregar secciones de misión, noticias o proyectos destacados -->
   </main>
 
   <footer>
@@ -285,3 +283,4 @@
   </footer>
 </body>
 </html>
+
