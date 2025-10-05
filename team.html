@@ -1,50 +1,137 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Equipo Directivo 2025 | ACI UNI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    /* --- Estilo sugerido para mantener proporciones --- */
+    :root {
+      --primary: #0056A6;
+      --secondary: #00AEEF;
+      --dark: #1E293B;
+      --light: #F8FAFC;
+      --text: #334155;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+    }
+
+    /* ─── Navbar ─────────────────────────── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 1rem 3rem;
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      height: 55px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--dark);
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+
+    nav ul li a.active::after,
+    nav ul li a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* ─── Team Section ─────────────────────────── */
     .team-section {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 9rem 2rem 4rem;
+      text-align: center;
     }
 
     .team-section h2 {
-      text-align: center;
-      margin-bottom: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
     }
 
     .team-intro {
-      text-align: center;
-      margin-bottom: 40px;
-      color: #444;
+      color: var(--dark);
+      font-size: 1.05rem;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      margin-bottom: 50px;
     }
 
     .team-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
+      gap: 30px;
       justify-items: center;
     }
 
     .team-member {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+      background-color: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 25px 20px;
       text-align: center;
       width: 100%;
       max-width: 260px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .team-member:hover {
       transform: translateY(-6px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
     }
 
     .team-member img {
@@ -52,32 +139,73 @@
       height: 150px;
       object-fit: cover;
       border-radius: 50%;
-      margin-bottom: 10px;
+      border: 3px solid var(--secondary);
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .team-member img:hover {
+      transform: scale(1.05);
     }
 
     .team-member h3 {
       margin: 10px 0 5px;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+      color: var(--dark);
+      font-weight: 600;
     }
 
     .team-member p {
       font-size: 0.95rem;
-      color: #555;
+      color: var(--primary);
+      font-weight: 500;
     }
 
-    .top-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-bottom: 40px;
+    /* ─── Footer ─────────────────────────── */
+    footer {
+      background-color: var(--dark);
+      color: #e2e8f0;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.95rem;
+      margin-top: 3rem;
     }
 
-    .top-row .team-member {
-      max-width: 280px;
+    footer p {
+      margin: 0;
+    }
+
+    /* ─── Responsive ─────────────────────────── */
+    @media (max-width: 900px) {
+      nav {
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .team-section {
+        padding: 8rem 1.5rem 4rem;
+      }
+
+      .team-member img {
+        width: 130px;
+        height: 130px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .team-section h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
@@ -100,7 +228,10 @@
   <main>
     <section class="team-section">
       <h2>Equipo Directivo 2025</h2>
-      <p class="team-intro">Conoce a quienes lideran el Capítulo Estudiantil ACI UNI en el año 2025. Cada uno de ellos aporta su talento y compromiso para continuar ¡Always Advancing!</p>
+      <p class="team-intro">
+        Conoce a quienes lideran el Capítulo Estudiantil ACI UNI en el año 2025.  
+        Cada uno de ellos aporta su talento y compromiso para continuar <strong>¡Always Advancing!</strong>
+      </p>
 
       <!-- Fila superior: Presidente y Vicepresidente -->
       <div class="top-row">
@@ -119,7 +250,6 @@
 
       <!-- Fila inferior: Directores -->
       <div class="team-grid">
-
         <div class="team-member">
           <img src="assets/directivo-placeholder.jpg" alt="Johana Chira">
           <h3>Johana Chira</h3>
@@ -173,13 +303,12 @@
           <h3>Gianella Pomalia</h3>
           <p>Directora de Logística</p>
         </div>
-
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI.</p>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
