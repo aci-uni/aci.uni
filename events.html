@@ -1,10 +1,152 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eventos y Concursos | ACI UNI</title>
-  <link rel="stylesheet" href="css/main.css">
+  <title>Eventos, Cursos y Talleres | ACI UNI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- ESTILOS GENERALES ---------- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a2342;
+      padding: 15px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin: auto;
+    }
+
+    nav .logo {
+      height: 45px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ffc107;
+    }
+
+    /* ---------- SECCIÓN PRINCIPAL ---------- */
+    main {
+      width: 90%;
+      max-width: 1200px;
+      margin: 60px auto;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2.2em;
+      color: #0a2342;
+      margin-bottom: 10px;
+    }
+
+    main p {
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    /* ---------- TARJETAS DE EVENTOS ---------- */
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .event-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .event-card-content {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .event-card-content h3 {
+      color: #0a2342;
+      margin: 0 0 10px 0;
+    }
+
+    .event-card-content p {
+      font-size: 0.95em;
+      color: #555;
+    }
+
+    .event-card-content a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #0a2342;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid #0a2342;
+      padding: 6px 14px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .event-card-content a:hover {
+      background-color: #0a2342;
+      color: white;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #0a2342;
+      color: white;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -24,22 +166,43 @@
       </ul>
     </nav>
   </header>
+
   <main>
-    <section>
-      <h2>Eventos y Concursos</h2>
-      <p>Calendario de próximos eventos y concursos (EPD, FRP, Cylindros, etc.)</p>
-      <ul>
-        <li><strong>[Evento X]</strong>: [Fecha] <a href="#">Ver detalles</a></li>
-        <li><strong>[Concurso Y]</strong>: [Fecha] <a href="#">Ver resultados</a></li>
-      </ul>
-      <div class="gallery">
-        <img src="assets/evento-placeholder.jpg" alt="Foto de evento">
-        <!-- Más imágenes o galería dinámica -->
+    <h2>Eventos, Cursos y Talleres</h2>
+    <p>Explora nuestras actividades formativas y de integración para fortalecer la comunidad ACI UNI.</p>
+
+    <div class="event-grid">
+      <div class="event-card">
+        <img src="assets/evento1.jpg" alt="Curso de Diseño de Mezclas">
+        <div class="event-card-content">
+          <h3>Curso de Durabilidad de Estructuras de Cocnreto</h3>
+          <p>Aprende los fundamentos y prácticas modernas del diseño de mezclas, bajo la guía de especialistas del ACI UNI.</p>
+          <a href="#">Ver detalles</a>
+        </div>
       </div>
-    </section>
+
+      <div class="event-card">
+        <img src="assets/evento2.jpg" alt="Taller FRP">
+        <div class="event-card-content">
+          <h3>Taller FRP </h3>
+          <p>Conoce la aplicación de materiales compuestos para el refuerzo estructural en obras civiles.</p>
+          <a href="#">Ver detalles</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <img src="assets/evento3.jpg" alt="ACI Play">
+        <div class="event-card-content">
+          <h3>ACI Play II Edición</h3>
+          <p>Evento de integración entre capítulos ACI de Lima, con dinámicas, networking y actividades recreativas.</p>
+          <a href="#">Ver detalles</a>
+        </div>
+      </div>
+    </div>
   </main>
+
   <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI.</p>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
