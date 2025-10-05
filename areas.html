@@ -4,8 +4,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Áreas del Capítulo | ACI UNI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      background-color: #fafafa;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #007bff;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    /* Hero section */
+    .hero-small {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      background: linear-gradient(120deg, #007bff, #004080);
+      color: #fff;
+    }
+
+    .hero-small h1 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-small p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Áreas */
+    .areas {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .areas h2 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #004080;
+    }
+
+    .areas p {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      color: #444;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .area {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+      padding: 2rem;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .area:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .area h3 {
+      font-family: "Poppins", sans-serif;
+      color: #007bff;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .area p {
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <nav>
@@ -23,41 +158,47 @@
         <li><a href="sponsors.html">Patrocinadores</a></li>
       </ul>
     </nav>
+
+    <section class="hero-small">
+      <h1>Áreas del Capítulo</h1>
+      <p>Conoce los equipos que hacen posible el crecimiento del ACI UNI</p>
+    </section>
   </header>
 
   <main>
     <section class="areas">
-      <h2>Áreas del Capítulo</h2>
       <p>El Capítulo Estudiantil ACI UNI se organiza en diferentes áreas que permiten un funcionamiento integral, fomentando el aprendizaje, la gestión y la participación activa de sus miembros.</p>
 
-      <div class="area">
-        <h3>Recursos Humanos</h3>
-        <p>Encargada de promover la integración, motivación y bienestar de los miembros. Organiza reuniones presenciales o virtuales, dinámicas de equipo e iniciativas solidarias como el <strong>ChocoACI</strong>. Además, modera presentaciones y fortalece el ambiente de compañerismo dentro y fuera del capítulo.</p>
-      </div>
+      <div class="areas-grid">
+        <div class="area">
+          <h3>Recursos Humanos</h3>
+          <p>Encargada de promover la integración, motivación y bienestar de los miembros. Organiza reuniones presenciales o virtuales, dinámicas de equipo e iniciativas solidarias como el <strong>ChocoACI</strong>. Además, modera presentaciones y fortalece el ambiente de compañerismo dentro y fuera del capítulo.</p>
+        </div>
 
-      <div class="area">
-        <h3>Investigación</h3>
-        <p>Fomenta el desarrollo académico y técnico mediante proyectos, papers y ensayos experimentales relacionados con la ingeniería del concreto. Colabora con docentes, laboratorios y otras universidades para fortalecer la investigación y la innovación.</p>
-      </div>
+        <div class="area">
+          <h3>Investigación</h3>
+          <p>Fomenta el desarrollo académico y técnico mediante proyectos, papers y ensayos experimentales relacionados con la ingeniería del concreto. Colabora con docentes, laboratorios y otras universidades para fortalecer la investigación y la innovación.</p>
+        </div>
 
-      <div class="area">
-        <h3>Marketing</h3>
-        <p>Gestiona la identidad visual y comunicación del capítulo. Diseña publicaciones, maneja redes sociales y difunde actividades, logros y convocatorias. Su misión es proyectar la imagen del ACI UNI como una comunidad activa e innovadora.</p>
-      </div>
+        <div class="area">
+          <h3>Marketing</h3>
+          <p>Gestiona la identidad visual y comunicación del capítulo. Diseña publicaciones, maneja redes sociales y difunde actividades, logros y convocatorias. Su misión es proyectar la imagen del ACI UNI como una comunidad activa e innovadora.</p>
+        </div>
 
-      <div class="area">
-        <h3>Relaciones Públicas</h3>
-        <p>Se encarga de la coordinación con otros capítulos, instituciones y empresas. Promueve alianzas estratégicas, gestiona invitaciones y representa al capítulo en eventos nacionales e internacionales. Refuerza la presencia del ACI UNI dentro del ecosistema estudiantil y profesional.</p>
-      </div>
+        <div class="area">
+          <h3>Relaciones Públicas</h3>
+          <p>Se encarga de la coordinación con otros capítulos, instituciones y empresas. Promueve alianzas estratégicas, gestiona invitaciones y representa al capítulo en eventos nacionales e internacionales. Refuerza la presencia del ACI UNI dentro del ecosistema estudiantil y profesional.</p>
+        </div>
 
-      <div class="area">
-        <h3>Finanzas</h3>
-        <p>Administra los recursos económicos del capítulo con transparencia y eficiencia. Elabora presupuestos, gestiona fondos, patrocinios y control de gastos para garantizar la sostenibilidad de las actividades y concursos.</p>
-      </div>
+        <div class="area">
+          <h3>Finanzas</h3>
+          <p>Administra los recursos económicos del capítulo con transparencia y eficiencia. Elabora presupuestos, gestiona fondos, patrocinios y control de gastos para garantizar la sostenibilidad de las actividades y concursos.</p>
+        </div>
 
-      <div class="area">
-        <h3>Logística</h3>
-        <p>Coordina los recursos materiales y la organización de eventos, talleres y concursos. Se encarga de la disposición de materiales, equipos y espacios, asegurando que cada actividad se desarrolle de manera ordenada y segura.</p>
+        <div class="area">
+          <h3>Logística</h3>
+          <p>Coordina los recursos materiales y la organización de eventos, talleres y concursos. Se encarga de la disposición de materiales, equipos y espacios, asegurando que cada actividad se desarrolle de manera ordenada y segura.</p>
+        </div>
       </div>
     </section>
   </main>
