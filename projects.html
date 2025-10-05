@@ -4,7 +4,151 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyectos e Investigación | ACI UNI</title>
-  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- ESTILOS GENERALES ---------- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a2342;
+      padding: 15px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin: auto;
+    }
+
+    nav .logo {
+      height: 45px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ffc107;
+    }
+
+    /* ---------- CONTENIDO PRINCIPAL ---------- */
+    main {
+      width: 90%;
+      max-width: 1200px;
+      margin: 60px auto;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2.2em;
+      color: #0a2342;
+      margin-bottom: 10px;
+    }
+
+    main p {
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    /* ---------- TARJETAS DE PROYECTOS ---------- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-card-content {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .project-card-content h3 {
+      color: #0a2342;
+      margin: 0 0 10px 0;
+      font-size: 1.1em;
+    }
+
+    .project-card-content p {
+      font-size: 0.95em;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .project-card-content a {
+      display: inline-block;
+      margin-top: 5px;
+      color: #0a2342;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid #0a2342;
+      padding: 6px 14px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .project-card-content a:hover {
+      background-color: #0a2342;
+      color: white;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #0a2342;
+      color: white;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -24,18 +168,43 @@
       </ul>
     </nav>
   </header>
+
   <main>
-    <section>
-      <h2>Proyectos e Investigación</h2>
-      <ul>
-        <li>Publicación: <strong>[Título Paper]</strong> <a href="#">Ver más</a></li>
-        <li>Prototipo: <strong>[Nombre Prototipo]</strong> <a href="#">Ver detalles</a></li>
-        <!-- Añadir más publicaciones, ensayos, colaboraciones -->
-      </ul>
-    </section>
+    <h2>Proyectos e Investigación</h2>
+    <p>Explora los proyectos, publicaciones y prototipos desarrollados por el Capítulo ACI UNI en el ámbito de la ingeniería civil y el concreto.</p>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="assets/project1.jpg" alt="Paper sobre concreto sostenible">
+        <div class="project-card-content">
+          <h3>Paper: Concreto Sostenible con Materiales Reciclados</h3>
+          <p>Investigación publicada sobre el uso de agregados reciclados en mezclas de concreto estructural.</p>
+          <a href="#">Ver publicación</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/project2.jpg" alt="Prototipo de concreto liviano">
+        <div class="project-card-content">
+          <h3>Prototipo: Concreto Liviano Fibroreforzado</h3>
+          <p>Desarrollo experimental de un concreto ligero reforzado con fibras naturales para aplicaciones estructurales.</p>
+          <a href="#">Ver detalles</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/project3.jpg" alt="Ensayo de durabilidad">
+        <div class="project-card-content">
+          <h3>Ensayo: Durabilidad ante Ambientes Marinos</h3>
+          <p>Proyecto de laboratorio sobre la resistencia del concreto expuesto a cloruros y ambientes costeros.</p>
+          <a href="#">Ver resultados</a>
+        </div>
+      </div>
+    </div>
   </main>
+
   <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI.</p>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
