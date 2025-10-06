@@ -32,7 +32,7 @@
             justify-content: space-between;
             align-items: center;
             background-color: #fff;
-            padding: 1rem 3rem;
+            padding: 0.75rem 3rem; /* Reducido de 1rem a 0.75rem para menor altura */
             box-shadow: var(--shadow);
             position: fixed;
             top: 0;
@@ -42,7 +42,7 @@
         }
 
         .logo {
-            height: 55px;
+            height: 50px; /* Reducido de 55px para ajustar a la menor altura de la navbar */
             transition: transform 0.3s ease;
         }
 
@@ -65,7 +65,7 @@
             color: var(--dark);
             transition: color 0.3s ease;
             position: relative;
-            font-size: 0.95rem; /* Ligeramente más pequeño para optimizar espacio */
+            font-size: 1rem; /* Aumentado de 0.95rem a 1rem para letras más grandes */
             white-space: nowrap; /* Evita que el texto se rompa */
         }
 
@@ -92,7 +92,7 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            padding: 10rem 3rem 5rem;
+            padding: 8.5rem 3rem 5rem; /* Reducido de 10rem a 8.5rem para mover el contenido más arriba (compensa la navbar más delgada) */
             background: linear-gradient(135deg, #e7f1fb 0%, #ffffff 100%);
             min-height: 90vh;
             overflow: hidden;
@@ -101,12 +101,12 @@
         .hero-content {
             max-width: 540px;
             z-index: 2;
-            text-align: center; /* Centrado para que el logo y "Always Advancing" estén alineados */
+            text-align: left; /* Alineado a la izquierda como en el original */
         }
 
         .hero-logo {
             height: 160px;
-            margin: 0 auto 1.5rem; /* Centra el logo horizontalmente y ajusta margen inferior */
+            margin: 0 auto 1.5rem; /* Centra el logo horizontalmente dentro del .hero-content (arriba de "Always Advancing") */
             display: block; /* Asegura que sea un bloque centrable */
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
             transition: transform 0.3s ease;
@@ -134,7 +134,7 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            justify-content: center; /* Centra los botones */
+            /* Sin justify-content: center; para mantener alineación a la izquierda como original */
         }
 
         .button,
@@ -258,7 +258,7 @@
         /* ─── Responsive ─────────────────────────── */
         @media (max-width: 1200px) {
             header nav {
-                padding: 1rem 2rem; /* Reduce padding lateral para más espacio en pantallas medianas */
+                padding: 0.75rem 2rem; /* Mantiene el padding vertical reducido */
             }
 
             nav ul {
@@ -266,15 +266,15 @@
             }
 
             nav ul li a {
-                font-size: 0.9rem;
+                font-size: 0.95rem; /* Ligeramente más grande que antes en responsive */
             }
         }
 
         @media (max-width: 900px) {
             .hero {
                 flex-direction: column-reverse;
-                text-align: center;
-                padding: 9rem 1.5rem 4rem;
+                text-align: center; /* En móviles, centra todo para mejor UX */
+                padding: 7.5rem 1.5rem 4rem; /* Reducido de 9rem a 7.5rem para mover más arriba en responsive */
             }
 
             .hero-content {
@@ -288,10 +288,11 @@
 
             .hero-logo {
                 height: 130px;
+                margin: 0 auto 1rem; /* Ajusta margen en responsive */
             }
 
             header nav {
-                padding: 1rem 1.5rem;
+                padding: 0.75rem 1.5rem; /* Mantiene padding vertical reducido */
             }
 
             nav ul {
@@ -299,14 +300,14 @@
             }
 
             nav ul li a {
-                font-size: 0.85rem;
+                font-size: 0.9rem; /* Ajustado para ser más grande proporcionalmente */
             }
         }
 
         @media (max-width: 600px) {
             header nav {
                 flex-direction: row; /* Mantiene horizontal, pero ajusta para caber */
-                padding: 1rem;
+                padding: 0.75rem 1rem; /* Padding vertical reducido */
                 justify-content: space-between; /* Logo izquierda, menú derecha, pero con espacio ajustado */
             }
 
@@ -318,12 +319,12 @@
             }
 
             nav ul li a {
-                font-size: 0.8rem; /* Más pequeño en móvil para fitting */
+                font-size: 0.85rem; /* Más grande que antes (era 0.8rem) para mejor legibilidad */
                 padding: 0 0.2rem; /* Padding interno mínimo */
             }
 
             .hero-buttons {
-                justify-content: center;
+                justify-content: center; /* En móviles pequeños, centra los botones para mejor UX */
             }
 
             .hero-image {
@@ -443,4 +444,3 @@
     </script>
 </body>
 </html>
-
