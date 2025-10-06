@@ -4,139 +4,158 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre Nosotros | ACI UNI</title>
-  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    main {
-      max-width: 1100px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
+    /* ---------- ESTILO A ---------- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    header {
+      background-color: #0a2342;
+      padding: 15px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     }
 
     nav {
-      background: #fff;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      justify-content: space-between;
+      width: 90%;
+      margin: auto;
+    }
+
+    nav .logo {
+      height: 45px;
     }
 
     nav ul {
-      display: flex;
       list-style: none;
-      gap: 1.5rem;
+      display: flex;
+      gap: 25px;
       margin: 0;
       padding: 0;
     }
 
-    nav a {
+    nav ul li a {
       text-decoration: none;
-      font-weight: 600;
-      color: #333;
+      color: white;
+      font-weight: 500;
       transition: color 0.3s ease;
     }
 
-    nav a:hover,
-    nav a.active {
-      color: #007bff;
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ffc107;
     }
 
-    h2 {
-      font-size: 1.8rem;
-      color: #003A73;
-      font-weight: 700;
-      border-left: 4px solid #0056A6;
-      padding-left: 10px;
-      margin-top: 2.6rem;
-      margin-bottom: 1rem;
+    /* ---------- HERO ---------- */
+    .hero-small {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(120deg, #0a2342, #102f60);
+      color: #fff;
     }
 
-    p {
-      color: #333;
+    .hero-small h1 {
+      font-size: 2.4em;
+      margin-bottom: 10px;
+    }
+
+    .hero-small p {
+      color: #ddd;
+      font-size: 1.1em;
+      margin: 0;
+    }
+
+    /* ---------- SECCIÓN PRINCIPAL ---------- */
+    main {
+      width: 90%;
+      max-width: 1200px;
+      margin: 60px auto;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2em;
+      color: #0a2342;
+      margin-bottom: 15px;
+    }
+
+    main p {
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto 40px;
       line-height: 1.7;
       font-size: 1.05rem;
-      margin-bottom: 1.5rem;
     }
 
-    .logros-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      margin-top: 1.5rem;
+    /* ---------- TARJETAS DE LOGROS ---------- */
+    .logros-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
 
-    .logro {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      align-items: flex-start;
-      background: #F2F4F7;
-      border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    .logro-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 20px;
+      text-align: left;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .logro:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    .logro-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
 
-    .logro img {
-      width: 180px;
+    .logro-card img {
+      width: 100%;
       height: auto;
-      border-radius: 8px;
+      border-radius: 12px;
       object-fit: cover;
+      margin-bottom: 15px;
       box-shadow: 0 3px 12px rgba(0,0,0,0.1);
     }
 
-    .logro-info {
-      flex: 1;
-      min-width: 220px;
+    .logro-card h3 {
+      color: #0a2342;
+      font-size: 1.3em;
+      margin-bottom: 8px;
     }
 
-    .logro-info h3 {
-      margin: 0 0 0.5rem 0;
-      color: #0056A6;
-      font-size: 1.2rem;
-    }
-
-    .logro-info strong {
-      color: #003A73;
-    }
-
-    .logro-info .datos {
-      margin-bottom: 0.6rem;
-      font-size: 0.95rem;
+    .logro-card .datos {
       color: #555;
+      font-size: 0.95em;
+      margin-bottom: 10px;
     }
 
+    .logro-card p {
+      color: #555;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+
+    /* ---------- FOOTER ---------- */
     footer {
-      background: #003A73;
-      color: #fff;
       text-align: center;
-      padding: 1.5rem;
-      margin-top: 4rem;
-      font-size: 0.9rem;
+      padding: 25px;
+      background-color: #0a2342;
+      color: white;
+      margin-top: 50px;
     }
 
     @media (max-width: 768px) {
-      .logro {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .logro img {
-        width: 100%;
-        height: auto;
-      }
-
-      .logro-info {
-        text-align: left;
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
       }
     }
   </style>
@@ -145,7 +164,7 @@
 <body>
   <header>
     <nav>
-      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo" style="height:50px;"></a>
+      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="about.html" class="active">Sobre Nosotros</a></li>
@@ -159,11 +178,16 @@
         <li><a href="sponsors.html">Patrocinadores</a></li>
       </ul>
     </nav>
+
+    <section class="hero-small">
+      <h1>Sobre Nosotros</h1>
+      <p>Conoce la historia, misión, visión y logros del Capítulo Estudiantil ACI UNI</p>
+    </section>
   </header>
 
   <main>
     <section>
-      <h2>Sobre Nosotros</h2>
+      <h2>Historia</h2>
       <p>
         A lo largo de los últimos años, el Capítulo Estudiantil ACI UNI ha demostrado un compromiso constante con la excelencia académica, la innovación en ingeniería y la representación internacional de la Universidad Nacional de Ingeniería. Gracias al esfuerzo colectivo de sus integrantes, el capítulo ha logrado destacar en diversas competencias técnicas organizadas por el American Concrete Institute, consolidándose como uno de los capítulos estudiantiles más activos y reconocidos de la región. Estos logros reflejan no solo el alto nivel de preparación de los estudiantes, sino también su capacidad de trabajo en equipo, liderazgo y pasión por la ingeniería del concreto.
       </p>
@@ -178,14 +202,13 @@
       <h2>Visión</h2>
       <p>Posicionarnos como el mejor capítulo del año 2025 a nivel internacional, en conjunto con el crecimiento de nuestros eventos académicos, participaciones en competencias nacionales e internacionales, y organización de eventos colaborativos.</p>
     </section>
-
+    
     <section>
       <h2>Logros</h2>
       <div class="logros-list">
         <!-- 2017 -->
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/epd-aci-anaheim-2017.jpg" alt="ACI Egg Protection Device Competition – ACI Concrete Convention, 2017">
-          <div class="logro-info">
             <h3>ACI Egg Protection Device Competition – ACI Concrete Convention</h3>
             <div class="datos">
               <strong>Año:</strong> Octubre, 2017<br>
@@ -199,9 +222,8 @@
         </div>
 
         <!-- 2018 -->
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/frc-bowling-ball-aci-2018.jpg" alt="FRC Bowling Ball Competition – ACI Concrete Convention, 2018">
-          <div class="logro-info">
             <h3>FRC Bowling Ball Competition – ACI Concrete Convention</h3>
             <div class="datos">
               <strong>Año:</strong> Marzo, 2018<br>
@@ -214,9 +236,8 @@
           </div>
         </div>
 
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/pervious-concrete-las-vegas-2018.jpg" alt="Pervious Concrete Cylinder Competition, Las Vegas 2018">
-          <div class="logro-info">
             <h3>Pervious Concrete Cylinder Competition - ACI Concrete Convention</h3>
             <div class="datos">
               <strong>Fecha:</strong> Octubre, 2018.<br>
@@ -230,9 +251,8 @@
         </div>
 
         <!-- 2022 -->
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/probetas-alta-resistencia-ecid-2022.jpg" alt="Probetas de Alta Resistencia – X ECID 2022">
-          <div class="logro-info">
             <h3>Probetas de Alta Resistencia – X ECID</h3>
             <div class="datos">
               <strong>Fecha:</strong> Julio, 2022.<br>
@@ -246,9 +266,8 @@
         </div>
 
         <!-- 2023 -->
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/mortero-autocompactante-aci-2023.jpg" alt="Mortero Autocompactante – ACI Perú 2023">
-          <div class="logro-info">
             <h3>Mortero Autocompactante – ACI Perú</h3>
             <div class="datos">
               <strong>Fecha:</strong> Enero, 2023.<br>
@@ -262,9 +281,8 @@
         </div>
 
         <!-- 2024 -->
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/mortero-autocompactante-aci-2024.jpg" alt="Mortero Autocompactante – ACI Perú 2024">
-          <div class="logro-info">
             <h3>Mortero Autocompactante – ACI Perú</h3>
             <div class="datos">
               <strong>Fecha:</strong> Enero, 2024.<br>
@@ -277,9 +295,8 @@
           </div>
         </div>
 
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/mortal-workability-aci-2024.jpg" alt="Mortal Workability Competition – ACI Concrete Convention 2024">
-          <div class="logro-info">
             <h3>Mortal Workability Competition – ACI Concrete Convention</h3>
             <div class="datos">
               <strong>Fecha:</strong> Marzo, 2024.<br>
@@ -292,9 +309,8 @@
           </div>
         </div>
 
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/probetas-210-xii-ecid-2024.jpg" alt="Resistencia Controlada de Probetas 210 – XII ECID 2024">
-          <div class="logro-info">
             <h3>Resistencia Controlada de Probetas 210 – XII ECID</h3>
             <div class="datos">
               <strong>Fecha:</strong> Junio, 2024.<br>
@@ -307,9 +323,8 @@
           </div>
         </div>
 
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/frc-bowling-ball-aci-peru-oct-2024.jpg" alt="FRC Bowling Ball Competition – ACI Perú, 2024">
-          <div class="logro-info">
             <h3>FRC Bowling Ball Competition – ACI Perú</h3>
             <div class="datos">
               <strong>Fecha:</strong> Octubre, 2024.<br>
@@ -323,9 +338,8 @@
         </div>
 
         <!-- 2025 -->
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/performance-concrete-bim-2025.jpg" alt="PERFORMANCE CONCRETE DESIGN COMPETITION – Olimpia BIM 2025">
-          <div class="logro-info">
             <h3>Performance Concrete Design Competition – Olimpia BIM</h3>
             <div class="datos">
               <strong>Fecha:</strong> Febrero, 2025.<br>
@@ -338,9 +352,8 @@
           </div>
         </div>
 
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/frc-bowling-ball-aci-toronto-2025.jpg" alt="FRC Bowling Ball Competition – ACI Concrete Convention, Toronto 2025">
-          <div class="logro-info">
             <h3>FRC Bowling Ball Competition – ACI Concrete Convention</h3>
             <div class="datos">
               <strong>Fecha:</strong> Marzo, 2025.<br>
@@ -353,9 +366,8 @@
           </div>
         </div>
 
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/probetas-210-xiii-ecid-2025.jpg" alt="Resistencia Controlada de Probetas 210 – XIII ECID 2025">
-          <div class="logro-info">
             <h3>Resistencia Controlada de Probetas 210 – XIII ECID</h3>
             <div class="datos">
               <strong>Fecha:</strong> Junio, 2025.<br>
@@ -368,9 +380,8 @@
           </div>
         </div>
 
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/mezcladora-home-challenge-2025.jpg" alt="Mezcladora Home Challenge 2025">
-          <div class="logro-info">
             <h3>Mezcladora Home Challenge</h3>
             <div class="datos">
               <strong>Fecha:</strong> Julio, 2025.<br>
@@ -383,9 +394,8 @@
           </div>
         </div>
 
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/epd-2025-aci-peru-1.jpg" alt="Egg Protection Device 2025 – ACI Perú, 1er lugar">
-          <div class="logro-info">
             <h3>Egg Protection Device 2025 – ACI Perú</h3>
             <div class="datos">
               <strong>Fecha:</strong> Septiembre, 2025.<br>
@@ -398,9 +408,8 @@
           </div>
         </div>
 
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/epd-2025-aci-peru-2.jpg" alt="Egg Protection Device 2025 – ACI Perú, 2do lugar">
-          <div class="logro-info">
             <h3>Egg Protection Device 2025 – ACI Perú</h3>
             <div class="datos">
               <strong>Fecha:</strong> Septiembre, 2025.<br>
@@ -413,9 +422,8 @@
           </div>
         </div>
 
-        <div class="logro">
+        <div class="logro-card">
           <img src="assets/cilindros-concreto-ligero-enlace-2025.jpg" alt="Cilindros de concreto ligero fibro-reforzado – ENLACE 2025">
-          <div class="logro-info">
             <h3>Cilindros de concreto ligero fibro-reforzado – ENLACE 2025</h3>
             <div class="datos">
               <strong>Fecha:</strong> Septiembre, 2025.<br>
