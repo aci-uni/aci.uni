@@ -1,484 +1,440 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACI UNI - Capítulo Estudiantil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/main.js" defer></script>
-    <style>
-        /* ============================================================
-           🔵 BLOQUE 1: ESTILOS GENERALES (uniformes con areas.html)
-        ============================================================ */
-        :root {
-            --primary: #0a2342; /* Azul oscuro original */
-            --secondary: #102f60; /* Azul medio para gradientes */
-            --accent: #ffc107; /* Dorado original para hovers y active */
-            --dark: #1E293B;
-            --light: #F8FAFC; /* Gris claro uniforme */
-            --text: #334155;
-            --radius: 14px;
-            --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACI UNI - Capítulo Estudiantil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       🔵 BLOQUE 1: ESTILOS GENERALES
+    ============================================================ */
+    :root {
+      --primary: #0a2342;
+      --secondary: #102f60;
+      --accent: #ffc107;
+      --dark: #1E293B;
+      --light: #F8FAFC;
+      --text: #334155;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
 
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            color: var(--text);
-            background-color: var(--light); /* Uniforme con areas.html */
-            scroll-behavior: smooth;
-        }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background-color: var(--light);
+      scroll-behavior: smooth;
+    }
 
-        /* ============================================================
-           🔵 BLOQUE 2: HEADER Y NAVEGACIÓN (exactamente como en areas.html)
-        ============================================================ */
-        header nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: var(--primary); /* Azul oscuro original */
-            padding: 0.75rem 3rem; /* Exacto: compacto y uniforme */
-            box-shadow: var(--shadow);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 10;
-        }
+    /* ============================================================
+       🔵 BLOQUE 2: HEADER Y NAVEGACIÓN (idéntico a sponsors.html)
+    ============================================================ */
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary);
+      padding: 0.75rem 3rem;
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+    }
 
-        .logo {
-            height: 45px; /* Como en el original */
-            transition: transform 0.3s ease;
-        }
+    .logo {
+      height: 45px;
+      transition: transform 0.3s ease;
+    }
 
-        .logo:hover {
-            transform: scale(1.05);
-        }
+    .logo:hover {
+      transform: scale(1.05);
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1rem; /* Uniforme: gap optimizado para horizontal */
-            margin: 0;
-            padding: 0;
-            flex-wrap: nowrap;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      flex-wrap: nowrap;
+    }
 
-        nav ul li a {
-            text-decoration: none;
-            font-weight: 500;
-            color: #fff; /* Blanco original en navbar azul */
-            transition: color 0.3s ease;
-            position: relative;
-            font-size: 1rem; /* Uniforme: más grande para legibilidad */
-            white-space: nowrap;
-            padding: 0.5rem 0; /* Padding mínimo para alineación */
-        }
+    nav ul li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #fff;
+      transition: color 0.3s ease;
+      position: relative;
+      font-size: 1rem;
+      white-space: nowrap;
+      padding: 0.5rem 0;
+    }
 
-        nav ul li a.active,
-        nav ul li a:hover {
-            color: var(--accent); /* Dorado original para hover y active */
-        }
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: var(--accent);
+    }
 
-        nav ul li a.active::after,
-        nav ul li a:hover::after {
-            content: "";
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--accent); /* Dorado para la línea inferior */
-            border-radius: 2px;
-        }
+    nav ul li a.active::after,
+    nav ul li a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent);
+      border-radius: 2px;
+    }
 
-        /* ============================================================
-           🔵 BLOQUE 3: HERO PRINCIPAL (ajustado para uniformidad con navbar azul oscuro)
-        ============================================================ */
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            padding: 8.5rem 3rem 5rem; /* Uniforme: padding-top ajustado para navbar fija */
-            background: linear-gradient(135deg, var(--light) 0%, #f0f4f8 100%); /* Fondo claro suave para contraste con navbar */
-            min-height: 90vh;
-            overflow: hidden;
-        }
+    /* ============================================================
+       🔵 BLOQUE 3: HERO PRINCIPAL
+    ============================================================ */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8.5rem 3rem 5rem;
+      background: linear-gradient(135deg, var(--light) 0%, #f0f4f8 100%);
+      min-height: 90vh;
+      overflow: hidden;
+    }
 
-        .hero-content {
-            max-width: 540px;
-            z-index: 2;
-            text-align: left;
-        }
+    .hero-content {
+      max-width: 540px;
+      z-index: 2;
+      text-align: left;
+    }
 
-        .hero-logo {
-            height: 160px;
-            margin: 0 auto 1.5rem;
-            display: block;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
-            transition: transform 0.3s ease;
-        }
+    .hero-logo {
+      height: 160px;
+      margin: 0 auto 1.5rem;
+      display: block;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+      transition: transform 0.3s ease;
+    }
 
-        .hero-logo:hover {
-            transform: scale(1.05);
-        }
+    .hero-logo:hover {
+      transform: scale(1.05);
+    }
 
-        .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
-            color: var(--primary); /* Azul oscuro para título */
-            margin: 0.5rem 0;
-        }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin: 0.5rem 0;
+    }
 
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--dark);
-            margin-bottom: 1.8rem;
-            line-height: 1.6;
-        }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+    }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-        .button,
-        .button-outline {
-            padding: 0.8rem 1.8rem;
-            font-weight: 600;
-            border-radius: var(--radius);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            text-align: center;
-            display: inline-block;
-        }
+    .button,
+    .button-outline {
+      padding: 0.8rem 1.8rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-align: center;
+      display: inline-block;
+    }
 
-        .button {
-            background: var(--accent); /* Dorado para botón principal */
-            color: var(--primary); /* Texto azul oscuro */
-            box-shadow: var(--shadow);
-        }
+    .button {
+      background: var(--accent);
+      color: var(--primary);
+      box-shadow: var(--shadow);
+    }
 
-        .button:hover {
-            background: #e6b800; /* Dorado más claro en hover */
-            transform: translateY(-2px);
-        }
+    .button:hover {
+      background: #e6b800;
+      transform: translateY(-2px);
+    }
 
-        .button-outline {
-            border: 2px solid var(--primary); /* Borde azul oscuro */
-            color: var(--primary);
-            background: transparent;
-        }
+    .button-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
 
-        .button-outline:hover {
-            background: var(--primary);
-            color: #fff;
-            transform: translateY(-2px);
-        }
+    .button-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
 
-        /* ============================================================
-           🔵 BLOQUE 4: CARRUSEL DE IMÁGENES (recuadro adaptado al tamaño de las fotos, sin flechas)
-        ============================================================ */
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-width: 300px;
-            position: relative;
-            height: auto; /* Altura auto para adaptarse a las imágenes */
-            min-height: 400px; /* Mínimo para hero, pero se expande con la imagen */
-        }
+    /* ============================================================
+       🔵 BLOQUE 4: CARRUSEL
+    ============================================================ */
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 300px;
+      position: relative;
+      min-height: 400px;
+    }
 
-        .carousel-container {
-            width: 95%;
-            max-width: 580px;
-            height: auto; /* Altura auto para adaptarse */
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            aspect-ratio: 3 / 2; /* Aspect-ratio aproximado para 2560x1706 (~1.5:1), se adapta al contenido */
-        }
+    .carousel-container {
+      width: 95%;
+      max-width: 580px;
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      aspect-ratio: 3 / 2;
+    }
 
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            height: 100%; /* 100% del contenedor adaptado */
-            width: 100%;
-        }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+      width: 100%;
+    }
 
-        .carousel-item {
-            min-width: 100%;
-            height: 100%;
-            flex-shrink: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Centra las imágenes */
-        }
+    .carousel-item {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .carousel-item img {
-            max-width: 100%; /* Limita ancho máximo para no desbordar */
-            max-height: 100%; /* Limita altura máxima */
-            width: auto; /* Mantiene proporción original */
-            height: auto; /* Mantiene proporción original */
-            object-fit: contain; /* Muestra imagen completa sin crop (ideal para 2560x1706) */
-            object-position: center; /* Centra la imagen */
-            border-radius: var(--radius);
-            transition: transform 0.4s ease;
-        }
+    .carousel-item img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: var(--radius);
+      transition: transform 0.4s ease;
+    }
 
-        .carousel-item img:hover {
-            transform: scale(1.02); /* Escala sutil para hover */
-        }
+    .carousel-item img:hover {
+      transform: scale(1.02);
+    }
 
-        /* Indicadores (dots) */
-        .carousel-indicators {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 5;
-        }
+    .carousel-indicators {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 5;
+    }
 
-        .indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+    .indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-        .indicator.active {
-            background: #fff;
-        }
+    .indicator.active {
+      background: #fff;
+    }
 
-        /* ============================================================
-           🔵 BLOQUE 5: FOOTER (estilo original azul oscuro, uniforme)
-        ============================================================ */
-        footer {
-            background-color: var(--primary); /* Azul oscuro original */
-            color: #fff; /* Blanco original */
-            text-align: center;
-            padding: 2rem 1rem;
-            font-size: 0.95rem;
-            margin-top: 3rem;
-        }
+    /* ============================================================
+       🔵 BLOQUE 5: FOOTER
+    ============================================================ */
+    footer {
+      background-color: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.95rem;
+      margin-top: 3rem;
+    }
 
-        footer p {
-            margin: 0;
-        }
+    footer p {
+      margin: 0;
+    }
 
-        /* ============================================================
-           🔵 BLOQUE 6: RESPONSIVE (exactamente como en areas.html)
-        ============================================================ */
-        @media (max-width: 1200px) {
-            header nav {
-                padding: 0.75rem 2rem;
-            }
+    /* ============================================================
+       🔵 BLOQUE 6: RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1200px) {
+      header nav {
+        padding: 0.75rem 2rem;
+      }
 
-            nav ul {
-                gap: 0.8rem;
-            }
+      nav ul {
+        gap: 0.8rem;
+      }
 
-            nav ul li a {
-                font-size: 0.95rem;
-            }
+      nav ul li a {
+        font-size: 0.95rem;
+      }
 
-            .carousel-container {
-                max-width: 500px; /* Ajuste responsive para contenedor */
-            }
-        }
+      .carousel-container {
+        max-width: 500px;
+      }
+    }
 
-        @media (max-width: 900px) {
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding: 7.5rem 1.5rem 4rem;
-            }
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 7.5rem 1.5rem 4rem;
+      }
 
-            .hero-content {
-                max-width: 100%;
-            }
+      .hero-logo {
+        height: 130px;
+      }
 
-            .hero-image {
-                min-height: 300px; /* Mínimo reducido en responsive */
-                margin-bottom: 1rem;
-            }
+      .hero-image {
+        min-height: 300px;
+        margin-bottom: 1rem;
+      }
 
-            .hero-logo {
-                height: 130px;
-                margin: 0 auto 1rem;
-            }
+      header nav {
+        padding: 0.75rem 1.5rem;
+      }
 
-            header nav {
-                padding: 0.75rem 1.5rem;
-            }
+      nav ul {
+        gap: 0.7rem;
+      }
 
-            nav ul {
-                gap: 0.7rem;
-            }
+      nav ul li a {
+        font-size: 0.9rem;
+      }
+    }
 
-            nav ul li a {
-                font-size: 0.9rem;
-            }
+    @media (max-width: 600px) {
+      header nav {
+        flex-direction: row;
+        padding: 0.75rem 1rem;
+        justify-content: space-between;
+      }
 
-            .carousel-container {
-                aspect-ratio: 16 / 9; /* Aspecto más cuadrado en móviles para mejor fit */
-            }
-        }
+      nav ul {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-        @media (max-width: 600px) {
-            header nav {
-                flex-direction: row;
-                padding: 0.75rem 1rem;
-                justify-content: space-between;
-            }
+      nav ul li a {
+        font-size: 0.85rem;
+        padding: 0 0.2rem;
+      }
 
-            nav ul {
-                gap: 0.5rem;
-                flex: 1;
-                justify-content: flex-end;
-                margin-left: 1rem;
-            }
+      .hero-buttons {
+        justify-content: center;
+      }
 
-            nav ul li a {
-                font-size: 0.85rem;
-                padding: 0 0.2rem;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-image {
-                min-height: 250px; /* Aún más reducido en móviles */
-            }
-
-            nav ul {
-                flex-wrap: wrap; /* Como en el original para móviles */
-                justify-content: center;
-                gap: 0.5rem;
-            }
-
-            .carousel-container {
-                max-width: 100%; /* Ocupa todo el ancho en móviles */
-            }
-        }
-    </style>
+      .hero-image {
+        min-height: 250px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
-            <ul>
-                <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="about.html">Sobre Nosotros</a></li>
-                <li><a href="areas.html">Áreas</a></li>
-                <li><a href="events.html">Eventos</a></li>
-                <li><a href="projects.html">Proyectos</a></li>
-                <li><a href="team.html">Equipo</a></li>
-                <li><a href="gallery.html">Galería</a></li>
-                <li><a href="join.html">Únete</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-                <li><a href="sponsors.html">Patrocinadores</a></li>
-            </ul>
-        </nav>
-        <section class="hero">
-            <div class="hero-content">
-                <img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="hero-logo">
-                <h1>Always Advancing</h1>
-                <p>Bienvenido al Capítulo Estudiantil ACI UNI — fomentando la innovación, la investigación y el liderazgo en ingeniería del concreto.</p>
-                <div class="hero-buttons">
-                    <a href="join.html" class="button">Únete</a>
-                    <a href="events.html" class="button-outline">Próximos eventos</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="carousel-container">
-                    <div class="carousel-inner" id="carouselInner">
-                        <!-- Imágenes del carrusel (ahora sin flechas) -->
-                        <div class="carousel-item">
-                            <img src="assets/index/1.jpeg" alt="Foto del equipo 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/index/2.jpeg" alt="Foto del concurso 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="assets/index/3.jpeg" alt="Foto del equipo 2">
-                        </div>
-                        <!-- Agrega más si tienes -->
-                    </div>
-                    <!-- Indicadores (dots) -->
-                    <div class="carousel-indicators" id="carouselIndicators">
-                        <!-- Se generarán dinámicamente con JS -->
-                    </div>
-                </div>
-            </div>
-        </section>
-    </header>
-    <main>
-        <!-- Aquí puedes agregar secciones de misión, noticias o proyectos destacados -->
-    </main>
-    <footer>
-        <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
-    </footer>
+  <header>
+    <nav>
+      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
+      <ul>
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="about.html">Sobre Nosotros</a></li>
+        <li><a href="areas.html">Áreas</a></li>
+        <li><a href="events.html">Eventos</a></li>
+        <li><a href="projects.html">Proyectos</a></li>
+        <li><a href="team.html">Equipo</a></li>
+        <li><a href="gallery.html">Galería</a></li>
+        <li><a href="join.html">Únete</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+        <li><a href="sponsors.html">Patrocinadores</a></li>
+      </ul>
+    </nav>
 
-    <script>
-        // JavaScript para el carrusel (sin flechas, solo auto-slide y dots)
-        document.addEventListener('DOMContentLoaded', function() {
-            const carouselInner = document.getElementById('carouselInner');
-            const carouselIndicators = document.getElementById('carouselIndicators');
-            const items = carouselInner.children;
-            const totalItems = items.length;
-            let currentIndex = 0;
-            let autoSlideInterval;
+    <section class="hero">
+      <div class="hero-content">
+        <img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="hero-logo">
+        <h1>Always Advancing</h1>
+        <p>Bienvenido al Capítulo Estudiantil ACI UNI — fomentando la innovación, la investigación y el liderazgo en ingeniería del concreto.</p>
+        <div class="hero-buttons">
+          <a href="join.html" class="button">Únete</a>
+          <a href="events.html" class="button-outline">Próximos eventos</a>
+        </div>
+      </div>
 
-            // Generar indicadores (dots)
-            for (let i = 0; i < totalItems; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('indicator');
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(i));
-                carouselIndicators.appendChild(dot);
-            }
+      <div class="hero-image">
+        <div class="carousel-container">
+          <div class="carousel-inner" id="carouselInner">
+            <div class="carousel-item"><img src="assets/index/1.jpeg" alt="Foto 1"></div>
+            <div class="carousel-item"><img src="assets/index/2.jpeg" alt="Foto 2"></div>
+            <div class="carousel-item"><img src="assets/index/3.jpeg" alt="Foto 3"></div>
+          </div>
+          <div class="carousel-indicators" id="carouselIndicators"></div>
+        </div>
+      </div>
+    </section>
+  </header>
 
-            const indicators = carouselIndicators.children;
+  <footer>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
+  </footer>
 
-            function updateCarousel() {
-                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-                // Actualizar dots activos
-                for (let i = 0; i < totalItems; i++) {
-                    indicators[i].classList.toggle('active', i === currentIndex);
-                }
-            }
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const carouselInner = document.getElementById('carouselInner');
+      const carouselIndicators = document.getElementById('carouselIndicators');
+      const items = carouselInner.children;
+      const totalItems = items.length;
+      let currentIndex = 0;
+      let autoSlideInterval;
 
-            function goToSlide(index) {
-                currentIndex = index;
-                updateCarousel();
-                resetAutoSlide();
-            }
+      for (let i = 0; i < totalItems; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('indicator');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        carouselIndicators.appendChild(dot);
+      }
 
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % totalItems;
-                updateCarousel();
-            }
+      const indicators = carouselIndicators.children;
 
-            function resetAutoSlide() {
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = setInterval(nextSlide, 4000); // Auto-slide cada 4s
-            }
+      function updateCarousel() {
+        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+        for (let i = 0; i < totalItems; i++) {
+          indicators[i].classList.toggle('active', i === currentIndex);
+        }
+      }
 
-            // Inicializar (sin event listeners para flechas)
-            updateCarousel();
-            resetAutoSlide();
-        });
-    </script>
+      function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+        resetAutoSlide();
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, 4000);
+      }
+
+      updateCarousel();
+      resetAutoSlide();
+    });
+  </script>
 </body>
 </html>
