@@ -9,8 +9,9 @@
     <script src="js/main.js" defer></script>
     <style>
         :root {
-            --primary: #0056A6;
-            --secondary: #00AEEF;
+            --primary: #0a2342; /* Azul oscuro para uniformidad con áreas */
+            --secondary: #102f60; /* Azul medio para gradientes */
+            --accent: #ffc107; /* Dorado para hovers y active */
             --dark: #1E293B;
             --light: #F8FAFC;
             --text: #334155;
@@ -26,13 +27,13 @@
             scroll-behavior: smooth;
         }
 
-        /* ─── Header y Navbar ─────────────────────────── */
+        /* ─── Header y Navbar (estilo azul oscuro con dorado) ─────────────────────────── */
         header nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #fff;
-            padding: 0.75rem 3rem; /* Reducido de 1rem a 0.75rem para menor altura */
+            background-color: var(--primary); /* Azul oscuro */
+            padding: 0.75rem 3rem; /* Reducido para menor altura */
             box-shadow: var(--shadow);
             position: fixed;
             top: 0;
@@ -42,7 +43,7 @@
         }
 
         .logo {
-            height: 50px; /* Reducido de 55px para ajustar a la menor altura de la navbar */
+            height: 45px; /* Ajustado para navbar compacta y estilo uniforme */
             transition: transform 0.3s ease;
         }
 
@@ -53,25 +54,25 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 1rem; /* Reducido de 1.8rem a 1rem para que quepan mejor los elementos horizontalmente */
+            gap: 1rem; /* Optimizado para horizontal */
             margin: 0;
             padding: 0;
-            flex-wrap: nowrap; /* Asegura que no se envuelva en pantallas medianas */
+            flex-wrap: nowrap;
         }
 
         nav ul li a {
             text-decoration: none;
             font-weight: 500;
-            color: var(--dark);
+            color: #fff; /* Blanco en navbar azul oscuro */
             transition: color 0.3s ease;
             position: relative;
-            font-size: 1rem; /* Aumentado de 0.95rem a 1rem para letras más grandes */
-            white-space: nowrap; /* Evita que el texto se rompa */
+            font-size: 1rem; /* Letras más grandes */
+            white-space: nowrap;
         }
 
         nav ul li a.active,
         nav ul li a:hover {
-            color: var(--primary);
+            color: var(--accent); /* Dorado */
         }
 
         nav ul li a.active::after,
@@ -82,18 +83,18 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--primary);
+            background-color: var(--accent); /* Línea dorada */
             border-radius: 2px;
         }
 
-        /* ─── Hero Section ─────────────────────────── */
+        /* ─── Hero Section (gradiente azul oscuro) ─────────────────────────── */
         .hero {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            padding: 8.5rem 3rem 5rem; /* Reducido de 10rem a 8.5rem para mover el contenido más arriba (compensa la navbar más delgada) */
-            background: linear-gradient(135deg, #e7f1fb 0%, #ffffff 100%);
+            padding: 8.5rem 3rem 5rem; /* Ajustado para navbar fija */
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); /* Gradiente azul oscuro */
             min-height: 90vh;
             overflow: hidden;
         }
@@ -101,13 +102,13 @@
         .hero-content {
             max-width: 540px;
             z-index: 2;
-            text-align: left; /* Alineado a la izquierda como en el original */
+            text-align: left;
         }
 
         .hero-logo {
             height: 160px;
-            margin: 0 auto 1.5rem; /* Centra el logo horizontalmente dentro del .hero-content (arriba de "Always Advancing") */
-            display: block; /* Asegura que sea un bloque centrable */
+            margin: 0 auto 1.5rem; /* Centrado interno */
+            display: block;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
             transition: transform 0.3s ease;
         }
@@ -119,13 +120,13 @@
         .hero h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.8rem;
-            color: var(--primary);
+            color: #fff; /* Blanco para contraste en fondo azul */
             margin: 0.5rem 0;
         }
 
         .hero p {
             font-size: 1.1rem;
-            color: var(--dark);
+            color: #ddd; /* Gris claro para contraste */
             margin-bottom: 1.8rem;
             line-height: 1.6;
         }
@@ -134,7 +135,6 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            /* Sin justify-content: center; para mantener alineación a la izquierda como original */
         }
 
         .button,
@@ -149,29 +149,29 @@
         }
 
         .button {
-            background: var(--primary);
-            color: #fff;
+            background: var(--accent); /* Dorado para botón principal */
+            color: var(--primary); /* Texto azul oscuro */
             box-shadow: var(--shadow);
         }
 
         .button:hover {
-            background: var(--secondary);
+            background: #e6b800; /* Dorado más claro en hover */
             transform: translateY(-2px);
         }
 
         .button-outline {
-            border: 2px solid var(--primary);
-            color: var(--primary);
+            border: 2px solid #fff; /* Borde blanco para contraste */
+            color: #fff;
             background: transparent;
         }
 
         .button-outline:hover {
-            background: var(--primary);
-            color: #fff;
+            background: #fff;
+            color: var(--primary);
             transform: translateY(-2px);
         }
 
-        /* ─── Carrusel de Imágenes ─────────────────────────── */
+        /* ─── Carrusel de Imágenes (con flechas en círculos transparentes) ─────────────────────────── */
         .hero-image {
             flex: 1;
             display: flex;
@@ -179,7 +179,7 @@
             align-items: center;
             min-width: 300px;
             position: relative;
-            height: 500px; /* Altura fija para el carrusel */
+            height: 500px;
         }
 
         .carousel-container {
@@ -196,28 +196,34 @@
             display: flex;
             transition: transform 0.5s ease-in-out;
             height: 100%;
-            width: 100%; /* Ajustado para múltiples imágenes */
+            width: 100%;
         }
 
         .carousel-item {
             min-width: 100%;
             height: 100%;
             flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centra las imágenes en el recuadro */
         }
 
         .carousel-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Asegura que las imágenes cubran el espacio sin distorsión */
+            object-fit: cover; /* Cubre sin distorsión */
+            object-position: center; /* Centra la imagen */
             border-radius: var(--radius);
             transition: transform 0.4s ease;
+            max-width: 100%; /* Asegura que no desborde */
+            max-height: 100%;
         }
 
         .carousel-item img:hover {
             transform: scale(1.03);
         }
 
-        /* Indicadores (dots) opcionales para navegación manual */
+        /* Indicadores (dots) */
         .carousel-indicators {
             position: absolute;
             bottom: 10px;
@@ -241,9 +247,62 @@
             background: #fff;
         }
 
-        /* ─── Footer ─────────────────────────── */
+        /* Flechas en círculos transparentes */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2); /* Círculo semi-transparente blanco */
+            border: 2px solid rgba(255, 255, 255, 0.5); /* Borde sutil blanco */
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px); /* Efecto blur para transparencia moderna */
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.prev {
+            left: 10px;
+        }
+
+        .carousel-arrow.next {
+            right: 10px;
+        }
+
+        .carousel-arrow::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border: 8px solid transparent; /* Flecha CSS simple */
+        }
+
+        .carousel-arrow.prev::before {
+            border-right-color: #fff; /* Flecha izquierda */
+            border-left: 0;
+            margin-left: 2px;
+        }
+
+        .carousel-arrow.next::before {
+            border-left-color: #fff; /* Flecha derecha */
+            border-right: 0;
+            margin-right: 2px;
+        }
+
+        /* ─── Footer (azul oscuro) ─────────────────────────── */
         footer {
-            background-color: var(--dark);
+            background-color: var(--primary); /* Azul oscuro */
             color: #e2e8f0;
             text-align: center;
             padding: 2rem 1rem;
@@ -258,23 +317,23 @@
         /* ─── Responsive ─────────────────────────── */
         @media (max-width: 1200px) {
             header nav {
-                padding: 0.75rem 2rem; /* Mantiene el padding vertical reducido */
+                padding: 0.75rem 2rem;
             }
 
             nav ul {
-                gap: 0.8rem; /* Reduce gap adicional en pantallas más pequeñas */
+                gap: 0.8rem;
             }
 
             nav ul li a {
-                font-size: 0.95rem; /* Ligeramente más grande que antes en responsive */
+                font-size: 0.95rem;
             }
         }
 
         @media (max-width: 900px) {
             .hero {
                 flex-direction: column-reverse;
-                text-align: center; /* En móviles, centra todo para mejor UX */
-                padding: 7.5rem 1.5rem 4rem; /* Reducido de 9rem a 7.5rem para mover más arriba en responsive */
+                text-align: center;
+                padding: 7.5rem 1.5rem 4rem;
             }
 
             .hero-content {
@@ -282,17 +341,17 @@
             }
 
             .hero-image {
-                height: 400px; /* Reduce altura en móviles */
+                height: 400px;
                 margin-bottom: 1rem;
             }
 
             .hero-logo {
                 height: 130px;
-                margin: 0 auto 1rem; /* Ajusta margen en responsive */
+                margin: 0 auto 1rem;
             }
 
             header nav {
-                padding: 0.75rem 1.5rem; /* Mantiene padding vertical reducido */
+                padding: 0.75rem 1.5rem;
             }
 
             nav ul {
@@ -300,31 +359,38 @@
             }
 
             nav ul li a {
-                font-size: 0.9rem; /* Ajustado para ser más grande proporcionalmente */
+                font-size: 0.9rem;
+            }
+
+            /* Ocultar flechas en móviles para simplicidad (usa dots) */
+            .carousel-arrow {
+                display: none;
             }
         }
 
         @media (max-width: 600px) {
             header nav {
-                flex-direction: row; /* Mantiene horizontal, pero ajusta para caber */
-                padding: 0.75rem 1rem; /* Padding vertical reducido */
-                justify-content: space-between; /* Logo izquierda, menú derecha, pero con espacio ajustado */
+                flex-direction: row;
+                padding: 0.75rem 1rem;
+                justify-content: space-between;
             }
 
             nav ul {
-                gap: 0.5rem; /* Gap mínimo para que quepan todos en una línea */
-                flex: 1; /* Permite que ul ocupe el espacio disponible */
-                justify-content: flex-end; /* Alinea el menú a la derecha, pero ahora con menos espacio desperdiciado */
-                margin-left: 1rem; /* Pequeño margen para separar del logo */
+                gap: 0.5rem;
+                flex: 1;
+                justify-content: flex-end;
+                margin-left: 1rem;
+                flex-wrap: wrap; /* Permite wrap en móviles */
+                justify-content: center;
             }
 
             nav ul li a {
-                font-size: 0.85rem; /* Más grande que antes (era 0.8rem) para mejor legibilidad */
-                padding: 0 0.2rem; /* Padding interno mínimo */
+                font-size: 0.85rem;
+                padding: 0 0.2rem;
             }
 
             .hero-buttons {
-                justify-content: center; /* En móviles pequeños, centra los botones para mejor UX */
+                justify-content: center;
             }
 
             .hero-image {
@@ -363,7 +429,7 @@
             <div class="hero-image">
                 <div class="carousel-container">
                     <div class="carousel-inner" id="carouselInner">
-                        <!-- Imágenes del carrusel desde la carpeta "assets/index/" (ajusta los nombres de archivos según tus imágenes reales, e.g., 1.jpg, 2.jpg, etc.) -->
+                        <!-- Imágenes del carrusel (centradas con object-position) -->
                         <div class="carousel-item">
                             <img src="assets/index/1.jpeg" alt="Foto del equipo 1">
                         </div>
@@ -373,12 +439,15 @@
                         <div class="carousel-item">
                             <img src="assets/index/3.jpeg" alt="Foto del equipo 2">
                         </div>
-                        <!-- Agrega más <div class="carousel-item"><img src="assets/index/4.jpg" alt="..."></div> si tienes más imágenes -->
+                        <!-- Agrega más si tienes -->
                     </div>
-                    <!-- Indicadores (dots) para navegación manual -->
+                    <!-- Indicadores (dots) -->
                     <div class="carousel-indicators" id="carouselIndicators">
                         <!-- Se generarán dinámicamente con JS -->
                     </div>
+                    <!-- Flechas -->
+                    <div class="carousel-arrow prev" id="prevBtn"></div>
+                    <div class="carousel-arrow next" id="nextBtn"></div>
                 </div>
             </div>
         </section>
@@ -391,10 +460,12 @@
     </footer>
 
     <script>
-        // JavaScript simple para el carrusel
+        // JavaScript para el carrusel (con flechas y centrado)
         document.addEventListener('DOMContentLoaded', function() {
             const carouselInner = document.getElementById('carouselInner');
             const carouselIndicators = document.getElementById('carouselIndicators');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
             const items = carouselInner.children;
             const totalItems = items.length;
             let currentIndex = 0;
@@ -413,7 +484,7 @@
 
             function updateCarousel() {
                 carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-                // Actualizar indicadores activos
+                // Actualizar dots activos
                 for (let i = 0; i < totalItems; i++) {
                     indicators[i].classList.toggle('active', i === currentIndex);
                 }
@@ -430,16 +501,30 @@
                 updateCarousel();
             }
 
-            function resetAutoSlide() {
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = setInterval(nextSlide, 4000); // Cambia cada 4 segundos
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                updateCarousel();
             }
 
-            // Inicializar auto-slide
-            resetAutoSlide();
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(nextSlide, 4000); // Auto-slide cada 4s
+            }
 
-            // Opcional: Agregar controles de flechas (puedes expandir si quieres)
-            // Por simplicidad, usamos auto-slide y dots manuales
+            // Event listeners para flechas
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+
+            // Inicializar
+            updateCarousel();
+            resetAutoSlide();
         });
     </script>
 </body>
