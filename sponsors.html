@@ -4,140 +4,343 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patrocinadores | ACI UNI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- 🔹 Fuentes (uniformes con index.html y areas.html) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
-    /* ---------- ESTILO CLEAN INSTITUTIONAL BLUE-GOLD ---------- */
+    /* ============================================================
+       🔵 BLOQUE 1: ESTILOS GENERALES (uniformes con areas.html)
+    ============================================================ */
+    :root {
+      --primary: #0a2342; /* Azul oscuro original */
+      --secondary: #102f60; /* Azul medio para gradientes */
+      --accent: #ffc107; /* Dorado original para hovers y active */
+      --dark: #1E293B;
+      --light: #F8FAFC;
+      --text: #334155;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fafafa;
-      color: #333;
+      background-color: var(--light);
+      color: var(--text);
+      scroll-behavior: smooth;
     }
 
-    /* ---------- NAVBAR ---------- */
-    header {
-      background-color: #0a2342;
-      padding: 15px 0;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    }
-
-    nav {
+    /* ============================================================
+       🔵 BLOQUE 2: HEADER Y NAVEGACIÓN (exactamente como en areas.html)
+    ============================================================ */
+    header nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      width: 90%;
-      margin: auto;
+      align-items: center;
+      background-color: var(--primary); /* Azul oscuro original */
+      padding: 0.75rem 3rem; /* Mantiene compacto y uniforme */
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
     }
 
-    nav .logo {
-      height: 45px;
+    .logo {
+      height: 45px; /* Como en el original */
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 1rem; /* Uniforme: gap optimizado para horizontal */
       margin: 0;
       padding: 0;
+      flex-wrap: nowrap;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: white;
       font-weight: 500;
+      color: #fff; /* Blanco original en navbar azul */
       transition: color 0.3s ease;
+      position: relative;
+      font-size: 1rem; /* Uniforme: más grande para legibilidad */
+      white-space: nowrap;
+      padding: 0.5rem 0; /* Padding mínimo para alineación */
     }
 
-    nav ul li a:hover,
-    nav ul li a.active {
-      color: #ffc107;
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: var(--accent); /* Dorado original para hover y active */
     }
 
-    /* ---------- HERO ---------- */
+    nav ul li a.active::after,
+    nav ul li a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent); /* Dorado para la línea inferior */
+      border-radius: 2px;
+    }
+
+    /* ============================================================
+       🔵 BLOQUE 3: HERO PRINCIPAL (estilo original azul oscuro, como en areas.html)
+    ============================================================ */
     .hero-small {
       text-align: center;
-      padding: 60px 20px 40px;
-      background: linear-gradient(120deg, #0a2342, #102f60);
+      padding: 8.5rem 3rem 4rem; /* Uniforme: padding-top ajustado para navbar fija */
+      background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%); /* Gradiente original azul oscuro */
       color: #fff;
+      margin-top: 0; /* Asegura que no haya gap con navbar */
     }
 
     .hero-small h1 {
-      font-size: 2.4em;
-      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif; /* Uniforme: Montserrat para títulos */
+      font-size: 2.8rem; /* Similar al hero principal */
+      margin: 0.5rem 0;
+      color: #fff;
     }
 
     .hero-small p {
-      color: #ddd;
-      font-size: 1.1em;
+      font-size: 1.1rem;
       margin: 0;
+      line-height: 1.6;
+      color: #ddd; /* Como en el original */
     }
 
-    /* ---------- MAIN CONTENT ---------- */
+    /* ============================================================
+       🔵 BLOQUE 4: SECCIÓN PRINCIPAL (colores con azul oscuro)
+    ============================================================ */
     main {
       width: 90%;
       max-width: 1200px;
-      margin: 60px auto;
+      margin: 3rem auto; /* Espaciado uniforme */
       text-align: center;
     }
 
     main h2 {
-      font-size: 2em;
-      color: #0a2342;
-      margin-bottom: 15px;
+      font-family: 'Montserrat', sans-serif; /* Uniforme */
+      font-size: 2.5rem;
+      color: var(--primary); /* Azul oscuro original para títulos */
+      margin-bottom: 1rem;
     }
 
     main p {
-      color: #555;
+      color: var(--text); /* Uniforme */
       max-width: 800px;
-      margin: 0 auto 40px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      font-size: 1.05rem;
     }
 
-    /* ---------- SPONSORS GRID ---------- */
-    .sponsors-grid {
+    /* Secciones diferenciadas: Alianzas y Patrocinadores con íconos de link */
+    .section-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
+      gap: 2rem; /* Gap uniforme */
+      margin-top: 2rem;
       align-items: center;
       justify-items: center;
-      padding: 20px;
+      padding: 1rem;
     }
 
-    .sponsors-grid img {
+    .sponsor-item {
+      position: relative;
+      display: inline-block;
+      background: #fff;
+      border-radius: var(--radius); /* Uniforme */
+      box-shadow: var(--shadow); /* Uniforme */
+      overflow: hidden;
+      transition: all 0.3s ease;
+      width: 100%;
       max-width: 180px;
+    }
+
+    .sponsor-item:hover {
+      transform: translateY(-2px) scale(1.05); /* Efecto sutil uniforme */
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .sponsor-item a {
+      display: block;
+      text-decoration: none;
+    }
+
+    .sponsor-item img {
+      width: 100%;
       height: auto;
-      background: white;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 1rem;
+      display: block;
+      transition: opacity 0.3s ease;
     }
 
-    .sponsors-grid img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    .sponsor-item:hover img {
+      opacity: 0.8;
     }
 
-    /* ---------- FOOTER ---------- */
+    /* Ícono de link (overlay en hover) */
+    .link-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--primary);
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .sponsor-item:hover .link-icon {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .link-icon::before {
+      content: "↗"; /* Icono simple de flecha externa (puedes cambiar por SVG si prefieres) */
+    }
+
+    /* ============================================================
+       🔵 BLOQUE 5: FOOTER (estilo original azul oscuro)
+    ============================================================ */
     footer {
+      background-color: var(--primary); /* Azul oscuro original */
+      color: #fff; /* Blanco original */
       text-align: center;
-      padding: 25px;
-      background-color: #0a2342;
-      color: white;
-      margin-top: 50px;
+      padding: 2rem 1rem;
+      font-size: 0.95rem;
+      margin-top: 3rem;
     }
 
     footer p {
       margin: 0;
-      font-size: 0.95em;
     }
 
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 768px) {
+    /* ============================================================
+       🔵 BLOQUE 6: RESPONSIVE (uniforme, con ajustes para estilo original)
+    ============================================================ */
+    @media (max-width: 1200px) {
+      header nav {
+        padding: 0.75rem 2rem;
+      }
+
       nav ul {
-        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      nav ul li a {
+        font-size: 0.95rem;
+      }
+
+      .section-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .sponsor-item {
+        max-width: 160px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-small {
+        padding: 7.5rem 1.5rem 3rem;
+      }
+
+      main h2 {
+        font-size: 2.2rem;
+      }
+
+      header nav {
+        padding: 0.75rem 1.5rem;
+      }
+
+      nav ul {
+        gap: 0.7rem;
+      }
+
+      nav ul li a {
+        font-size: 0.9rem;
+      }
+
+      .section-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+      }
+
+      .sponsor-item {
+        max-width: 150px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header nav {
+        flex-direction: row;
+        padding: 0.75rem 1rem;
+        justify-content: space-between;
+      }
+
+      nav ul {
+        gap: 0.5rem;
+        flex: 1;
+        justify-content: flex-end;
+        margin-left: 1rem;
+      }
+
+      nav ul li a {
+        font-size: 0.85rem;
+        padding: 0 0.2rem;
+      }
+
+      .hero-small h1 {
+        font-size: 2.2rem;
+      }
+
+      main {
+        width: 95%;
+        margin: 2rem auto;
+      }
+
+      nav ul {
+        flex-wrap: wrap; /* Como en el original para móviles */
         justify-content: center;
-        gap: 15px;
+        gap: 0.5rem;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .sponsor-item {
+        max-width: 100%;
+      }
+
+      .link-icon {
+        top: 5px;
+        right: 5px;
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
       }
     }
   </style>
@@ -162,21 +365,81 @@
     </nav>
 
     <section class="hero-small">
-      <h1>Patrocinadores</h1>
+      <h1>Patrocinadores y Alianzas</h1>
       <p>Aliados estratégicos que impulsan el desarrollo y la innovación en el ACI UNI</p>
     </section>
   </header>
 
   <main>
-    <h2>Nuestros Aliados</h2>
-    <p>El Capítulo Estudiantil ACI UNI agradece a las instituciones, empresas y organizaciones que confían en nosotros y apoyan nuestras actividades académicas, de investigación y proyección social.</p>
+    <!-- Sección Alianzas -->
+    <section>
+      <h2>Nuestras Alianzas</h2>
+      <p>Colaboraciones institucionales y académicas que fortalecen nuestra red y proyectos conjuntos.</p>
 
-    <div class="sponsors-grid">
-      <img src="assets/sponsor1-placeholder.png" alt="Patrocinador 1">
-      <img src="assets/sponsor2-placeholder.png" alt="Patrocinador 2">
-      <img src="assets/sponsor3-placeholder.png" alt="Patrocinador 3">
-      <img src="assets/sponsor4-placeholder.png" alt="Patrocinador 4">
-    </div>
+      <div class="section-grid">
+        <!-- Ejemplo de alianza con link (reemplaza URL y src con reales) -->
+        <div class="sponsor-item">
+          <a href="https://ejemplo-alianza1.com" target="_blank" rel="noopener noreferrer">
+            <img src="assets/alianzas/alianza1-placeholder.png" alt="Alianza 1">
+          </a>
+          <div class="link-icon"></div>
+        </div>
+        <div class="sponsor-item">
+          <a href="https://ejemplo-alianza2.com" target="_blank" rel="noopener noreferrer">
+            <img src="assets/alianzas/alianza2-placeholder.png" alt="Alianza 2">
+          </a>
+          <div class="link-icon"></div>
+        </div>
+        <div class="sponsor-item">
+          <a href="https://ejemplo-alianza3.com" target="_blank" rel="noopener noreferrer">
+            <img src="assets/alianzas/alianza3-placeholder.png" alt="Alianza 3">
+          </a>
+          <div class="link-icon"></div>
+        </div>
+        <div class="sponsor-item">
+          <a href="https://ejemplo-alianza4.com" target="_blank" rel="noopener noreferrer">
+            <img src="assets/alianzas/alianza4-placeholder.png" alt="Alianza 4">
+          </a>
+          <div class="link-icon"></div>
+        </div>
+        <!-- Agrega más si tienes -->
+      </div>
+    </section>
+
+    <!-- Sección Patrocinadores -->
+    <section>
+      <h2>Nuestros Patrocinadores</h2>
+      <p>Empresas y organizaciones que apoyan financieramente y con recursos nuestras actividades y eventos.</p>
+
+      <div class="section-grid">
+        <!-- Ejemplo de patrocinador con link (reemplaza URL y src con reales) -->
+        <div class="sponsor-item">
+          <a href="https://ejemplo-patrocinador1.com" target="_blank" rel="noopener noreferrer">
+            <img src="assets/patrocinadores/patrocinador1-placeholder.png" alt="Patrocinador 1">
+          </a>
+          <div class="link-icon"></div>
+        </div>
+        <div class="sponsor-item">
+          <a href="https://ejemplo-patrocinador2.com" target="_blank" rel="noopener noreferrer">
+            <img src="assets/patrocinadores/patrocinador2-placeholder.png" alt="Patrocinador 2">
+          </a>
+          <div class="link-icon"></div>
+        </div>
+        <div class="sponsor-item">
+          <a href="https://ejemplo-patrocinador3.com" target="_blank" rel="noopener noreferrer">
+            <img src="assets/patrocinadores/patrocinador3-placeholder.png" alt="Patrocinador 3">
+          </a>
+          <div class="link-icon"></div>
+        </div>
+        <div class="sponsor-item">
+          <a href="https://ejemplo-patrocinador4.com" target="_blank" rel="noopener noreferrer">
+            <img src="assets/patrocinadores/patrocinador4-placeholder.png" alt="Patrocinador 4">
+          </a>
+          <div class="link-icon"></div>
+        </div>
+        <!-- Agrega más si tienes -->
+      </div>
+    </section>
   </main>
 
   <footer>
