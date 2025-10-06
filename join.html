@@ -4,8 +4,170 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Únete | ACI UNI</title>
-  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0056A6;
+      --secondary: #F5B700;
+      --dark: #1E293B;
+      --light: #F8FAFC;
+      --text: #334155;
+      --radius: 12px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER / NAVBAR ===== */
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      height: 55px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--dark);
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a.active::after,
+    nav a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    main {
+      max-width: 700px;
+      margin: 4rem auto;
+      background: #fff;
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      color: var(--primary);
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    input, select {
+      padding: 0.8rem;
+      border-radius: var(--radius);
+      border: 1.5px solid #CBD5E1;
+      font-size: 1rem;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0,86,166,0.15);
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      font-weight: 600;
+      border: none;
+      padding: 0.9rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #003F7D;
+      transform: translateY(-1px);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--dark);
+      color: white;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      main {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <nav>
@@ -24,17 +186,22 @@
       </ul>
     </nav>
   </header>
+
   <main>
     <section>
-      <h2>Únete / Voluntaro</h2>
-      <p>¿Quieres formar parte del capítulo estudiantil ACI UNI? Llena el siguiente formulario:</p>
+      <h2>Únete / Voluntario</h2>
+      <p>¿Quieres formar parte del capítulo estudiantil <strong>ACI UNI</strong>? Llena el siguiente formulario:</p>
+
       <form>
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+
         <label for="correo">Correo:</label>
-        <input type="email" id="correo" name="correo" required>
+        <input type="email" id="correo" name="correo" placeholder="tuemail@ejemplo.com" required>
+
         <label for="area">Área de interés:</label>
         <select id="area" name="area">
+          <option value="">Selecciona un área</option>
           <option>Recursos Humanos</option>
           <option>Investigación</option>
           <option>Marketing</option>
@@ -42,12 +209,15 @@
           <option>Finanzas</option>
           <option>Logística</option>
         </select>
+
         <button type="submit">Enviar</button>
       </form>
     </section>
   </main>
+
   <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI.</p>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
+
