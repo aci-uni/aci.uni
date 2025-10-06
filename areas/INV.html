@@ -1,23 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área de Investigación</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Enlace a tu CSS si es necesario -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relaciones Públicas | ACI UNI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #0a2342;
+      --accent: #ffc107;
+      --light: #F8FAFC;
+      --text: #334155;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0; padding: 0;
+      background: var(--light);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+    header nav {
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--primary);
+      padding: 0.75rem 3rem; box-shadow: var(--shadow);
+      position: fixed; top:0; left:0; right:0; z-index:10;
+    }
+    .logo { height: 45px; transition: transform 0.3s;}
+    .logo:hover { transform: scale(1.05);}
+    nav ul { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; flex-wrap: nowrap;}
+    nav ul li a { text-decoration: none; font-weight: 500; color:#fff; transition: color 0.3s; position: relative; font-size: 1rem; white-space: nowrap; padding: 0.5rem 0;}
+    nav ul li a.active, nav ul li a:hover { color: var(--accent);}
+    nav ul li a.active::after, nav ul li a:hover::after { content: "";position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:var(--accent);border-radius:2px;}
+    main { width:90%; max-width:1200px; margin:5.5rem auto 0; text-align:center;}
+    .section-title { font-family: 'Montserrat',sans-serif; font-size:2.3rem; color:var(--primary); margin-bottom:0.5rem;}
+    .activities-list { text-align:left; margin:2rem 0;}
+    .activities-list ul { padding-left:1.5rem;}
+    .directors-grid { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; margin:2rem 0;}
+    .team-member {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 25px 15px;
+      text-align: center;
+      max-width: 270px;
+      margin: 0 auto;
+    }
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #ffc107;
+    }
+    .team-member h3 { margin: 12px 0 4px; font-size: 1.1rem; color: var(--primary);}
+    .team-member p { font-size: 0.95rem; color: #555; margin-bottom: 10px;}
+    .social-links a {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin: 0 6px;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .social-links a:hover { color: var(--accent); }
+    .members-table { width:100%; max-width:700px; margin:2rem auto; border-collapse:collapse; background:#fff; box-shadow:var(--shadow); border-radius:var(--radius); overflow:hidden;}
+    .members-table th, .members-table td { padding:0.75rem 1rem; border-bottom:1px solid #eee;}
+    .members-table th { background:var(--primary); color:#fff;}
+    .members-table tr:last-child td { border-bottom:none;}
+    footer { background:var(--primary); color:#fff; text-align:center; padding:2rem 1rem; font-size:0.95rem; margin-top:3rem;}
+    @media (max-width:700px) {
+      .directors-grid { flex-direction:column; gap:1.5rem;}
+      .team-member { padding: 16px 8px; }
+      main { width:98%;}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Área de Investigación</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Bienvenidos a la sección de Investigación</h2>
-            <p>Aquí encontrarás información sobre nuestros proyectos de investigación, publicaciones y eventos relacionados.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 ACI UNI. Todos los derechos reservados.</p>
-    </footer>
+  <header>
+    <nav>
+      <a href="../index.html"><img src="../assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../about.html">Sobre Nosotros</a></li>
+        <li><a href="../areas.html" class="active">Áreas</a></li>
+        <li><a href="../events.html">Eventos</a></li>
+        <li><a href="../projects.html">Proyectos</a></li>
+        <li><a href="../team.html">Equipo</a></li>
+        <li><a href="../gallery.html">Galería</a></li>
+        <li><a href="../join.html">Únete</a></li>
+        <li><a href="../contact.html">Contacto</a></li>
+        <li><a href="../sponsors.html">Patrocinadores</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="section-title">Área de Relaciones Públicas</h1>
+    <div class="activities-list">
+      <h2>Actividades</h2>
+      <ul>
+        <li>Coordinación de alianzas estratégicas</li>
+        <li>Representación en eventos nacionales e internacionales</li>
+        <li>Relación con empresas y otros capítulos</li>
+      </ul>
+    </div>
+    <div class="directors-grid">
+      <div class="team-member">
+        <img src="../assets/KarolA.png" alt="Karol Agreda">
+        <h3>Karol Agreda</h3>
+        <p>Directora de Relaciones Públicas</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/karol-maricruz-agreda-estela-8434511a1/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="team-member">
+        <img src="../assets/JhonnyV.png" alt="Jhonny Valverde">
+        <h3>Jhonny Valverde</h3>
+        <p>Director de Relaciones Públicas</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/jhonny-valverde-mori-46078728b/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <h2>Miembros 2025</h2>
+    <table class="members-table">
+      <tr>
+        <th>Nombre</th>
+        <th>Cargo</th>
+        <th>LinkedIn</th>
+      </tr>
+      <tr>
+        <td>Ejemplo Miembro</td>
+        <td>Miembro</td>
+        <td>
+          <div class="social-links">
+            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </td>
+      </tr>
+      <!-- Más miembros aquí -->
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
