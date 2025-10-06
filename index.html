@@ -1,294 +1,447 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ACI UNI - Capítulo Estudiantil</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-  <script src="js/main.js" defer></script>
-  <style>
-    :root {
-      --primary: #0056A6;
-      --secondary: #00AEEF;
-      --dark: #1E293B;
-      --light: #F8FAFC;
-      --text: #334155;
-      --radius: 14px;
-      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACI UNI - Capítulo Estudiantil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js" defer></script>
+    <style>
+        :root {
+            --primary: #0056A6;
+            --secondary: #00AEEF;
+            --dark: #1E293B;
+            --light: #F8FAFC;
+            --text: #334155;
+            --radius: 14px;
+            --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background-color: var(--light);
-      scroll-behavior: smooth;
-    }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            scroll-behavior: smooth;
+        }
 
-    /* ─── Header y Navbar ─────────────────────────── */
-    header nav {
-  display: flex;
-  justify-content: center; /* Centra todo el contenido horizontalmente */
-  align-items: center;
-  background-color: #fff;
-  padding: 1rem 2rem;
-  box-shadow: var(--shadow);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  gap: 3rem; /* Espacio entre logo y menú */
-}
+        /* ─── Header y Navbar ─────────────────────────── */
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 1rem 3rem;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
 
-nav a img.logo {
-  height: 55px;
-}
+        .logo {
+            height: 55px;
+            transition: transform 0.3s ease;
+        }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Distribuye los enlaces de forma pareja */
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-  flex: 1;
-  max-width: 900px; /* Evita que se pegue a los bordes */
-}
-    .logo {
-      height: 55px;
-      transition: transform 0.3s ease;
-    }
+        .logo:hover {
+            transform: scale(1.05);
+        }
 
-    .logo:hover {
-      transform: scale(1.05);
-    }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1rem; /* Reducido de 1.8rem a 1rem para que quepan mejor los elementos horizontalmente */
+            margin: 0;
+            padding: 0;
+            flex-wrap: nowrap; /* Asegura que no se envuelva en pantallas medianas */
+        }
 
-    nav ul li a {
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--dark);
-      transition: color 0.3s ease;
-      position: relative;
-    }
+        nav ul li a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--dark);
+            transition: color 0.3s ease;
+            position: relative;
+            font-size: 0.95rem; /* Ligeramente más pequeño para optimizar espacio */
+            white-space: nowrap; /* Evita que el texto se rompa */
+        }
 
-    nav ul li a.active,
-    nav ul li a:hover {
-      color: var(--primary);
-    }
+        nav ul li a.active,
+        nav ul li a:hover {
+            color: var(--primary);
+        }
 
-    nav ul li a.active::after,
-    nav ul li a:hover::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--primary);
-      border-radius: 2px;
-    }
+        nav ul li a.active::after,
+        nav ul li a:hover::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
 
-    /* ─── Hero Section ─────────────────────────── */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10rem 3rem 5rem;
-      background: linear-gradient(135deg, #e7f1fb 0%, #ffffff 100%);
-      min-height: 90vh;
-      overflow: hidden;
-    }
+        /* ─── Hero Section ─────────────────────────── */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10rem 3rem 5rem;
+            background: linear-gradient(135deg, #e7f1fb 0%, #ffffff 100%);
+            min-height: 90vh;
+            overflow: hidden;
+        }
 
-    .hero-content {
-      max-width: 540px;
-      z-index: 2;
-      text-align: left;
-    }
+        .hero-content {
+            max-width: 540px;
+            z-index: 2;
+            text-align: left; /* Alineado a la izquierda como en el original */
+        }
 
-    .hero-logo {
-      height: 160px;
-      margin-bottom: 1.5rem;
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
-      transition: transform 0.3s ease;
-    }
+        .hero-logo {
+            height: 160px;
+            margin: 0 auto 1.5rem; /* Centra el logo horizontalmente dentro del .hero-content (arriba de "Always Advancing") */
+            display: block; /* Asegura que sea un bloque centrable */
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+            transition: transform 0.3s ease;
+        }
 
-    .hero-logo:hover {
-      transform: scale(1.05);
-    }
+        .hero-logo:hover {
+            transform: scale(1.05);
+        }
 
-    .hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin: 0.5rem 0;
-    }
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
 
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--dark);
-      margin-bottom: 1.8rem;
-      line-height: 1.6;
-    }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 1.8rem;
+            line-height: 1.6;
+        }
 
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            /* Sin justify-content: center; para mantener alineación a la izquierda como original */
+        }
 
-    .button,
-    .button-outline {
-      padding: 0.8rem 1.8rem;
-      font-weight: 600;
-      border-radius: var(--radius);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      text-align: center;
-      display: inline-block;
-    }
+        .button,
+        .button-outline {
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            border-radius: var(--radius);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: inline-block;
+        }
 
-    .button {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
+        .button {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: var(--shadow);
+        }
 
-    .button:hover {
-      background: var(--secondary);
-      transform: translateY(-2px);
-    }
+        .button:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
 
-    .button-outline {
-      border: 2px solid var(--primary);
-      color: var(--primary);
-      background: transparent;
-    }
+        .button-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
 
-    .button-outline:hover {
-      background: var(--primary);
-      color: #fff;
-      transform: translateY(-2px);
-    }
+        .button-outline:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
 
-    .hero-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-width: 300px;
-    }
+        /* ─── Carrusel de Imágenes ─────────────────────────── */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 300px;
+            position: relative;
+            height: 500px; /* Altura fija para el carrusel */
+        }
 
-    .hero-image img {
-      width: 95%;
-      max-width: 580px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      transition: transform 0.4s ease;
-    }
+        .carousel-container {
+            width: 95%;
+            max-width: 580px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
 
-    .hero-image img:hover {
-      transform: scale(1.03);
-    }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+            width: 100%; /* Ajustado para múltiples imágenes */
+        }
 
-    /* ─── Footer ─────────────────────────── */
-    footer {
-      background-color: var(--dark);
-      color: #e2e8f0;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.95rem;
-      margin-top: 3rem;
-    }
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
 
-    footer p {
-      margin: 0;
-    }
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que las imágenes cubran el espacio sin distorsión */
+            border-radius: var(--radius);
+            transition: transform 0.4s ease;
+        }
 
-    /* ─── Responsive ─────────────────────────── */
-    @media (max-width: 900px) {
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 9rem 1.5rem 4rem;
-      }
+        .carousel-item img:hover {
+            transform: scale(1.03);
+        }
 
-      .hero-content {
-        max-width: 100%;
-      }
+        /* Indicadores (dots) opcionales para navegación manual */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
 
-      .hero-image img {
-        max-width: 420px;
-      }
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
 
-      .hero-logo {
-        height: 130px;
-      }
-    }
+        .indicator.active {
+            background: #fff;
+        }
 
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        padding: 1rem;
-      }
+        /* ─── Footer ─────────────────────────── */
+        footer {
+            background-color: var(--dark);
+            color: #e2e8f0;
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.95rem;
+            margin-top: 3rem;
+        }
 
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-      }
+        footer p {
+            margin: 0;
+        }
 
-      .hero-buttons {
-        justify-content: center;
-      }
-    }
-  </style>
+        /* ─── Responsive ─────────────────────────── */
+        @media (max-width: 1200px) {
+            header nav {
+                padding: 1rem 2rem; /* Reduce padding lateral para más espacio en pantallas medianas */
+            }
+
+            nav ul {
+                gap: 0.8rem; /* Reduce gap adicional en pantallas más pequeñas */
+            }
+
+            nav ul li a {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center; /* En móviles, centra todo para mejor UX */
+                padding: 9rem 1.5rem 4rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-image {
+                height: 400px; /* Reduce altura en móviles */
+                margin-bottom: 1rem;
+            }
+
+            .hero-logo {
+                height: 130px;
+                margin: 0 auto 1rem; /* Ajusta margen en responsive */
+            }
+
+            header nav {
+                padding: 1rem 1.5rem;
+            }
+
+            nav ul {
+                gap: 0.7rem;
+            }
+
+            nav ul li a {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header nav {
+                flex-direction: row; /* Mantiene horizontal, pero ajusta para caber */
+                padding: 1rem;
+                justify-content: space-between; /* Logo izquierda, menú derecha, pero con espacio ajustado */
+            }
+
+            nav ul {
+                gap: 0.5rem; /* Gap mínimo para que quepan todos en una línea */
+                flex: 1; /* Permite que ul ocupe el espacio disponible */
+                justify-content: flex-end; /* Alinea el menú a la derecha, pero ahora con menos espacio desperdiciado */
+                margin-left: 1rem; /* Pequeño margen para separar del logo */
+            }
+
+            nav ul li a {
+                font-size: 0.8rem; /* Más pequeño en móvil para fitting */
+                padding: 0 0.2rem; /* Padding interno mínimo */
+            }
+
+            .hero-buttons {
+                justify-content: center; /* En móviles pequeños, centra los botones para mejor UX */
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <header>
-    <nav>
-      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
-      <ul>
-        <li><a href="index.html" class="active">Inicio</a></li>
-        <li><a href="about.html">Sobre Nosotros</a></li>
-        <li><a href="areas.html">Áreas</a></li>
-        <li><a href="events.html">Eventos</a></li>
-        <li><a href="projects.html">Proyectos</a></li>
-        <li><a href="team.html">Equipo</a></li>
-        <li><a href="gallery.html">Galería</a></li>
-        <li><a href="join.html">Únete</a></li>
-        <li><a href="contact.html">Contacto</a></li>
-        <li><a href="sponsors.html">Patrocinadores</a></li>
-      </ul>
-    </nav>
+    <header>
+        <nav>
+            <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="about.html">Sobre Nosotros</a></li>
+                <li><a href="areas.html">Áreas</a></li>
+                <li><a href="events.html">Eventos</a></li>
+                <li><a href="projects.html">Proyectos</a></li>
+                <li><a href="team.html">Equipo</a></li>
+                <li><a href="gallery.html">Galería</a></li>
+                <li><a href="join.html">Únete</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="sponsors.html">Patrocinadores</a></li>
+            </ul>
+        </nav>
+        <section class="hero">
+            <div class="hero-content">
+                <img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="hero-logo">
+                <h1>Always Advancing</h1>
+                <p>Bienvenido al Capítulo Estudiantil ACI UNI — fomentando la innovación, la investigación y el liderazgo en ingeniería del concreto.</p>
+                <div class="hero-buttons">
+                    <a href="join.html" class="button">Únete</a>
+                    <a href="events.html" class="button-outline">Próximos eventos</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="carousel-container">
+                    <div class="carousel-inner" id="carouselInner">
+                        <!-- Imágenes del carrusel desde la carpeta "assets/index/" (ajusta los nombres de archivos según tus imágenes reales, e.g., 1.jpg, 2.jpg, etc.) -->
+                        <div class="carousel-item">
+                            <img src="assets/index/1.jpg" alt="Foto del equipo 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/index/2.jpg" alt="Foto del concurso 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/index/3.jpg" alt="Foto del equipo 2">
+                        </div>
+                        <!-- Agrega más <div class="carousel-item"><img src="assets/index/4.jpg" alt="..."></div> si tienes más imágenes -->
+                    </div>
+                    <!-- Indicadores (dots) para navegación manual -->
+                    <div class="carousel-indicators" id="carouselIndicators">
+                        <!-- Se generarán dinámicamente con JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    <main>
+        <!-- Aquí puedes agregar secciones de misión, noticias o proyectos destacados -->
+    </main>
+    <footer>
+        <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
+    </footer>
 
-    <section class="hero">
-      <div class="hero-content">
-        <img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="hero-logo">
-        <h1>Always Advancing</h1>
-        <p>Bienvenido al Capítulo Estudiantil ACI UNI — fomentando la innovación, la investigación y el liderazgo en ingeniería del concreto.</p>
-        <div class="hero-buttons">
-          <a href="join.html" class="button">Únete</a>
-          <a href="events.html" class="button-outline">Próximos eventos</a>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="assets/hero-placeholder.jpg" alt="Foto del equipo o concurso">
-      </div>
-    </section>
-  </header>
+    <script>
+        // JavaScript simple para el carrusel
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselInner = document.getElementById('carouselInner');
+            const carouselIndicators = document.getElementById('carouselIndicators');
+            const items = carouselInner.children;
+            const totalItems = items.length;
+            let currentIndex = 0;
+            let autoSlideInterval;
 
-  <main>
-    <!-- Aquí puedes agregar secciones de misión, noticias o proyectos destacados -->
-  </main>
+            // Generar indicadores (dots)
+            for (let i = 0; i < totalItems; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('indicator');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                carouselIndicators.appendChild(dot);
+            }
 
-  <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
-  </footer>
+            const indicators = carouselIndicators.children;
+
+            function updateCarousel() {
+                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                // Actualizar indicadores activos
+                for (let i = 0; i < totalItems; i++) {
+                    indicators[i].classList.toggle('active', i === currentIndex);
+                }
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+                resetAutoSlide();
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCarousel();
+            }
+
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(nextSlide, 4000); // Cambia cada 4 segundos
+            }
+
+            // Inicializar auto-slide
+            resetAutoSlide();
+
+            // Opcional: Agregar controles de flechas (puedes expandir si quieres)
+            // Por simplicidad, usamos auto-slide y dots manuales
+        });
+    </script>
 </body>
 </html>
 
