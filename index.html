@@ -9,11 +9,12 @@
     <script src="js/main.js" defer></script>
     <style>
         :root {
-            --primary: #0a2342; /* Azul oscuro para uniformidad con áreas */
-            --secondary: #102f60; /* Azul medio para gradientes */
+            --primary: #0a2342; /* Azul oscuro para acentos generales */
+            --secondary: #102f60; /* Azul medio */
             --accent: #ffc107; /* Dorado para hovers y active */
+            --light-blue: #e7f1fb; /* Azul muy claro para fondos */
+            --lighter-blue: #f0f8ff; /* Aún más claro para gradientes suaves */
             --dark: #1E293B;
-            --light: #F8FAFC;
             --text: #334155;
             --radius: 14px;
             --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
@@ -23,17 +24,17 @@
             margin: 0;
             font-family: 'Inter', sans-serif;
             color: var(--text);
-            background-color: var(--light);
+            background-color: var(--light-blue); /* Fondo más claro y combinante (azul suave) */
             scroll-behavior: smooth;
         }
 
-        /* ─── Header y Navbar (estilo azul oscuro con dorado) ─────────────────────────── */
+        /* ─── Header y Navbar (fondo blanco, active solo dorado sin cuadro) ─────────────────────────── */
         header nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: var(--primary); /* Azul oscuro */
-            padding: 0.75rem 3rem; /* Reducido para menor altura */
+            background-color: #fff; /* Fondo blanco como original, sin "cuadro" para active */
+            padding: 0.75rem 3rem; /* Compacto */
             box-shadow: var(--shadow);
             position: fixed;
             top: 0;
@@ -43,7 +44,7 @@
         }
 
         .logo {
-            height: 45px; /* Ajustado para navbar compacta y estilo uniforme */
+            height: 45px; /* Compacto y uniforme */
             transition: transform 0.3s ease;
         }
 
@@ -54,7 +55,7 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 1rem; /* Optimizado para horizontal */
+            gap: 1rem; /* Optimizado */
             margin: 0;
             padding: 0;
             flex-wrap: nowrap;
@@ -63,16 +64,17 @@
         nav ul li a {
             text-decoration: none;
             font-weight: 500;
-            color: #fff; /* Blanco en navbar azul oscuro */
+            color: var(--dark); /* Texto dark en fondo blanco */
             transition: color 0.3s ease;
             position: relative;
-            font-size: 1rem; /* Letras más grandes */
+            font-size: 1rem; /* Letras grandes */
             white-space: nowrap;
+            /* Sin fondo para active/hover, solo color dorado y línea */
         }
 
         nav ul li a.active,
         nav ul li a:hover {
-            color: var(--accent); /* Dorado */
+            color: var(--accent); /* Solo dorado, sin fondo blanco o cuadro */
         }
 
         nav ul li a.active::after,
@@ -83,18 +85,18 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--accent); /* Línea dorada */
+            background-color: var(--accent); /* Línea dorada sutil */
             border-radius: 2px;
         }
 
-        /* ─── Hero Section (gradiente azul oscuro) ─────────────────────────── */
+        /* ─── Hero Section (fondo más claro y combinante) ─────────────────────────── */
         .hero {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            padding: 8.5rem 3rem 5rem; /* Ajustado para navbar fija */
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); /* Gradiente azul oscuro */
+            padding: 8.5rem 3rem 5rem; /* Ajustado para navbar */
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--lighter-blue) 100%); /* Gradiente azul muy claro y suave */
             min-height: 90vh;
             overflow: hidden;
         }
@@ -107,7 +109,7 @@
 
         .hero-logo {
             height: 160px;
-            margin: 0 auto 1.5rem; /* Centrado interno */
+            margin: 0 auto 1.5rem;
             display: block;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
             transition: transform 0.3s ease;
@@ -120,13 +122,13 @@
         .hero h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2.8rem;
-            color: #fff; /* Blanco para contraste en fondo azul */
+            color: var(--primary); /* Azul oscuro para título */
             margin: 0.5rem 0;
         }
 
         .hero p {
             font-size: 1.1rem;
-            color: #ddd; /* Gris claro para contraste */
+            color: var(--dark);
             margin-bottom: 1.8rem;
             line-height: 1.6;
         }
@@ -160,18 +162,18 @@
         }
 
         .button-outline {
-            border: 2px solid #fff; /* Borde blanco para contraste */
-            color: #fff;
+            border: 2px solid var(--primary); /* Borde azul oscuro */
+            color: var(--primary);
             background: transparent;
         }
 
         .button-outline:hover {
-            background: #fff;
-            color: var(--primary);
+            background: var(--primary);
+            color: #fff;
             transform: translateY(-2px);
         }
 
-        /* ─── Carrusel de Imágenes (con flechas en círculos transparentes) ─────────────────────────── */
+        /* ─── Carrusel de Imágenes (ajustado para fotos grandes, sin autoescalado excesivo) ─────────────────────────── */
         .hero-image {
             flex: 1;
             display: flex;
@@ -179,7 +181,7 @@
             align-items: center;
             min-width: 300px;
             position: relative;
-            height: 500px;
+            height: 500px; /* Altura fija, pero imágenes se ajustan mejor */
         }
 
         .carousel-container {
@@ -205,22 +207,22 @@
             flex-shrink: 0;
             display: flex;
             justify-content: center;
-            align-items: center; /* Centra las imágenes en el recuadro */
+            align-items: center; /* Centra las imágenes */
         }
 
         .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Cubre sin distorsión */
+            max-width: 100%; /* Limita ancho máximo para no desbordar */
+            max-height: 100%; /* Limita altura máxima */
+            width: auto; /* Mantiene proporción original */
+            height: auto; /* Mantiene proporción original */
+            object-fit: contain; /* Muestra imagen completa sin crop (ideal para 2560x1706) */
             object-position: center; /* Centra la imagen */
             border-radius: var(--radius);
             transition: transform 0.4s ease;
-            max-width: 100%; /* Asegura que no desborde */
-            max-height: 100%;
         }
 
         .carousel-item img:hover {
-            transform: scale(1.03);
+            transform: scale(1.02); /* Escala sutil para hover */
         }
 
         /* Indicadores (dots) */
@@ -247,15 +249,15 @@
             background: #fff;
         }
 
-        /* Flechas en círculos transparentes */
+        /* Flechas en círculos transparentes (blanco sutil para fondo claro) */
         .carousel-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.2); /* Círculo semi-transparente blanco */
-            border: 2px solid rgba(255, 255, 255, 0.5); /* Borde sutil blanco */
+            background: rgba(255, 255, 255, 0.8); /* Círculo semi-transparente blanco (más visible en fondo claro) */
+            border: 2px solid rgba(255, 255, 255, 0.9); /* Borde blanco */
             border-radius: 50%;
             cursor: pointer;
             display: flex;
@@ -263,12 +265,12 @@
             justify-content: center;
             z-index: 5;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px); /* Efecto blur para transparencia moderna */
+            backdrop-filter: blur(10px);
         }
 
         .carousel-arrow:hover {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 1);
+            border-color: #fff;
             transform: translateY(-50%) scale(1.1);
         }
 
@@ -285,22 +287,22 @@
             display: block;
             width: 0;
             height: 0;
-            border: 8px solid transparent; /* Flecha CSS simple */
+            border: 8px solid transparent;
         }
 
         .carousel-arrow.prev::before {
-            border-right-color: #fff; /* Flecha izquierda */
+            border-right-color: var(--primary); /* Flecha azul oscuro */
             border-left: 0;
             margin-left: 2px;
         }
 
         .carousel-arrow.next::before {
-            border-left-color: #fff; /* Flecha derecha */
+            border-left-color: var(--primary); /* Flecha azul oscuro */
             border-right: 0;
             margin-right: 2px;
         }
 
-        /* ─── Footer (azul oscuro) ─────────────────────────── */
+        /* ─── Footer (azul oscuro para contraste) ─────────────────────────── */
         footer {
             background-color: var(--primary); /* Azul oscuro */
             color: #e2e8f0;
@@ -362,7 +364,7 @@
                 font-size: 0.9rem;
             }
 
-            /* Ocultar flechas en móviles para simplicidad (usa dots) */
+            /* Ocultar flechas en móviles */
             .carousel-arrow {
                 display: none;
             }
@@ -380,7 +382,7 @@
                 flex: 1;
                 justify-content: flex-end;
                 margin-left: 1rem;
-                flex-wrap: wrap; /* Permite wrap en móviles */
+                flex-wrap: wrap;
                 justify-content: center;
             }
 
@@ -429,7 +431,7 @@
             <div class="hero-image">
                 <div class="carousel-container">
                     <div class="carousel-inner" id="carouselInner">
-                        <!-- Imágenes del carrusel (centradas con object-position) -->
+                        <!-- Imágenes del carrusel (ahora con contain para fotos grandes) -->
                         <div class="carousel-item">
                             <img src="assets/index/1.jpeg" alt="Foto del equipo 1">
                         </div>
@@ -460,7 +462,7 @@
     </footer>
 
     <script>
-        // JavaScript para el carrusel (con flechas y centrado)
+        // JavaScript para el carrusel (sin cambios, funciona con las nuevas imágenes)
         document.addEventListener('DOMContentLoaded', function() {
             const carouselInner = document.getElementById('carouselInner');
             const carouselIndicators = document.getElementById('carouselIndicators');
