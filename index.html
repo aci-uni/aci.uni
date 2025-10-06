@@ -173,7 +173,7 @@
             transform: translateY(-2px);
         }
 
-        /* ─── Carrusel de Imágenes (ajustado para fotos grandes, sin autoescalado excesivo) ─────────────────────────── */
+        /* ─── Carrusel de Imágenes (recuadro adaptado al tamaño de las fotos) ─────────────────────────── */
         .hero-image {
             flex: 1;
             display: flex;
@@ -181,23 +181,25 @@
             align-items: center;
             min-width: 300px;
             position: relative;
-            height: 500px; /* Altura fija, pero imágenes se ajustan mejor */
+            height: auto; /* Altura auto para adaptarse a las imágenes */
+            min-height: 400px; /* Mínimo para hero, pero se expande con la imagen */
         }
 
         .carousel-container {
             width: 95%;
             max-width: 580px;
-            height: 100%;
+            height: auto; /* Altura auto para adaptarse */
             position: relative;
             overflow: hidden;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
+            aspect-ratio: 3 / 2; /* Aspect-ratio aproximado para 2560x1706 (~1.5:1), se adapta al contenido */
         }
 
         .carousel-inner {
             display: flex;
             transition: transform 0.5s ease-in-out;
-            height: 100%;
+            height: 100%; /* 100% del contenedor adaptado */
             width: 100%;
         }
 
@@ -249,15 +251,15 @@
             background: #fff;
         }
 
-        /* Flechas en círculos transparentes (blanco sutil para fondo claro) */
+        /* Flechas más pequeñas y transparentes */
         .carousel-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.8); /* Círculo semi-transparente blanco (más visible en fondo claro) */
-            border: 2px solid rgba(255, 255, 255, 0.9); /* Borde blanco */
+            width: 35px; /* Más pequeña: de 50px a 35px */
+            height: 35px; /* Más pequeña */
+            background: rgba(255, 255, 255, 0.2); /* Más transparente: de 0.8 a 0.2 */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Borde más sutil y transparente */
             border-radius: 50%;
             cursor: pointer;
             display: flex;
@@ -265,21 +267,21 @@
             justify-content: center;
             z-index: 5;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(5px); /* Blur reducido para sutileza */
         }
 
         .carousel-arrow:hover {
-            background: rgba(255, 255, 255, 1);
-            border-color: #fff;
-            transform: translateY(-50%) scale(1.1);
+            background: rgba(255, 255, 255, 0.4); /* Hover más opaco pero aún sutil (de 1 a 0.4) */
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-50%) scale(1.05); /* Escala más sutil */
         }
 
         .carousel-arrow.prev {
-            left: 10px;
+            left: 5px; /* Posición más cerca para tamaño reducido */
         }
 
         .carousel-arrow.next {
-            right: 10px;
+            right: 5px;
         }
 
         .carousel-arrow::before {
@@ -287,19 +289,19 @@
             display: block;
             width: 0;
             height: 0;
-            border: 8px solid transparent;
+            border: 6px solid transparent; /* Flecha más pequeña: de 8px a 6px */
         }
 
         .carousel-arrow.prev::before {
             border-right-color: var(--primary); /* Flecha azul oscuro */
             border-left: 0;
-            margin-left: 2px;
+            margin-left: 1px; /* Ajuste para tamaño */
         }
 
         .carousel-arrow.next::before {
             border-left-color: var(--primary); /* Flecha azul oscuro */
             border-right: 0;
-            margin-right: 2px;
+            margin-right: 1px;
         }
 
         /* ─── Footer (azul oscuro para contraste) ─────────────────────────── */
@@ -329,6 +331,10 @@
             nav ul li a {
                 font-size: 0.95rem;
             }
+
+            .carousel-container {
+                max-width: 500px; /* Ajuste responsive para contenedor */
+            }
         }
 
         @media (max-width: 900px) {
@@ -343,7 +349,7 @@
             }
 
             .hero-image {
-                height: 400px;
+                min-height: 300px; /* Mínimo reducido en responsive */
                 margin-bottom: 1rem;
             }
 
@@ -364,9 +370,13 @@
                 font-size: 0.9rem;
             }
 
-            /* Ocultar flechas en móviles */
+            /* Ocultar flechas en móviles para simplicidad */
             .carousel-arrow {
                 display: none;
+            }
+
+            .carousel-container {
+                aspect-ratio: 16 / 9; /* Aspecto más cuadrado en móviles para mejor fit */
             }
         }
 
@@ -396,7 +406,11 @@
             }
 
             .hero-image {
-                height: 300px;
+                min-height: 250px; /* Aún más reducido en móviles */
+            }
+
+            .carousel-container {
+                max-width: 100%; /* Ocupa todo el ancho en móviles */
             }
         }
     </style>
@@ -431,7 +445,7 @@
             <div class="hero-image">
                 <div class="carousel-container">
                     <div class="carousel-inner" id="carouselInner">
-                        <!-- Imágenes del carrusel (ahora con contain para fotos grandes) -->
+                        <!-- Imágenes del carrusel (ahora con contenedor adaptado) -->
                         <div class="carousel-item">
                             <img src="assets/index/1.jpeg" alt="Foto del equipo 1">
                         </div>
@@ -462,7 +476,7 @@
     </footer>
 
     <script>
-        // JavaScript para el carrusel (sin cambios, funciona con las nuevas imágenes)
+        // JavaScript para el carrusel (sin cambios, funciona con el nuevo adaptado)
         document.addEventListener('DOMContentLoaded', function() {
             const carouselInner = document.getElementById('carouselInner');
             const carouselIndicators = document.getElementById('carouselIndicators');
