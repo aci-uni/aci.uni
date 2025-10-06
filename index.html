@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js" defer></script>
     <style>
+        /* ============================================================
+           🔵 BLOQUE 1: ESTILOS GENERALES (uniformes con areas.html)
+        ============================================================ */
         :root {
-            --primary: #0a2342; /* Azul oscuro para acentos generales */
-            --secondary: #102f60; /* Azul medio */
-            --accent: #ffc107; /* Dorado para hovers y active */
-            --light-blue: #e7f1fb; /* Azul muy claro para fondos */
-            --lighter-blue: #f0f8ff; /* Aún más claro para gradientes suaves */
+            --primary: #0a2342; /* Azul oscuro original */
+            --secondary: #102f60; /* Azul medio para gradientes */
+            --accent: #ffc107; /* Dorado original para hovers y active */
             --dark: #1E293B;
+            --light: #F8FAFC; /* Gris claro uniforme */
             --text: #334155;
             --radius: 14px;
             --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
@@ -24,17 +26,19 @@
             margin: 0;
             font-family: 'Inter', sans-serif;
             color: var(--text);
-            background-color: var(--light-blue); /* Fondo más claro y combinante (azul suave) */
+            background-color: var(--light); /* Uniforme con areas.html */
             scroll-behavior: smooth;
         }
 
-        /* ─── Header y Navbar (fondo blanco, active solo dorado sin cuadro, ancho reducido) ─────────────────────────── */
+        /* ============================================================
+           🔵 BLOQUE 2: HEADER Y NAVEGACIÓN (exactamente como en areas.html)
+        ============================================================ */
         header nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #fff; /* Fondo blanco como original, sin "cuadro" para active */
-            padding: 0.75rem 1.5rem; /* Ancho reducido: de 3rem a 1.5rem lateral */
+            background-color: var(--primary); /* Azul oscuro original */
+            padding: 0.75rem 3rem; /* Exacto: compacto y uniforme */
             box-shadow: var(--shadow);
             position: fixed;
             top: 0;
@@ -44,7 +48,7 @@
         }
 
         .logo {
-            height: 45px; /* Compacto y uniforme */
+            height: 45px; /* Como en el original */
             transition: transform 0.3s ease;
         }
 
@@ -55,7 +59,7 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 0.8rem; /* Gap reducido para caber en navbar más angosta */
+            gap: 1rem; /* Uniforme: gap optimizado para horizontal */
             margin: 0;
             padding: 0;
             flex-wrap: nowrap;
@@ -64,17 +68,17 @@
         nav ul li a {
             text-decoration: none;
             font-weight: 500;
-            color: var(--dark); /* Texto dark en fondo blanco */
+            color: #fff; /* Blanco original en navbar azul */
             transition: color 0.3s ease;
             position: relative;
-            font-size: 0.95rem; /* Ligeramente más pequeño para fit en ancho reducido */
+            font-size: 1rem; /* Uniforme: más grande para legibilidad */
             white-space: nowrap;
-            /* Sin fondo para active/hover, solo color dorado y línea */
+            padding: 0.5rem 0; /* Padding mínimo para alineación */
         }
 
         nav ul li a.active,
         nav ul li a:hover {
-            color: var(--accent); /* Solo dorado, sin fondo blanco o cuadro */
+            color: var(--accent); /* Dorado original para hover y active */
         }
 
         nav ul li a.active::after,
@@ -85,18 +89,20 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--accent); /* Línea dorada sutil */
+            background-color: var(--accent); /* Dorado para la línea inferior */
             border-radius: 2px;
         }
 
-        /* ─── Hero Section (fondo más claro y combinante) ─────────────────────────── */
+        /* ============================================================
+           🔵 BLOQUE 3: HERO PRINCIPAL (ajustado para uniformidad con navbar azul oscuro)
+        ============================================================ */
         .hero {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            padding: 8.5rem 3rem 5rem; /* Ajustado para navbar */
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--lighter-blue) 100%); /* Gradiente azul muy claro y suave */
+            padding: 8.5rem 3rem 5rem; /* Uniforme: padding-top ajustado para navbar fija */
+            background: linear-gradient(135deg, var(--light) 0%, #f0f4f8 100%); /* Fondo claro suave para contraste con navbar */
             min-height: 90vh;
             overflow: hidden;
         }
@@ -173,7 +179,9 @@
             transform: translateY(-2px);
         }
 
-        /* ─── Carrusel de Imágenes (recuadro adaptado al tamaño de las fotos, sin flechas) ─────────────────────────── */
+        /* ============================================================
+           🔵 BLOQUE 4: CARRUSEL DE IMÁGENES (recuadro adaptado al tamaño de las fotos, sin flechas)
+        ============================================================ */
         .hero-image {
             flex: 1;
             display: flex;
@@ -251,10 +259,12 @@
             background: #fff;
         }
 
-        /* ─── Footer (azul oscuro para contraste) ─────────────────────────── */
+        /* ============================================================
+           🔵 BLOQUE 5: FOOTER (estilo original azul oscuro, uniforme)
+        ============================================================ */
         footer {
-            background-color: var(--primary); /* Azul oscuro */
-            color: #e2e8f0;
+            background-color: var(--primary); /* Azul oscuro original */
+            color: #fff; /* Blanco original */
             text-align: center;
             padding: 2rem 1rem;
             font-size: 0.95rem;
@@ -265,18 +275,20 @@
             margin: 0;
         }
 
-        /* ─── Responsive ─────────────────────────── */
+        /* ============================================================
+           🔵 BLOQUE 6: RESPONSIVE (exactamente como en areas.html)
+        ============================================================ */
         @media (max-width: 1200px) {
             header nav {
-                padding: 0.75rem 1.2rem; /* Ancho aún más reducido en responsive */
+                padding: 0.75rem 2rem;
             }
 
             nav ul {
-                gap: 0.6rem;
+                gap: 0.8rem;
             }
 
             nav ul li a {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
 
             .carousel-container {
@@ -306,15 +318,15 @@
             }
 
             header nav {
-                padding: 0.75rem 1rem; /* Ancho reducido en tablets */
+                padding: 0.75rem 1.5rem;
             }
 
             nav ul {
-                gap: 0.5rem;
+                gap: 0.7rem;
             }
 
             nav ul li a {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
             }
 
             .carousel-container {
@@ -325,22 +337,20 @@
         @media (max-width: 600px) {
             header nav {
                 flex-direction: row;
-                padding: 0.75rem 0.8rem; /* Ancho mínimo en móviles */
+                padding: 0.75rem 1rem;
                 justify-content: space-between;
             }
 
             nav ul {
-                gap: 0.4rem;
+                gap: 0.5rem;
                 flex: 1;
                 justify-content: flex-end;
-                margin-left: 0.5rem; /* Margen reducido */
-                flex-wrap: wrap;
-                justify-content: center;
+                margin-left: 1rem;
             }
 
             nav ul li a {
-                font-size: 0.8rem;
-                padding: 0 0.1rem;
+                font-size: 0.85rem;
+                padding: 0 0.2rem;
             }
 
             .hero-buttons {
@@ -349,6 +359,12 @@
 
             .hero-image {
                 min-height: 250px; /* Aún más reducido en móviles */
+            }
+
+            nav ul {
+                flex-wrap: wrap; /* Como en el original para móviles */
+                justify-content: center;
+                gap: 0.5rem;
             }
 
             .carousel-container {
