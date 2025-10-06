@@ -1,208 +1,193 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre Nosotros | ACI UNI</title>
 
-  <!-- Tipografía -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- 🔹 Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ===== ESTILO B: Clean Institutional Blue-Gold ===== */
-
-    :root {
-      --azul-principal: #0056A6;
-      --azul-secundario: #00AEEF;
-      --dorado: #FFB703;
-      --gris-suave: #F8FAFC;
-      --texto: #333;
-    }
-
+    /* ============================================================
+       🔵 BLOQUE 1: ESTILOS GENERALES
+    ============================================================ */
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      background-color: var(--gris-suave);
-      color: var(--texto);
-      line-height: 1.6;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
     }
 
-    /* ---------- HEADER ---------- */
+    /* ============================================================
+       🔵 BLOQUE 2: HEADER Y NAVEGACIÓN
+    ============================================================ */
     header {
-      background: var(--azul-principal);
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      background-color: #0a2342;
+      padding: 15px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     }
 
     nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       width: 90%;
       margin: auto;
-      padding: 10px 0;
     }
 
     nav .logo {
-      height: 48px;
+      height: 45px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 22px;
+      gap: 25px;
       margin: 0;
       padding: 0;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
+      color: white;
       font-weight: 500;
-      transition: all 0.3s ease;
+      transition: color 0.3s ease;
     }
 
     nav ul li a:hover,
     nav ul li a.active {
-      color: var(--dorado);
+      color: #ffc107;
     }
 
-    /* ---------- HERO ---------- */
+    /* ============================================================
+       🔵 BLOQUE 3: HERO PRINCIPAL (TÍTULO Y SUBTÍTULO)
+    ============================================================ */
     .hero-small {
-      background: linear-gradient(135deg, var(--azul-principal), var(--azul-secundario));
       text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(120deg, #0a2342, #102f60);
       color: #fff;
-      padding: 70px 20px 50px;
     }
 
     .hero-small h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.8em;
-      font-weight: 700;
-      margin: 0 0 10px;
+      font-size: 2.4em;
+      margin-bottom: 10px;
     }
 
     .hero-small p {
-      color: #e0e7ff;
+      color: #ddd;
       font-size: 1.1em;
       margin: 0;
     }
 
-    /* ---------- MAIN ---------- */
+    /* ============================================================
+       🔵 BLOQUE 4: SECCIÓN PRINCIPAL (HISTORIA, MISIÓN, VISIÓN)
+    ============================================================ */
     main {
       width: 90%;
       max-width: 1200px;
       margin: 60px auto;
-    }
-
-    main section {
       text-align: center;
-      margin-bottom: 60px;
     }
 
     main h2 {
-      font-family: 'Montserrat', sans-serif;
       font-size: 2em;
-      color: var(--azul-principal);
+      color: #0a2342;
       margin-bottom: 15px;
     }
 
     main p {
       color: #555;
-      max-width: 900px;
-      margin: 0 auto 30px;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
       font-size: 1.05rem;
     }
 
-    /* ---------- TARJETAS DE LOGROS ---------- */
-    .logros-list {
+    /* ============================================================
+       🔵 BLOQUE 5: TARJETAS DE LOGROS
+    ============================================================ */
+    .logros-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 25px;
     }
 
     .logro-card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       padding: 20px;
       text-align: left;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .logro-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
 
     .logro-card img {
       width: 100%;
-      height: 180px;
+      height: auto;
+      border-radius: 12px;
       object-fit: cover;
-      border-radius: 14px;
       margin-bottom: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
     }
 
     .logro-card h3 {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--azul-principal);
-      font-size: 1.2em;
+      color: #0a2342;
+      font-size: 1.3em;
       margin-bottom: 8px;
     }
 
     .logro-card .datos {
-      background-color: var(--gris-suave);
-      padding: 10px;
-      border-left: 4px solid var(--azul-secundario);
-      border-radius: 6px;
-      color: #444;
-      font-size: 0.93em;
+      color: #555;
+      font-size: 0.95em;
       margin-bottom: 10px;
     }
 
     .logro-card p {
-      font-size: 0.95em;
       color: #555;
+      font-size: 0.95em;
       line-height: 1.6;
     }
 
-    /* ---------- FOOTER ---------- */
+    /* ============================================================
+       🔵 BLOQUE 6: FOOTER
+    ============================================================ */
     footer {
       text-align: center;
-      background-color: var(--azul-principal);
-      color: #fff;
       padding: 25px;
-      font-size: 0.95em;
-      box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+      background-color: #0a2342;
+      color: white;
+      margin-top: 50px;
     }
 
+    /* ============================================================
+       🔵 BLOQUE 7: RESPONSIVE (ADAPTACIÓN A MÓVIL)
+    ============================================================ */
     @media (max-width: 768px) {
       nav ul {
         flex-wrap: wrap;
         justify-content: center;
-      }
-
-      .hero-small h1 {
-        font-size: 2em;
-      }
-
-      .logro-card img {
-        height: 150px;
+        gap: 15px;
       }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- ============================================================
+       🟢 BLOQUE 8: HEADER + MENÚ
+  ============================================================ -->
   <header>
     <nav>
-      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo" /></a>
+      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="about.html" class="active">Sobre Nosotros</a></li>
@@ -217,24 +202,31 @@
       </ul>
     </nav>
 
+    <!-- HERO -->
     <section class="hero-small">
       <h1>Sobre Nosotros</h1>
       <p>Conoce la historia, misión, visión y logros del Capítulo Estudiantil ACI UNI</p>
     </section>
   </header>
 
+  <!-- ============================================================
+       🟢 BLOQUE 9: CONTENIDO PRINCIPAL
+  ============================================================ -->
   <main>
-    <!-- Secciones Historia / Misión / Visión -->
+
+    <!-- HISTORIA -->
     <section>
       <h2>Historia</h2>
-      <p>A lo largo de los últimos años, el Capítulo Estudiantil ACI UNI ha demostrado un compromiso constante con la excelencia académica, la innovación en ingeniería y la representación internacional de la Universidad Nacional de Ingeniería...</p>
+      <p> A lo largo de los últimos años, el Capítulo Estudiantil ACI UNI ha demostrado un compromiso constante con la excelencia académica, la innovación en ingeniería y la representación internacional de la Universidad Nacional de Ingeniería...</p>
     </section>
 
+    <!-- MISIÓN -->
     <section>
       <h2>Misión</h2>
       <p>Fomentar semilleros de investigación en la línea de la Tecnología del concreto, impulsando con ello el desarrollo profesional de nuestros miembros activos del capítulo estudiantil.</p>
     </section>
 
+    <!-- VISIÓN -->
     <section>
       <h2>Visión</h2>
       <p>Posicionarnos como el mejor capítulo del año 2025 a nivel internacional, en conjunto con el crecimiento de nuestros eventos académicos, participaciones en competencias nacionales e internacionales, y organización de eventos colaborativos.</p>
@@ -243,22 +235,22 @@
     <!-- LOGROS -->
     <section>
       <h2>Logros</h2>
+
+      <!-- ⚙️ Aquí comienzan las tarjetas de logros -->
       <div class="logros-list">
-        <!-- Ejemplo de una tarjeta -->
+        <!-- Ejemplo de logro -->
         <div class="logro-card">
-          <img src="assets/epd-2025-aci-peru-1.jpg" alt="Egg Protection Device 2025 – ACI Perú" />
-          <h3>Egg Protection Device 2025 – ACI Perú</h3>
+          <img src="assets/epd-aci-anaheim-2017.jpg" alt="ACI Egg Protection Device Competition – ACI Concrete Convention, 2017">
+          <h3>ACI Egg Protection Device Competition – ACI Concrete Convention</h3>
           <div class="datos">
-            <strong>Fecha:</strong> Septiembre 2025<br />
-            <strong>Puesto obtenido:</strong> 1.º lugar<br />
-            <strong>Lugar:</strong> Lima, Perú
+            <strong>Año:</strong> Octubre, 2017<br>
+            <strong>Puesto obtenido:</strong> 1.º lugar<br>
+            <strong>Lugar:</strong> Anaheim, EE. UU.
           </div>
-          <p>Diseñar y construir un dispositivo de concreto innovador y eficiente, capaz de proteger un huevo crudo al ser sometido a una carga de impacto.</p>
+          <p>Diseñar y construir un dispositivo de protección para un huevo que utilice concreto de ultra alto desempeño...</p>
         </div>
-      </div>
-        
-      <h2>Logros</h2>
-      <div class="logros-list">
+
+        <div class="logros-list">
         <!-- 2017 -->
         <div class="logro-card">
           <img src="assets/epd-aci-anaheim-2017.jpg" alt="ACI Egg Protection Device Competition – ACI Concrete Convention, 2017">
@@ -488,13 +480,17 @@
             </p>
           </div>
         </div>
+      
       </div>
     </section>
   </main>
 
+  <!-- ============================================================
+       🟢 BLOQUE 10: FOOTER
+  ============================================================ -->
   <footer>
     <p>&copy; 2025 Capítulo Estudiantil ACI UNI.</p>
   </footer>
+
 </body>
 </html>
-
