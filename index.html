@@ -101,12 +101,12 @@
         .hero-content {
             max-width: 540px;
             z-index: 2;
-            text-align: left; /* Alineado a la izquierda como en el original */
+            text-align: center; /* Centrado para que el logo y "Always Advancing" estén alineados */
         }
 
         .hero-logo {
             height: 160px;
-            margin: 0 auto 1.5rem; /* Centra el logo horizontalmente dentro del .hero-content (arriba de "Always Advancing") */
+            margin: 0 auto 1.5rem; /* Centra el logo horizontalmente y ajusta margen inferior */
             display: block; /* Asegura que sea un bloque centrable */
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
             transition: transform 0.3s ease;
@@ -134,7 +134,7 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            /* Sin justify-content: center; para mantener alineación a la izquierda como original */
+            justify-content: center; /* Centra los botones */
         }
 
         .button,
@@ -273,7 +273,7 @@
         @media (max-width: 900px) {
             .hero {
                 flex-direction: column-reverse;
-                text-align: center; /* En móviles, centra todo para mejor UX */
+                text-align: center;
                 padding: 9rem 1.5rem 4rem;
             }
 
@@ -288,7 +288,6 @@
 
             .hero-logo {
                 height: 130px;
-                margin: 0 auto 1rem; /* Ajusta margen en responsive */
             }
 
             header nav {
@@ -324,7 +323,7 @@
             }
 
             .hero-buttons {
-                justify-content: center; /* En móviles pequeños, centra los botones para mejor UX */
+                justify-content: center;
             }
 
             .hero-image {
