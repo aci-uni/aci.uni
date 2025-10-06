@@ -23,62 +23,82 @@
     /* ============================================================
        🔵 BLOQUE 2: HEADER Y NAVEGACIÓN
     ============================================================ */
-   header nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #fff;
-      padding: 1rem 3rem;
-      box-shadow: var(--shadow);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 10;
-    }
+  /* --- NAVBAR INSTITUCIONAL (Clean Blue-Gold) --- */
 
-    .logo {
-      height: 55px;
-      transition: transform 0.3s ease;
-    }
+header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: relative;
+  z-index: 10;
+}
 
-    .logo:hover {
-      transform: scale(1.05);
-    }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.8rem;
-      margin: 0;
-      padding: 0;
-    }
+.logo {
+  height: 55px;
+  transition: transform 0.3s ease;
+}
 
-    nav ul li a {
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--dark);
-      transition: color 0.3s ease;
-      position: relative;
-    }
+.logo:hover {
+  transform: scale(1.05);
+}
 
-    nav ul li a.active,
-    nav ul li a:hover {
-      color: var(--primary);
-    }
+/* --- MENÚ PRINCIPAL --- */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+}
 
-    nav ul li a.active::after,
-    nav ul li a:hover::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--primary);
-      border-radius: 2px;
-    }
+nav ul li a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: 'Poppins', sans-serif;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
 
+/* --- EFECTO HOVER AZUL-DORADO --- */
+nav ul li a:hover {
+  background-color: #003f7f; /* Azul ACI */
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(0,63,127,0.2);
+}
+
+/* --- ENLACE ACTIVO --- */
+nav ul li a.active {
+  background-color: #d4af37; /* Dorado */
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo {
+    height: 45px;
+  }
+}
     /* ============================================================
        🔵 BLOQUE 3: HERO PRINCIPAL (TÍTULO Y SUBTÍTULO)
     ============================================================ */
