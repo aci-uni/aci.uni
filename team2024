@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equipo Directivo 2024 | ACI UNI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+  <style>
+    /* ---------- ESTILO CLEAN INSTITUTIONAL BLUE-GOLD ---------- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    /* ---------- HEADER Y NAVBAR ---------- */
+    header {
+      background-color: #0a2342;
+      padding: 15px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      margin: auto;
+    }
+
+    nav .logo {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ffc107;
+    }
+
+    /* ---------- MENÚ DESPLEGABLE ---------- */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 180px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .dropdown-content li {
+      list-style: none;
+    }
+
+    .dropdown-content li a {
+      display: block;
+      color: #0a2342;
+      text-decoration: none;
+      padding: 10px 15px;
+      font-weight: 500;
+    }
+
+    .dropdown-content li a:hover {
+      background-color: #f1f1f1;
+      color: #ffc107;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown i {
+      margin-left: 6px;
+      font-size: 0.8em;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero-small {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(120deg, #0a2342, #102f60);
+      color: #fff;
+    }
+
+    .hero-small h1 {
+      font-size: 2.4em;
+      margin-bottom: 10px;
+    }
+
+    .hero-small p {
+      color: #ddd;
+      font-size: 1.1em;
+      margin: 0;
+    }
+
+    /* ---------- SECCIÓN EQUIPO ---------- */
+    .team-section {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .team-section h2 {
+      font-size: 2em;
+      color: #0a2342;
+      margin-bottom: 15px;
+    }
+
+    .team-intro {
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      font-size: 1em;
+    }
+
+    /* ---------- TARJETAS DE EQUIPO ---------- */
+    .top-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .team-member {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 25px 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+      max-width: 270px;
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .team-member img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #ffc107;
+    }
+
+    .team-member h3 {
+      margin: 12px 0 4px;
+      font-size: 1.1rem;
+      color: #0a2342;
+    }
+
+    .team-member p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    /* ---------- ICONOS DE REDES ---------- */
+    .social-links a {
+      color: #0a2342;
+      font-size: 1.3rem;
+      margin: 0 6px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #ffc107;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #0a2342;
+      color: white;
+      margin-top: 50px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.95em;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .team-member img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo" /></a>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="about.html">Sobre Nosotros</a></li>
+        <li><a href="areas.html">Áreas</a></li>
+        <li><a href="events.html">Eventos</a></li>
+        <li><a href="projects.html">Proyectos</a></li>
+
+        <!-- 🔽 MENÚ DESPLEGABLE EQUIPO -->
+        <li class="dropdown">
+          <a href="team.html">Equipo <i class="fa-solid fa-caret-down"></i></a>
+          <ul class="dropdown-content">
+            <li><a href="team.html">Directiva 2025</a></li>
+            <li><a href="team2024.html" class="active">Directiva 2024</a></li>
+          </ul>
+        </li>
+
+        <li><a href="gallery.html">Galería</a></li>
+        <li><a href="join.html">Únete</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+        <li><a href="sponsors.html">Patrocinadores</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero-small">
+      <h1>Equipo Directivo 2024</h1>
+      <p>Conoce al equipo que lideró el Capítulo Estudiantil ACI UNI durante el año 2024</p>
+    </section>
+  </header>
+
+  <main>
+    <section class="team-section">
+      <h2>Nuestro Equipo 2024</h2>
+      <p class="team-intro">
+        Este equipo sentó las bases del crecimiento institucional del Capítulo ACI UNI, impulsando la innovación y el trabajo colaborativo entre estudiantes y docentes.
+      </p>
+
+      <!-- EJEMPLO DE TARJETAS (actualízalo con tus datos del 2024) -->
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="assets/presidente2024.png" alt="Presidente 2024" />
+          <h3>Nombre del Presidente</h3>
+          <p>Presidente</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <img src="assets/vicepresidente2024.png" alt="Vicepresidente 2024" />
+          <h3>Nombre del Vicepresidente</h3>
+          <p>Vicepresidente</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <img src="assets/director2024.png" alt="Director de Área 2024" />
+          <h3>Nombre del Director</h3>
+          <p>Director de [Área]</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
