@@ -5,214 +5,285 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre Nosotros | ACI UNI</title>
 
-  <!-- 🔹 Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- 🔹 Fuentes (uniformes con index.html) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
-       🔵 BLOQUE 1: ESTILOS GENERALES
+       🔵 BLOQUE 1: ESTILOS GENERALES (uniformes con index.html)
     ============================================================ */
+    :root {
+      --primary: #0056A6;
+      --secondary: #00AEEF;
+      --dark: #1E293B;
+      --light: #F8FAFC;
+      --text: #334155;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fafafa;
-      color: #333;
+      background-color: var(--light);
+      color: var(--text);
+      scroll-behavior: smooth;
     }
 
     /* ============================================================
-       🔵 BLOQUE 2: HEADER Y NAVEGACIÓN
+       🔵 BLOQUE 2: HEADER Y NAVEGACIÓN (corregida y uniforme con index.html)
     ============================================================ */
-  /* --- NAVBAR INSTITUCIONAL (Clean Blue-Gold) --- */
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 0.75rem 3rem; /* Uniforme: padding vertical reducido, lateral amplio */
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+    }
 
-header {
-  background-color: #ffffff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  position: relative;
-  z-index: 10;
-}
+    .logo {
+      height: 50px; /* Uniforme: reducido para navbar compacta */
+      transition: transform 0.3s ease;
+    }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+    .logo:hover {
+      transform: scale(1.05);
+    }
 
-.logo {
-  height: 55px;
-  transition: transform 0.3s ease;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem; /* Uniforme: gap optimizado para horizontal */
+      margin: 0;
+      padding: 0;
+      flex-wrap: nowrap;
+    }
 
-.logo:hover {
-  transform: scale(1.05);
-}
+    nav ul li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--dark); /* Uniforme: color base */
+      transition: color 0.3s ease;
+      position: relative;
+      font-size: 1rem; /* Uniforme: más grande para legibilidad */
+      white-space: nowrap;
+      padding: 0.5rem 0; /* Padding mínimo para alineación */
+    }
 
-/* --- MENÚ PRINCIPAL --- */
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1.2rem;
-  margin: 0;
-  padding: 0;
-}
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: var(--primary); /* Uniforme: hover y active con primary */
+    }
 
-nav ul li a {
-  text-decoration: none;
-  font-weight: 500;
-  color: #1a1a1a;
-  font-family: 'Poppins', sans-serif;
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
+    nav ul li a.active::after,
+    nav ul li a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
 
-/* --- EFECTO HOVER AZUL-DORADO --- */
-nav ul li a:hover {
-  background-color: #003f7f; /* Azul ACI */
-  color: #ffffff;
-  box-shadow: 0 0 10px rgba(0,63,127,0.2);
-}
-
-/* --- ENLACE ACTIVO --- */
-nav ul li a.active {
-  background-color: #d4af37; /* Dorado */
-  color: #ffffff;
-  font-weight: 600;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .logo {
-    height: 45px;
-  }
-}
     /* ============================================================
-       🔵 BLOQUE 3: HERO PRINCIPAL (TÍTULO Y SUBTÍTULO)
+       🔵 BLOQUE 3: HERO PRINCIPAL (ajustado para uniformidad)
     ============================================================ */
     .hero-small {
       text-align: center;
-      padding: 60px 20px 40px;
-      background: linear-gradient(120deg, #0a2342, #102f60);
+      padding: 8.5rem 3rem 4rem; /* Uniforme: padding-top ajustado para navbar fija */
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); /* Uniforme: gradiente con primary/secondary */
       color: #fff;
+      margin-top: 0; /* Asegura que no haya gap con navbar */
     }
 
     .hero-small h1 {
-      font-size: 2.4em;
-      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif; /* Uniforme: Montserrat para títulos */
+      font-size: 2.8rem; /* Similar al hero principal */
+      margin: 0.5rem 0;
+      color: #fff;
     }
 
     .hero-small p {
-      color: #ddd;
-      font-size: 1.1em;
+      font-size: 1.1rem;
       margin: 0;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9); /* Blanco semi-transparente para contraste */
     }
 
     /* ============================================================
-       🔵 BLOQUE 4: SECCIÓN PRINCIPAL (HISTORIA, MISIÓN, VISIÓN)
+       🔵 BLOQUE 4: SECCIÓN PRINCIPAL (colores uniformes)
     ============================================================ */
     main {
       width: 90%;
       max-width: 1200px;
-      margin: 60px auto;
+      margin: 3rem auto; /* Espaciado uniforme */
       text-align: center;
     }
 
     main h2 {
-      font-size: 2em;
-      color: #0a2342;
-      margin-bottom: 15px;
+      font-family: 'Montserrat', sans-serif; /* Uniforme */
+      font-size: 2.5rem;
+      color: var(--primary); /* Uniforme: primary para títulos */
+      margin-bottom: 1rem;
     }
 
     main p {
-      color: #555;
+      color: var(--text); /* Uniforme */
       max-width: 800px;
-      margin: 0 auto 40px;
+      margin: 0 auto 2.5rem;
       line-height: 1.7;
       font-size: 1.05rem;
     }
 
     /* ============================================================
-       🔵 BLOQUE 5: TARJETAS DE LOGROS
+       🔵 BLOQUE 5: TARJETAS DE LOGROS (ajustadas para uniformidad)
     ============================================================ */
-    .logros-grid {
+    .logros-grid { /* Corregido: usar grid en lugar de list */
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      gap: 2rem; /* Gap uniforme */
+      margin-top: 2rem;
     }
 
     .logro-card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      padding: 20px;
+      background: #fff;
+      border-radius: var(--radius); /* Uniforme */
+      box-shadow: var(--shadow); /* Uniforme */
+      padding: 1.5rem;
       text-align: left;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .logro-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      transform: translateY(-2px); /* Efecto sutil uniforme */
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     }
 
     .logro-card img {
       width: 100%;
-      height: auto;
-      border-radius: 12px;
+      height: 200px; /* Altura fija para consistencia */
       object-fit: cover;
-      margin-bottom: 15px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow);
     }
 
     .logro-card h3 {
-      color: #0a2342;
-      font-size: 1.3em;
-      margin-bottom: 8px;
+      color: var(--primary); /* Uniforme */
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .logro-card .datos {
-      color: #555;
-      font-size: 0.95em;
-      margin-bottom: 10px;
+      color: var(--text);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
     }
 
     .logro-card p {
-      color: #555;
-      font-size: 0.95em;
-      margin-bottom: 10px;
+      color: var(--text);
+      font-size: 0.95rem;
+      margin-bottom: 0;
+      line-height: 1.6;
     }
 
     /* ============================================================
-       🔵 BLOQUE 6: FOOTER
+       🔵 BLOQUE 6: FOOTER (uniforme)
     ============================================================ */
     footer {
+      background-color: var(--dark);
+      color: #e2e8f0; /* Uniforme */
       text-align: center;
-      padding: 25px;
-      background-color: #0a2342;
-      color: white;
-      margin-top: 50px;
+      padding: 2rem 1rem;
+      font-size: 0.95rem;
+      margin-top: 3rem;
+    }
+
+    footer p {
+      margin: 0;
     }
 
     /* ============================================================
-       🔵 BLOQUE 7: RESPONSIVE (ADAPTACIÓN A MÓVIL)
+       🔵 BLOQUE 7: RESPONSIVE (uniforme con index.html)
     ============================================================ */
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
+      header nav {
+        padding: 0.75rem 2rem;
+      }
+
       nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+        gap: 0.8rem;
+      }
+
+      nav ul li a {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-small {
+        padding: 7.5rem 1.5rem 3rem;
+      }
+
+      main h2 {
+        font-size: 2.2rem;
+      }
+
+      header nav {
+        padding: 0.75rem 1.5rem;
+      }
+
+      nav ul {
+        gap: 0.7rem;
+      }
+
+      nav ul li a {
+        font-size: 0.9rem;
+      }
+
+      .logros-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header nav {
+        flex-direction: row;
+        padding: 0.75rem 1rem;
+        justify-content: space-between;
+      }
+
+      nav ul {
+        gap: 0.5rem;
+        flex: 1;
+        justify-content: flex-end;
+        margin-left: 1rem;
+      }
+
+      nav ul li a {
+        font-size: 0.85rem;
+        padding: 0 0.2rem;
+      }
+
+      .hero-small h1 {
+        font-size: 2.2rem;
+      }
+
+      main {
+        width: 95%;
+        margin: 2rem auto;
       }
     }
   </style>
@@ -221,7 +292,7 @@ nav ul li a.active {
 <body>
 
   <!-- ============================================================
-       🟢 BLOQUE 8: HEADER + MENÚ
+       🟢 BLOQUE 8: HEADER + MENÚ (corregido)
   ============================================================ -->
   <header>
     <nav>
@@ -248,14 +319,14 @@ nav ul li a.active {
   </header>
 
   <!-- ============================================================
-       🟢 BLOQUE 9: CONTENIDO PRINCIPAL
+       🟢 BLOQUE 9: CONTENIDO PRINCIPAL (corregido: usar .logros-grid)
   ============================================================ -->
   <main>
 
     <!-- HISTORIA -->
     <section>
       <h2>Historia</h2>
-      <p> A lo largo de los últimos años, el Capítulo Estudiantil ACI UNI ha demostrado un compromiso constante con la excelencia académica, la innovación en ingeniería y la representación internacional de la Universidad Nacional de Ingeniería...</p>
+      <p>A lo largo de los últimos años, el Capítulo Estudiantil ACI UNI ha demostrado un compromiso constante con la excelencia académica, la innovación en ingeniería y la representación internacional de la Universidad Nacional de Ingeniería...</p>
     </section>
 
     <!-- MISIÓN -->
@@ -274,248 +345,119 @@ nav ul li a.active {
     <section>
       <h2>Logros</h2>
 
-      <!-- ⚙️ Aquí comienzan las tarjetas de logros -->
-      <div class="logros-list">
+      <!-- Corregido: usar .logros-grid en lugar de .logros-list -->
+      <div class="logros-grid">
         <!-- 2017 -->
         <div class="logro-card">
           <img src="assets/epd-aci-anaheim-2017.jpg" alt="ACI Egg Protection Device Competition – ACI Concrete Convention, 2017">
-            <h3>ACI Egg Protection Device Competition – ACI Concrete Convention</h3>
-            <div class="datos">
-              <strong>Año:</strong> Octubre, 2017<br>
-              <strong>Puesto obtenido:</strong> 1.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Anaheim, EE. UU.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Diseñar y construir un dispositivo de protección para un huevo que utilice concreto de ultra alto desempeño (UHPC — Ultra-High Performance Concrete), capaz de resistir cargas de impacto extremas sin que el huevo se rompa, al mismo tiempo que se evalúan criterios de sostenibilidad, durabilidad y resistencia.
-            </p>
+          <h3>ACI Egg Protection Device Competition – ACI Concrete Convention</h3>
+          <div class="datos">
+            <strong>Año:</strong> Octubre, 2017<br>
+            <strong>Puesto obtenido:</strong> 1.º lugar<br>
+            <strong>Lugar de la competencia:</strong> Anaheim, EE. UU.
           </div>
+          <p>
+            <strong>Descripción breve:</strong> Diseñar y construir un dispositivo de protección para un huevo que utilice concreto de ultra alto desempeño (UHPC — Ultra-High Performance Concrete), capaz de resistir cargas de impacto extremas sin que el huevo se rompa, al mismo tiempo que se evalúan criterios de sostenibilidad, durabilidad y resistencia.
+          </p>
         </div>
 
         <!-- 2018 -->
         <div class="logro-card">
           <img src="assets/frc-bowling-ball-aci-2018.jpg" alt="FRC Bowling Ball Competition – ACI Concrete Convention, 2018">
-            <h3>FRC Bowling Ball Competition – ACI Concrete Convention</h3>
-            <div class="datos">
-              <strong>Año:</strong> Marzo, 2018<br>
-              <strong>Puesto obtenido:</strong> 2.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Salt Lake City, EE. UU.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Competencia centrada en el diseño y fabricación de una bola de concreto reforzado con fibras (FRC), evaluando desempeño técnico, innovación presentación y resistencia a carga.
-            </p>
+          <h3>FRC Bowling Ball Competition – ACI Concrete Convention</h3>
+          <div class="datos">
+            <strong>Año:</strong> Marzo, 2018<br>
+            <strong>Puesto obtenido:</strong> 2.º lugar<br>
+            <strong>Lugar de la competencia:</strong> Salt Lake City, EE. UU.
           </div>
+          <p>
+            <strong>Descripción breve:</strong> Competencia centrada en el diseño y fabricación de una bola de concreto reforzado con fibras (FRC), evaluando desempeño técnico, innovación presentación y resistencia a carga.
+          </p>
         </div>
 
         <div class="logro-card">
           <img src="assets/pervious-concrete-las-vegas-2018.jpg" alt="Pervious Concrete Cylinder Competition, Las Vegas 2018">
-            <h3>Pervious Concrete Cylinder Competition - ACI Concrete Convention</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Octubre, 2018.<br>
-              <strong>Puesto obtenido:</strong> 1.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Las Vegas, EE. UU.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Diseñar una mezcla de concreto permeable que combine alta permeabilidad, resistencia estructural y eficiencia en el uso de materiales cementantes.
-            </p>
+          <h3>Pervious Concrete Cylinder Competition - ACI Concrete Convention</h3>
+          <div class="datos">
+            <strong>Fecha:</strong> Octubre, 2018.<br>
+            <strong>Puesto obtenido:</strong> 1.º lugar<br>
+            <strong>Lugar de la competencia:</strong> Las Vegas, EE. UU.
           </div>
+          <p>
+            <strong>Descripción breve:</strong> Diseñar una mezcla de concreto permeable que combine alta permeabilidad, resistencia estructural y eficiencia en el uso de materiales cementantes.
+          </p>
         </div>
 
         <!-- 2022 -->
         <div class="logro-card">
           <img src="assets/probetas-alta-resistencia-ecid-2022.jpg" alt="Probetas de Alta Resistencia – X ECID 2022">
-            <h3>Probetas de Alta Resistencia – X ECID</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Julio, 2022.<br>
-              <strong>Puesto obtenido:</strong> 1.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Lima, Perú.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Diseñar y elaborar cilindros de concreto que alcancen la mayor resistencia a compresión posible.
-            </p>
+          <h3>Probetas de Alta Resistencia – X ECID</h3>
+          <div class="datos">
+            <strong>Fecha:</strong> Julio, 2022.<br>
+            <strong>Puesto obtenido:</strong> 1.º lugar<br>
+            <strong>Lugar de la competencia:</strong> Lima, Perú.
           </div>
+          <p>
+            <strong>Descripción breve:</strong> Diseñar y elaborar cilindros de concreto que alcancen la mayor resistencia a compresión posible.
+          </p>
         </div>
 
         <!-- 2023 -->
         <div class="logro-card">
           <img src="assets/mortero-autocompactante-aci-2023.jpg" alt="Mortero Autocompactante – ACI Perú 2023">
-            <h3>Mortero Autocompactante – ACI Perú</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Enero, 2023.<br>
-              <strong>Puesto obtenido:</strong> 3.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Lima, Perú.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Diseñar una mezcla de mortero con excelente trabajabilidad, estabilidad y sostenibilidad.
-            </p>
+          <h3>Mortero Autocompactante – ACI Perú</h3>
+          <div class="datos">
+            <strong>Fecha:</strong> Enero, 2023.<br>
+            <strong>Puesto obtenido:</strong> 3.º lugar<br>
+            <strong>Lugar de la competencia:</strong> Lima, Perú.
           </div>
+          <p>
+            <strong>Descripción breve:</strong> Diseñar una mezcla de mortero con excelente trabajabilidad, estabilidad y sostenibilidad.
+          </p>
         </div>
 
         <!-- 2024 -->
         <div class="logro-card">
           <img src="assets/mortero-autocompactante-aci-2024.jpg" alt="Mortero Autocompactante – ACI Perú 2024">
-            <h3>Mortero Autocompactante – ACI Perú</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Enero, 2024.<br>
-              <strong>Puesto obtenido:</strong> 2.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Lima, Perú.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Diseñar una mezcla de mortero que combinara un excelente comportamiento en obra con criterios económicos y de sostenibilidad.
-            </p>
+          <h3>Mortero Autocompactante – ACI Perú</h3>
+          <div class="datos">
+            <strong>Fecha:</strong> Enero, 2024.<br>
+            <strong>Puesto obtenido:</strong> 2.º lugar<br>
+            <strong>Lugar de la competencia:</strong> Lima, Perú.
           </div>
+          <p>
+            <strong>Descripción breve:</strong> Diseñar una mezcla de mortero que combinara un excelente comportamiento en obra con criterios económicos y de sostenibilidad.
+          </p>
         </div>
 
         <div class="logro-card">
           <img src="assets/mortal-workability-aci-2024.jpg" alt="Mortal Workability Competition – ACI Concrete Convention 2024">
-            <h3>Mortal Workability Competition – ACI Concrete Convention</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Marzo, 2024.<br>
-              <strong>Puesto obtenido:</strong> 2.º lugar<br>
-              <strong>Lugar de la competencia:</strong> New Orleans, EE. UU.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Diseñar una mezcla de mortero que optimice la trabajabilidad, estabilidad y rendimiento técnico.
-            </p>
+          <h3>Mortal Workability Competition – ACI Concrete Convention</h3>
+          <div class="datos">
+            <strong>Fecha:</strong> Marzo, 2024.<br>
+            <strong>Puesto obtenido:</strong> 2.º lugar<br>
+            <strong>Lugar de la competencia:</strong> New Orleans, EE. UU.
           </div>
+          <p>
+            <strong>Descripción breve:</strong> Diseñar una mezcla de mortero que optimice la trabajabilidad, estabilidad y rendimiento técnico.
+          </p>
         </div>
 
         <div class="logro-card">
           <img src="assets/probetas-210-xii-ecid-2024.jpg" alt="Resistencia Controlada de Probetas 210 – XII ECID 2024">
-            <h3>Resistencia Controlada de Probetas 210 – XII ECID</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Junio, 2024.<br>
-              <strong>Puesto obtenido:</strong> 1.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Lima, Perú.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Lograr que las probetas alcancen exactamente la resistencia de diseño (210 kgf/cm²) aplicando precisión en mezcla, curado y densidad.
-            </p>
+          <h3>Resistencia Controlada de Probetas 210 – XII ECID</h3>
+          <div class="datos">
+            <strong>Fecha:</strong> Junio, 2024.<br>
+            <strong>Puesto obtenido:</strong> 1.º lugar<br>
+            <strong>Lugar de la competencia:</strong> Lima, Perú.
           </div>
+          <p>
+            <strong>Descripción breve:</strong> Lograr que las probetas alcancen exactamente la resistencia de diseño (210 kgf/cm²) aplicando precisión en mezcla, curado y densidad.
+          </p>
         </div>
 
         <div class="logro-card">
           <img src="assets/frc-bowling-ball-aci-peru-oct-2024.jpg" alt="FRC Bowling Ball Competition – ACI Perú, 2024">
-            <h3>FRC Bowling Ball Competition – ACI Perú</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Octubre, 2024.<br>
-              <strong>Puesto obtenido:</strong> 3.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Cuzco, Perú.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Competencia centrada en el diseño y fabricación de una bola de concreto reforzado con fibras.
-            </p>
-          </div>
-        </div>
-
-        <!-- 2025 -->
-        <div class="logro-card">
-          <img src="assets/performance-concrete-bim-2025.jpg" alt="PERFORMANCE CONCRETE DESIGN COMPETITION – Olimpia BIM 2025">
-            <h3>Performance Concrete Design Competition – Olimpia BIM</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Febrero, 2025.<br>
-              <strong>Puesto obtenido:</strong> 1.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Cuzco, Perú.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Optimizar el uso del concreto como material estructural clave, integrando comportamiento real e impacto ambiental mediante herramientas BIM.
-            </p>
-          </div>
-        </div>
-
-        <div class="logro-card">
-          <img src="assets/frc-bowling-ball-aci-toronto-2025.jpg" alt="FRC Bowling Ball Competition – ACI Concrete Convention, Toronto 2025">
-            <h3>FRC Bowling Ball Competition – ACI Concrete Convention</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Marzo, 2025.<br>
-              <strong>Puesto obtenido:</strong> 1.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Toronto, Canadá.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Competencia centrada en el diseño y fabricación de una bola de concreto reforzado con fibras (FRC) de alto desempeño.
-            </p>
-          </div>
-        </div>
-
-        <div class="logro-card">
-          <img src="assets/probetas-210-xiii-ecid-2025.jpg" alt="Resistencia Controlada de Probetas 210 – XIII ECID 2025">
-            <h3>Resistencia Controlada de Probetas 210 – XIII ECID</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Junio, 2025.<br>
-              <strong>Puesto obtenido:</strong> 1.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Lima, Perú.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Realizar la rotura controlada de probetas con precisión para alcanzar la resistencia exacta de diseño (210 kgf/cm²).
-            </p>
-          </div>
-        </div>
-
-        <div class="logro-card">
-          <img src="assets/mezcladora-home-challenge-2025.jpg" alt="Mezcladora Home Challenge 2025">
-            <h3>Mezcladora Home Challenge</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Julio, 2025.<br>
-              <strong>Puesto obtenido:</strong> 1.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Lima, Perú.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Resolver casos de uso específicos planteados por corporativos del sector, conectando a startups tecnológicas con las necesidades actuales de la construcción y vivienda.
-            </p>
-          </div>
-        </div>
-
-        <div class="logro-card">
-          <img src="assets/epd-2025-aci-peru-1.jpg" alt="Egg Protection Device 2025 – ACI Perú, 1er lugar">
-            <h3>Egg Protection Device 2025 – ACI Perú</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Septiembre, 2025.<br>
-              <strong>Puesto obtenido:</strong> 1.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Lima, Perú.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Diseñar y construir un dispositivo de concreto innovador y eficiente, capaz de proteger un huevo crudo al ser sometido a una carga de impacto.
-            </p>
-          </div>
-        </div>
-
-        <div class="logro-card">
-          <img src="assets/epd-2025-aci-peru-2.jpg" alt="Egg Protection Device 2025 – ACI Perú, 2do lugar">
-            <h3>Egg Protection Device 2025 – ACI Perú</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Septiembre, 2025.<br>
-              <strong>Puesto obtenido:</strong> 2.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Lima, Perú.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Diseñar y construir un dispositivo de concreto innovador y eficiente, capaz de proteger un huevo crudo al ser sometido a una carga de impacto.
-            </p>
-          </div>
-        </div>
-
-        <div class="logro-card">
-          <img src="assets/cilindros-concreto-ligero-enlace-2025.jpg" alt="Cilindros de concreto ligero fibro-reforzado – ENLACE 2025">
-            <h3>Cilindros de concreto ligero fibro-reforzado – ENLACE 2025</h3>
-            <div class="datos">
-              <strong>Fecha:</strong> Septiembre, 2025.<br>
-              <strong>Puesto obtenido:</strong> 2.º lugar<br>
-              <strong>Lugar de la competencia:</strong> Monterrey, Nueva León, México.
-            </div>
-            <p>
-              <strong>Descripción breve:</strong> Diseñar y fabricar una mezcla de concreto ligero fibro-reforzado que cumpla con los requisitos físicos y mecánicos.
-            </p>
-          </div>
-        </div>
-      
-      </div>
-    </section>
-  </main>
-
-  <!-- ============================================================
-       🟢 BLOQUE 10: FOOTER
-  ============================================================ -->
-  <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI.</p>
-  </footer>
-
-</body>
-</html>
+          <h3>FRC Bowling Ball Competition – ACI Perú</h3>
+          <div class="datos">
+            <strong
