@@ -8,12 +8,12 @@
   <style>
     :root {
       --primary: #0056A6;
-      --secondary: #F5B700;
+      --secondary: #00AEEF;
       --dark: #1E293B;
       --light: #F8FAFC;
       --text: #334155;
       --radius: 12px;
-      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
 
     body {
@@ -21,30 +21,22 @@
       font-family: 'Inter', sans-serif;
       background-color: var(--light);
       color: var(--text);
-      line-height: 1.6;
     }
 
-    /* ===== HEADER / NAVBAR ===== */
+    /* Navbar */
     header nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: #fff;
       padding: 1rem 2rem;
-      box-shadow: var(--shadow);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
-    .logo {
-      height: 55px;
-      transition: transform 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.05);
-    }
+    .logo { height: 50px; }
 
     nav ul {
       display: flex;
@@ -57,54 +49,41 @@
     nav a {
       text-decoration: none;
       font-weight: 600;
-      color: var(--dark);
+      color: var(--text);
       transition: color 0.3s ease;
-      position: relative;
     }
 
-    nav a.active,
-    nav a:hover {
-      color: var(--primary);
-    }
+    nav a:hover, nav a.active { color: var(--primary); }
 
-    nav a.active::after,
-    nav a:hover::after {
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--primary);
-      border-radius: 2px;
-    }
-
-    /* ===== MAIN CONTENT ===== */
+    /* Main */
     main {
-      max-width: 700px;
+      max-width: 600px;
       margin: 4rem auto;
       background: #fff;
-      padding: 2.5rem;
+      padding: 2rem 2.5rem;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
     h2 {
-      color: var(--primary);
-      text-align: center;
       font-family: 'Montserrat', sans-serif;
-      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      color: var(--primary);
+      border-left: 4px solid var(--secondary);
+      padding-left: 10px;
+      margin-bottom: 1.5rem;
     }
 
     p {
-      text-align: center;
-      margin-bottom: 2rem;
+      color: var(--dark);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
+      gap: 1rem;
     }
 
     label {
@@ -114,60 +93,51 @@
 
     input, select {
       padding: 0.8rem;
+      border: 1.5px solid #ccc;
       border-radius: var(--radius);
-      border: 1.5px solid #CBD5E1;
       font-size: 1rem;
-      transition: border 0.2s ease, box-shadow 0.2s ease;
+      transition: border-color 0.3s ease;
     }
 
     input:focus, select:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(0,86,166,0.15);
     }
 
     button {
-      background-color: var(--primary);
-      color: white;
+      background: var(--primary);
+      color: #fff;
       font-weight: 600;
       border: none;
       padding: 0.9rem;
       border-radius: var(--radius);
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
 
     button:hover {
-      background-color: #003F7D;
-      transform: translateY(-1px);
+      background: var(--secondary);
+      transform: translateY(-2px);
     }
 
-    /* ===== FOOTER ===== */
-    footer {
+    #mensaje-enviado {
+      display: none;
+      color: green;
       text-align: center;
-      padding: 1.5rem;
-      background-color: var(--dark);
-      color: white;
-      font-size: 0.9rem;
-      margin-top: 3rem;
+      margin-top: 1.5rem;
+      font-weight: 600;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-
-      main {
-        margin: 2rem 1rem;
-        padding: 1.5rem;
-      }
+    footer {
+      background: #003A73;
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem;
+      margin-top: 4rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
-
 <body>
   <header>
     <nav>
@@ -189,18 +159,19 @@
 
   <main>
     <section>
-      <h2>Únete / Voluntario</h2>
-      <p>¿Quieres formar parte del capítulo estudiantil <strong>ACI UNI</strong>? Llena el siguiente formulario:</p>
+      <h2>Únete al ACI UNI</h2>
+      <p>¿Quieres formar parte del Capítulo Estudiantil ACI UNI?  
+      Completa el siguiente formulario y recibirás un correo con la información para integrarte.</p>
 
-      <form>
-        <label for="nombre">Nombre:</label>
+      <form id="joinForm">
+        <label for="nombre">Nombre completo:</label>
         <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
 
-        <label for="correo">Correo:</label>
+        <label for="correo">Correo electrónico:</label>
         <input type="email" id="correo" name="correo" placeholder="tuemail@ejemplo.com" required>
 
         <label for="area">Área de interés:</label>
-        <select id="area" name="area">
+        <select id="area" name="area" required>
           <option value="">Selecciona un área</option>
           <option>Recursos Humanos</option>
           <option>Investigación</option>
@@ -212,12 +183,41 @@
 
         <button type="submit">Enviar</button>
       </form>
+
+      <p id="mensaje-enviado">✅ ¡Gracias! Te hemos enviado un correo con los siguientes pasos.</p>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("h5HVFHQhxGHYVvCjO"); // 🔑 Reemplaza con tu Public Key
+    })();
+
+    document.getElementById('joinForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const params = {
+        nombre: document.getElementById("nombre").value,
+        correo: document.getElementById("correo").value,
+        area: document.getElementById("area").value
+      };
+
+      emailjs.send("service_fv1ek9a", "template_sxczcfj", params)
+        .then(function() {
+          document.getElementById("mensaje-enviado").style.display = "block";
+          document.getElementById("joinForm").reset();
+        }, function(error) {
+          alert("❌ Hubo un error al enviar el mensaje. Intenta nuevamente.");
+          console.error("Error:", error);
+        });
+    });
+  </script>
 </body>
 </html>
 
