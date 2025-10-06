@@ -25,18 +25,23 @@
     nav {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
       width: 90%;
       margin: auto;
     }
 
     nav .logo {
       height: 45px;
+      margin-right: 40px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 25px;
       margin: 0;
       padding: 0;
@@ -109,7 +114,8 @@
     .social-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      justify-content: center;
+      gap: 1.2rem;
       margin: 1.5rem 0 0 0;
       padding: 0;
       list-style: none;
@@ -120,7 +126,7 @@
       align-items: center;
       color: #0a2342;
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 500;
       transition: all 0.3s ease;
       background: #fff;
@@ -137,7 +143,7 @@
     }
 
     .social-list li i {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       margin-right: 0.6rem;
     }
 
@@ -152,18 +158,25 @@
     }
 
     @media (max-width: 768px) {
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+      nav {
+        flex-direction: column;
       }
 
-      .social-list {
+      nav .logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      nav ul {
         justify-content: center;
       }
 
       section ul li {
         text-align: center;
+      }
+
+      .social-list {
+        justify-content: center;
       }
     }
   </style>
@@ -196,36 +209,12 @@
         <li>
           <strong>Redes:</strong>
           <ul class="social-list">
-            <li>
-              <a href="https://www.instagram.com/aciuniperuoficial" target="_blank">
-                <i class="fab fa-instagram"></i> Instagram
-              </a>
-            </li>
-            <li>
-              <a href="https://www.tiktok.com/@aci.uni?_t=zs-901ajm08tiz&_r=1" target="_blank">
-                <i class="fab fa-tiktok"></i> TikTok
-              </a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com/aciuniperu" target="_blank">
-                <i class="fab fa-facebook"></i> Facebook
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/aci-uni-oficial-2651b1264/" target="_blank">
-                <i class="fab fa-linkedin"></i> LinkedIn
-              </a>
-            </li>
-            <li>
-              <a href="https://youtube.com/@aci_uni?si=UvlfLUo4jm9wJnpE" target="_blank">
-                <i class="fab fa-youtube"></i> YouTube
-              </a>
-            </li>
-            <li>
-              <a href="https://whatsapp.com/channel/0029VbBM55C17En53jwnJo1I" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp Canal
-              </a>
-            </li>
+            <li><a href="https://www.instagram.com/aciuniperuoficial" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@aci.uni?_t=zs-901ajm08tiz&_r=1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
+            <li><a href="https://www.facebook.com/aciuniperu" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+            <li><a href="https://www.linkedin.com/in/aci-uni-oficial-2651b1264/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://youtube.com/@aci_uni?si=UvlfLUo4jm9wJnpE" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+            <li><a href="https://whatsapp.com/channel/0029VbBM55C17En53jwnJo1I" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Canal</a></li>
           </ul>
         </li>
       </ul>
