@@ -30,10 +30,70 @@
     }
     .logo { height: 45px; transition: transform 0.3s;}
     .logo:hover { transform: scale(1.05);}
-    nav ul { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; flex-wrap: nowrap;}
-    nav ul li a { text-decoration: none; font-weight: 500; color:#fff; transition: color 0.3s; position: relative; font-size: 1rem; white-space: nowrap; padding: 0.5rem 0;}
+    nav ul { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; flex-wrap: nowrap; align-items: center; }
+    nav ul li { position: relative; }
+    nav ul li a { text-decoration: none; font-weight: 500; color:#fff; transition: color 0.3s; position: relative; font-size: 1rem; white-space: nowrap; padding: 0.5rem 0; display: block; }
     nav ul li a.active, nav ul li a:hover { color: var(--accent);}
     nav ul li a.active::after, nav ul li a:hover::after { content: "";position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:var(--accent);border-radius:2px;}
+
+    /* Estilos para el menú desplegable de Áreas */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--primary);
+      min-width: 200px;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      z-index: 11;
+      top: 100%;
+      left: 0;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      margin-top: 0.5rem;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .dropdown-content a {
+      color: #fff;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      display: block;
+      font-size: 0.95rem;
+      transition: background 0.3s ease, color 0.3s ease;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-content a:hover {
+      background: rgba(255,193,7,0.1);
+      color: var(--accent);
+    }
+    .dropdown .dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .dropdown .dropdown-toggle::after {
+      content: '\f107'; /* Icono de flecha hacia abajo de Font Awesome */
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+    .dropdown:hover .dropdown-toggle::after {
+      transform: rotate(180deg); /* Rotar flecha al hover */
+    }
+
     main { width:90%; max-width:1200px; margin:5.5rem auto 0; text-align:center;}
     .section-title { font-family: 'Montserrat',sans-serif; font-size:2.3rem; color:var(--primary); margin-bottom:0.5rem;}
 
@@ -102,6 +162,28 @@
     @media (max-width:700px) {
       .team-member { padding: 16px 8px; }
       main { width:98%;}
+      /* Ajuste para dropdown en móvil: mostrar siempre o usar JS, pero por simplicidad, lo mantenemos hover (puede necesitar toque) */
+      nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+      .dropdown-content { position: static; display: none; opacity: 1; transform: none; margin-top: 0; box-shadow: none; background: rgba(255,193,7,0.1); }
+      .dropdown:hover .dropdown-content { display: block; }
+    }
+    @media (max-width: 1200px) {
+      header nav { padding: 0.75rem 2rem; }
+      nav ul { gap: 0.8rem; }
+      nav ul li a { font-size: 0.95rem; }
+    }
+    @media (max-width: 900px) {
+      header nav { padding: 0.75rem 1.5rem; }
+      nav ul { gap: 0.7rem; }
+      nav ul li a { font-size: 0.9rem; }
+      .section-title { font-size: 2rem; }
+    }
+    @media (max-width: 600px) {
+      header nav { flex-direction: row; padding: 0.75rem 1rem; justify-content: space-between; }
+      nav ul { gap: 0.5rem; flex: 1; justify-content: flex-end; margin-left: 1rem; }
+      nav ul li a { font-size: 0.85rem; padding: 0 0.2rem; }
+      nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+      main { margin-top: 4.5rem; }
     }
   </style>
 </head>
@@ -112,7 +194,20 @@
       <ul>
         <li><a href="../index.html">Inicio</a></li>
         <li><a href="../about.html">Sobre Nosotros</a></li>
-        <li><a href="../areas.html" class="active">Áreas</a></li>
+        <li>
+          <div class="dropdown">
+            <a href="../areas.html" class="dropdown-toggle active">Áreas <i class="fas fa-chevron-down"></i></a>
+            <div class="dropdown-content">
+              <a href="relaciones-publicas.html" class="">Relaciones Públicas</a>
+              <a href="investigacion.html" class="">Investigación</a>
+              <a href="logistica.html" class="">Logística</a>
+              <a href="recursos-humanos.html" class="active">Recursos Humanos</a>
+              <a href="marketing.html" class="">Marketing</a>
+              <a href="finanzas.html" class="">Finanzas</a>
+              <!-- Agrega más áreas aquí si es necesario -->
+            </div>
+          </div>
+        </li>
         <li><a href="../events.html">Eventos</a></li>
         <li><a href="../projects.html">Proyectos</a></li>
         <li><a href="../team.html">Equipo</a></li>
@@ -154,145 +249,116 @@
         <a href="https://www.linkedin.com/in/karla-del-pilar-galindo-gaspar-39722a2b1/"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
-<h2>Miembros 2025 - 2</h2>
-<table class="members-table">
-  <tr>
-    <th>Nombre</th>
-    <th>Cargo</th>
-    <th>LinkedIn</th>
-  </tr>
-  <tr>
-    <td>Pablo Ticona</td>
-    <td>Sub-Director</td>
-    <td><div class="social-links">
-      <a href="https://www.linkedin.com/in/pablo-aldair-ticona-farfan-2b439b312/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Peter Roman</td>
-    <td>Miembro</td>
-    <td><div class="social-links">
-      <a href="https://www.linkedin.com/in/peter-roman-salazar/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Emerson Vivanco</td>
-    <td>Miembro</td>
-    <td><div class="social-links">
-      <a href="https://www.linkedin.com/in/emerson-aaron-vivanco-cueva/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Gamaniel Carrera</td>
-    <td>Miembro</td>
-    <td><div class="social-links">
-      <a href="https://www.linkedin.com/in/gamaniel-alipio-carrera-calixto-4920a2271/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Steven Barauna</td>
-    <td>Miembro</td>
-    <td><div class="social-links">
-      <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Jhoan Fernandez</td>
-    <td>Miembro</td>
-    <td><div class="social-links">
-      <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Joseph Ccana</td>
-    <td>Miembro</td>
-    <td><div class="social-links">
-      <a href="https://www.linkedin.com/in/joseph-leonardo-ccana-ayuque-8852b7290/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Sebastián Chávez</td>
-    <td>Miembro</td>
-    <td><div class="social-links">
-      <a href="http://linkedin.com/in/sebastian-alonso-chavez-utrilla-870a06268" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Luis Soaña</td>
-    <td>Miembro</td>
-    <td><div class="social-links">
-      <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>José Rivera</td>
-    <td>Miembro</td>
-    <td><div class="social-links">
-      <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Elber Rufino</td>
-    <td>Miembro</td>
-    <td><div class="social-links">
-      <a href="https://www.linkedin.com/in/elber-rufino-atero-aa61a5265/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Samantha Matos</td>
-    <td>Aspirante</td>
-    <td><div class="social-links">
-      <a href="https://www.linkedin.com/in/samanthamatos-vega-077122389/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Mathias Chipana</td>
-    <td>Aspirante</td>
-    <td><div class="social-links">
-      <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Sergio Trujillo</td>
-    <td>Aspirante</td>
-    <td><div class="social-links">
-      <a href="https://www.linkedin.com/in/sergio-trujillo-aa3884347/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Jesús Velez</td>
-    <td>Aspirante</td>
-    <td><div class="social-links">
-      <a href="https://www.linkedin.com/in/jesus-alejandro-velez-de-villa-santiago-41742233a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Isabel Maldonado</td>
-    <td>Aspirante</td>
-    <td><div class="social-links">
-      <a href="http://www.linkedin.com/in/mldnd2000" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Fabrizzio Coba</td>
-    <td>Aspirante</td>
-    <td><div class="social-links">
-      <a href="https://www.linkedin.com/in/fabrizzio-coba-sanchez/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-  <tr>
-    <td>Jairo</td>
-    <td>Aspirante</td>
-    <td><div class="social-links">
-      <a href="https://www.linkedin.com/in/elber-rufino-atero-aa61a5265/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    </div></td>
-  </tr>
-</table>
-
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
+    <h2>Miembros 2025 - 2</h2>
+    <table class="members-table">
+      <tr>
+        <th>Nombre</th>
+        <th>Cargo</th>
+        <th>LinkedIn</th>
+      </tr>
+      <tr>
+        <td>Pablo Ticona</td>
+        <td>Sub-Director</td>
+        <td><div class="social-links">
+          <a href="https://www.linkedin.com/in/pablo-aldair-ticona-farfan-2b439b312/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Peter Roman</td>
+        <td>Miembro</td>
+        <td><div class="social-links">
+          <a href="https://www.linkedin.com/in/peter-roman-salazar/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Emerson Vivanco</td>
+        <td>Miembro</td>
+        <td><div class="social-links">
+          <a href="https://www.linkedin.com/in/emerson-aaron-vivanco-cueva/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Gamaniel Carrera</td>
+        <td>Miembro</td>
+        <td><div class="social-links">
+          <a href="https://www.linkedin.com/in/gamaniel-alipio-carrera-calixto-4920a2271/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Steven Barauna</td>
+        <td>Miembro</td>
+        <td><div class="social-links">
+          <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Jhoan Fernandez</td>
+        <td>Miembro</td>
+        <td><div class="social-links">
+          <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Joseph Ccana</td>
+        <td>Miembro</td>
+        <td><div class="social-links">
+          <a href="https://www.linkedin.com/in/joseph-leonardo-ccana-ayuque-8852b7290/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Sebastián Chávez</td>
+        <td>Miembro</td>
+        <td><div class="social-links">
+          <a href="http://linkedin.com/in/sebastian-alonso-chavez-utrilla-870a06268" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Luis Soaña</td>
+        <td>Miembro</td>
+        <td><div class="social-links">
+          <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>José Rivera</td>
+        <td>Miembro</td>
+        <td><div class="social-links">
+          <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Elber Rufino</td>
+        <td>Miembro</td>
+        <td><div class="social-links">
+          <a href="https://www.linkedin.com/in/elber-rufino-atero-aa61a5265/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Samantha Matos</td>
+        <td>Aspirante</td>
+        <td><div class="social-links">
+          <a href="https://www.linkedin.com/in/samanthamatos-vega-077122389/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Mathias Chipana</td>
+        <td>Aspirante</td>
+        <td><div class="social-links">
+          <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Sergio Trujillo</td>
+        <td>Aspirante</td>
+        <td><div class="social-links">
+          <a href="https://www.linkedin.com/in/sergio-trujillo-aa3884347/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Jesús Velez</td>
+        <td>Aspirante</td>
+        <td><div class="social-links">
+          <a href="https://www.linkedin.com/in/jesus-alejandro-velez-de-villa-santiago-41742233a/"025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
