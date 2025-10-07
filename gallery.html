@@ -21,6 +21,11 @@
       --text: #334155;
       --radius: 14px;
       --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+      /* Variables para badges en galería */
+      --type-curso: #0a2342; /* Azul para Cursos/Talleres */
+      --type-conferencia: #e6b800; /* Dorado sutil para Conferencias */
+      --type-evento: #ef4444; /* Rojo sutil para Eventos */
     }
 
     body {
@@ -160,6 +165,7 @@
       overflow: hidden;
       transition: all 0.3s ease;
       cursor: pointer;
+      position: relative; /* Para badges */
     }
 
     .gallery-card:hover {
@@ -195,6 +201,42 @@
       font-size: 0.95rem;
       margin: 0;
       line-height: 1.6;
+    }
+
+    /* Badge de tipo en galería */
+    .type-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: var(--type-evento); /* Default para eventos */
+      color: #fff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .gallery-card:hover .type-badge {
+      transform: scale(1.05);
+    }
+
+    /* Variantes por tipo */
+    .type-curso,
+    .type-taller {
+      background-color: var(--type-curso);
+    }
+
+    .type-conferencia {
+      background-color: var(--type-conferencia);
+    }
+
+    .type-evento {
+      background-color: var(--type-evento);
     }
 
     /* ============================================================
@@ -264,6 +306,13 @@
       .gallery-card-content {
         padding: 1rem;
       }
+
+      .type-badge {
+        top: 8px;
+        right: 8px;
+        padding: 0.2rem 0.6rem;
+        font-size: 0.75rem;
+      }
     }
 
     @media (max-width: 600px) {
@@ -308,6 +357,13 @@
       .gallery-card img {
         height: 180px;
       }
+
+      .type-badge {
+        position: static;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        align-self: flex-start;
+      }
     }
   </style>
 </head>
@@ -332,18 +388,67 @@
 
     <section class="hero-small">
       <h1>Galería ACI UNI</h1>
-      <p>Revive los mejores momentos de nuestros eventos, talleres y actividades conmemorativas.</p>
+      <p>Revive los mejores momentos de nuestras conferencias, cursos, talleres y eventos pasados.</p>
     </section>
   </header>
 
   <main>
-    <!-- Sección Eventos -->
+    <h2>Galería de Actividades Pasadas</h2>
+    <p>Navega por nuestras secciones para recordar y revivir los momentos destacados de cada tipo de actividad. Cada imagen captura la esencia de nuestro compromiso con la ingeniería del concreto y la comunidad ACI UNI.</p>
+
+    <!-- Sección 1: Conferencias (primero) -->
     <section>
-      <h2>Eventos</h2>
-      <p>Explora las imágenes de nuestras actividades principales, conferencias y visitas técnicas.</p>
+      <h2>Conferencias</h2>
+      <p>Imágenes de nuestras sesiones académicas y ponencias que han inspirado avances en la ingeniería del concreto.</p>
 
       <div class="gallery-grid">
         <div class="gallery-card">
+          <span class="type-badge type-conferencia">Conferencia</span>
+          <img src="assets/gallery/eventos2.jpg" alt="Conferencia técnica">
+          <div class="gallery-card-content">
+            <h3>Conferencia Técnica ACI</h3>
+            <p>Avances en el diseño estructural y durabilidad del concreto.</p>
+          </div>
+        </div>
+        <!-- Agrega más conferencias si tienes, con <span class="type-badge type-conferencia">Conferencia</span> -->
+      </div>
+    </section>
+
+    <!-- Sección 2: Cursos y Talleres (luego) -->
+    <section>
+      <h2>Cursos y Talleres</h2>
+      <p>Recuerda nuestras capacitaciones especializadas y sesiones prácticas en herramientas, técnicas avanzadas y tecnología del concreto.</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <span class="type-badge type-curso">Curso</span>
+          <img src="assets/gallery/cursos1.jpg" alt="Curso BIM">
+          <div class="gallery-card-content">
+            <h3>Curso de Modelado BIM</h3>
+            <p>Capacitación en herramientas digitales aplicadas a la construcción.</p>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <span class="type-badge type-taller">Taller</span>
+          <img src="assets/gallery/talleres1.jpg" alt="Taller de Concreto">
+          <div class="gallery-card-content">
+            <h3>Taller de Concreto Sostenible</h3>
+            <p>Sesión práctica de diseño de mezclas con adiciones minerales.</p>
+          </div>
+        </div>
+        <!-- Agrega más cursos/talleres si tienes, con badges correspondientes -->
+      </div>
+    </section>
+
+    <!-- Sección 3: Eventos (al final) -->
+    <section>
+      <h2>Eventos</h2>
+      <p>Imágenes de nuestras actividades principales de integración, visitas técnicas y conmemorativas que han unido a nuestra comunidad.</p>
+
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <span class="type-badge type-evento">Evento</span>
           <img src="assets/gallery/eventos1.jpg" alt="ACI Play 2025">
           <div class="gallery-card-content">
             <h3>ACI Play II Edición</h3>
@@ -352,14 +457,7 @@
         </div>
 
         <div class="gallery-card">
-          <img src="assets/gallery/eventos2.jpg" alt="Conferencia técnica">
-          <div class="gallery-card-content">
-            <h3>Conferencia Técnica ACI</h3>
-            <p>Avances en el diseño estructural y durabilidad del concreto.</p>
-          </div>
-        </div>
-
-        <div class="gallery-card">
+          <span class="type-badge type-evento">Evento</span>
           <img src="assets/gallery/eventos3.jpg" alt="Visita Técnica">
           <div class="gallery-card-content">
             <h3>Visita Técnica – Proyecto Puente Ciruelo</h3>
@@ -368,46 +466,14 @@
         </div>
 
         <div class="gallery-card">
+          <span class="type-badge type-evento">Evento</span>
           <img src="assets/gallery/eventos4.jpg" alt="ChocoACI">
           <div class="gallery-card-content">
             <h3>ChocoACI</h3>
             <p>Actividad benéfica navideña en Lima — diciembre 2024.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Sección Cursos -->
-    <section>
-      <h2>Cursos</h2>
-      <p>Recuerda nuestras capacitaciones especializadas en herramientas y técnicas avanzadas.</p>
-
-      <div class="gallery-grid">
-        <div class="gallery-card">
-          <img src="assets/gallery/cursos1.jpg" alt="Curso BIM">
-          <div class="gallery-card-content">
-            <h3>Curso de Modelado BIM</h3>
-            <p>Capacitación en herramientas digitales aplicadas a la construcción.</p>
-          </div>
-        </div>
-        <!-- Agrega más cursos si tienes -->
-      </div>
-    </section>
-
-    <!-- Sección Talleres -->
-    <section>
-      <h2>Talleres</h2>
-      <p>Imágenes de nuestras sesiones prácticas y hands-on en tecnología del concreto.</p>
-
-      <div class="gallery-grid">
-        <div class="gallery-card">
-          <img src="assets/gallery/talleres1.jpg" alt="Taller de Concreto">
-          <div class="gallery-card-content">
-            <h3>Taller de Concreto Sostenible</h3>
-            <p>Sesión práctica de diseño de mezclas con adiciones minerales.</p>
-          </div>
-        </div>
-        <!-- Agrega más talleres si tienes -->
+        <!-- Agrega más eventos si tienes, con <span class="type-badge type-evento">Evento</span> -->
       </div>
     </section>
   </main>
