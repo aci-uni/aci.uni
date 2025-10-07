@@ -3,437 +3,413 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ACI UNI - Capítulo Estudiantil</title>
+  <title>CIDETIC 2025 - Student Chapter ACI UNI</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <style>
-    /* ============================================================
-       🔵 BLOQUE 1: ESTILOS GENERALES
-    ============================================================ */
     :root {
-      --primary: #0a2342;
-      --secondary: #102f60;
-      --accent: #ffc107;
-      --dark: #1E293B;
-      --light: #F8FAFC;
-      --text: #334155;
-      --radius: 14px;
-      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --azul-oscuro: #0A1F44;
+      --azul-medio: #1E3A8A;
+      --azul-claro: #3B82F6;
+      --blanco: #FFFFFF;
+      --gris-claro: #F8FAFC;
+      --gris-medio: #E2E8F0;
+      --celeste: #60A5FA;
+      --dorado: #F59E0B;
+      --sombra-suave: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --sombra-hover: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background-color: var(--light);
-      scroll-behavior: smooth;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: var(--blanco); 
+      color: var(--azul-oscuro); 
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ============================================================
-       🔵 BLOQUE 2: HEADER Y NAVEGACIÓN (idéntico a sponsors.html)
-    ============================================================ */
-    header nav {
+    /* Animaciones generales */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeInUp 0.8s ease-out forwards; }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 31, 68, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      padding: 10px 0;
+    }
+    .navbar.scrolled {
+      background: rgba(10, 31, 68, 0.98);
+      padding: 8px 0;
+      box-shadow: var(--sombra-suave);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: var(--primary);
-      padding: 0.75rem 3rem;
-      box-shadow: var(--shadow);
-      position: fixed;
+      padding: 0 20px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+    .nav-logo:hover img { transform: scale(1.05); }
+    .nav-logo span {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.2em;
+      color: var(--blanco);
+    }
+    .nav-menu {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      align-items: center;
+      margin: 0;
+      flex: 1;
+      justify-content: center;
+    }
+    .nav-menu li a { 
+      color: var(--blanco); 
+      text-decoration: none; 
+      font-weight: 600; 
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 0;
+    }
+    .nav-menu li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--celeste), var(--dorado));
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    .nav-menu li a:hover::after,
+    .nav-menu li a.active::after { 
+      width: 100%; 
+    }
+    .nav-menu li a:hover { color: var(--celeste); }
+    .nav-menu li a.active { color: var(--celeste); }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+    }
+    .nav-cta .btn-cta {
+      text-decoration: none;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, var(--celeste), var(--dorado));
+      color: var(--blanco);
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: all 0.3s ease;
+      box-shadow: var(--sombra-suave);
+      white-space: nowrap;
+    }
+    .nav-cta .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--sombra-hover);
+      color: var(--blanco);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px 50px;
+      background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-medio) 50%, var(--azul-claro) 100%);
+      color: var(--blanco);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 10;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+      opacity: 0.05;
     }
-
-    .logo {
-      height: 45px;
-      transition: transform 0.3s ease;
+    .hero h1 { 
+      font-family: 'Montserrat', sans-serif;
+      font-size: 4em; 
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      animation: fadeInUp 1s ease-out;
     }
-
-    .logo:hover {
-      transform: scale(1.05);
+    .hero p { 
+      font-size: 1.4em; 
+      margin-bottom: 40px; 
+      max-width: 800px;
+      opacity: 0.95;
+      animation: fadeInUp 1s ease-out 0.2s both;
     }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-      flex-wrap: nowrap;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      font-weight: 500;
-      color: #fff;
-      transition: color 0.3s ease;
+    .hero .btn { 
+      text-decoration: none; 
+      padding: 15px 35px; 
+      background: linear-gradient(135deg, var(--celeste), var(--dorado));
+      color: var(--blanco); 
+      border-radius: 50px; 
+      font-weight: 700; 
+      font-size: 1.1em;
+      transition: all 0.3s ease;
+      box-shadow: var(--sombra-suave);
+      animation: fadeInUp 1s ease-out 0.4s both;
       position: relative;
-      font-size: 1rem;
-      white-space: nowrap;
-      padding: 0.5rem 0;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
-
-    nav ul li a.active,
-    nav ul li a:hover {
-      color: var(--accent);
-    }
-
-    nav ul li a.active::after,
-    nav ul li a:hover::after {
-      content: "";
+    .hero .btn::before {
+      content: '';
       position: absolute;
-      bottom: -4px;
-      left: 0;
+      top: 0;
+      left: -100%;
       width: 100%;
-      height: 2px;
-      background-color: var(--accent);
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    .hero .btn:hover::before { left: 100%; }
+    .hero .btn:hover { 
+      transform: translateY(-3px);
+      box-shadow: var(--sombra-hover);
+      color: var(--blanco);
+    }
+
+    /* Secciones generales */
+    section { 
+      padding: 100px 20px; 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      text-align: center; 
+    }
+    section:nth-child(even) { background: var(--gris-claro); }
+    section h2 { 
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8em; 
+      margin-bottom: 30px; 
+      color: var(--azul-oscuro);
+      position: relative;
+    }
+    section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--celeste), var(--dorado));
+      margin: 10px auto;
       border-radius: 2px;
     }
-
-    /* ============================================================
-       🔵 BLOQUE 3: HERO PRINCIPAL
-    ============================================================ */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8.5rem 3rem 5rem;
-      background: linear-gradient(135deg, var(--light) 0%, #f0f4f8 100%);
-      min-height: 90vh;
-      overflow: hidden;
+    section p { 
+      font-size: 1.2em; 
+      line-height: 1.8; 
+      margin-bottom: 30px; 
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.9;
     }
 
-    .hero-content {
-      max-width: 540px;
-      z-index: 2;
+    /* Teasers para otras páginas */
+    .teasers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .teaser-card {
+      background: var(--blanco);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: var(--sombra-suave);
+      transition: all 0.3s ease;
       text-align: left;
     }
-
-    .hero-logo {
-      height: 160px;
-      margin: 0 auto 1.5rem;
-      display: block;
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
-      transition: transform 0.3s ease;
+    .teaser-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--sombra-hover);
     }
-
-    .hero-logo:hover {
-      transform: scale(1.05);
+    .teaser-card i {
+      font-size: 3em;
+      color: var(--celeste);
+      margin-bottom: 15px;
     }
-
-    .hero h1 {
+    .teaser-card h3 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin: 0.5rem 0;
+      margin-bottom: 10px;
+      color: var(--azul-oscuro);
     }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--dark);
-      margin-bottom: 1.8rem;
-      line-height: 1.6;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .button,
-    .button-outline {
-      padding: 0.8rem 1.8rem;
-      font-weight: 600;
-      border-radius: var(--radius);
+    .teaser-card a {
+      color: var(--celeste);
       text-decoration: none;
-      transition: all 0.3s ease;
-      text-align: center;
-      display: inline-block;
+      font-weight: 600;
+    }
+    .teaser-card a:hover {
+      color: var(--dorado);
     }
 
-    .button {
-      background: var(--accent);
-      color: var(--primary);
-      box-shadow: var(--shadow);
-    }
-
-    .button:hover {
-      background: #e6b800;
-      transform: translateY(-2px);
-    }
-
-    .button-outline {
-      border: 2px solid var(--primary);
-      color: var(--primary);
-      background: transparent;
-    }
-
-    .button-outline:hover {
-      background: var(--primary);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    /* ============================================================
-       🔵 BLOQUE 4: CARRUSEL
-    ============================================================ */
-    .hero-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-width: 300px;
+    /* Footer */
+    footer { 
+      background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio)); 
+      color: var(--blanco); 
+      text-align: center; 
+      padding: 40px 20px; 
+      font-size: 1em;
       position: relative;
-      min-height: 400px;
     }
-
-    .carousel-container {
-      width: 95%;
-      max-width: 580px;
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      aspect-ratio: 3 / 2;
-    }
-
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      height: 100%;
-      width: 100%;
-    }
-
-    .carousel-item {
-      min-width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .carousel-item img {
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-      border-radius: var(--radius);
-      transition: transform 0.4s ease;
-    }
-
-    .carousel-item img:hover {
-      transform: scale(1.02);
-    }
-
-    .carousel-indicators {
+    footer::before {
+      content: '';
       position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 5;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--celeste), var(--dorado));
     }
+    footer strong { color: var(--celeste); }
+    footer a { color: var(--celeste); text-decoration: none; transition: color 0.3s; }
+    footer a:hover { color: var(--dorado); }
 
-    .indicator {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.5);
-      cursor: pointer;
-      transition: background 0.3s;
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-container { padding: 0 15px; flex-direction: column; gap: 10px; }
+      .nav-menu { gap: 20px; order: 2; }
+      .nav-logo { order: 1; }
+      .nav-cta { order: 3; }
+      .hero { padding: 120px 20px 40px; min-height: 80vh; }
+      .hero h1 { font-size: 2.5em; }
+      .hero p { font-size: 1.2em; }
+      section { padding: 60px 20px; }
+      section h2 { font-size: 2.2em; }
+      .teasers { grid-template-columns: 1fr; gap: 20px; }
+      .nav-menu { flex-wrap: wrap; justify-content: center; }
+      .nav-menu li a i { display: none; }
     }
-
-    .indicator.active {
-      background: #fff;
-    }
-
-    /* ============================================================
-       🔵 BLOQUE 5: FOOTER
-    ============================================================ */
-    footer {
-      background-color: var(--primary);
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.95rem;
-      margin-top: 3rem;
-    }
-
-    footer p {
-      margin: 0;
-    }
-
-    /* ============================================================
-       🔵 BLOQUE 6: RESPONSIVE
-    ============================================================ */
-    @media (max-width: 1200px) {
-      header nav {
-        padding: 0.75rem 2rem;
-      }
-
-      nav ul {
-        gap: 0.8rem;
-      }
-
-      nav ul li a {
-        font-size: 0.95rem;
-      }
-
-      .carousel-container {
-        max-width: 500px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 7.5rem 1.5rem 4rem;
-      }
-
-      .hero-logo {
-        height: 130px;
-      }
-
-      .hero-image {
-        min-height: 300px;
-        margin-bottom: 1rem;
-      }
-
-      header nav {
-        padding: 0.75rem 1.5rem;
-      }
-
-      nav ul {
-        gap: 0.7rem;
-      }
-
-      nav ul li a {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      header nav {
-        flex-direction: row;
-        padding: 0.75rem 1rem;
-        justify-content: space-between;
-      }
-
-      nav ul {
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      nav ul li a {
-        font-size: 0.85rem;
-        padding: 0 0.2rem;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .hero-image {
-        min-height: 250px;
-      }
+    @media (max-width: 480px) {
+      .nav-menu { gap: 15px; }
+      .hero h1 { font-size: 2em; }
+      .hero .btn { padding: 12px 25px; font-size: 1em; }
+      .nav-cta .btn-cta { padding: 8px 16px; font-size: 0.9em; }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <nav>
-      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
-      <ul>
-        <li><a href="index.html" class="active">Inicio</a></li>
-        <li><a href="about.html">Sobre Nosotros</a></li>
-        <li><a href="areas.html">Áreas</a></li>
-        <li><a href="events.html">Eventos</a></li>
-        <li><a href="projects.html">Proyectos</a></li>
-        <li><a href="team.html">Equipo</a></li>
-        <li><a href="gallery.html">Galería</a></li>
-        <li><a href="join.html">Únete</a></li>
-        <li><a href="contact.html">Contacto</a></li>
-        <li><a href="sponsors.html">Patrocinadores</a></li>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="../assets/logo-aci-uni.png" alt="ACI UNI Logo">
+        <span>CIDETIC 2025</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="programa.html"><i class="fas fa-calendar-alt"></i> Programa</a></li>
+        <li><a href="ponentes.html"><i class="fas fa-users"></i> Ponentes</a></li>
+        <li><a href="inscripciones.html"><i class="fas fa-user-plus"></i> Inscripciones</a></li>
+        <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
       </ul>
-    </nav>
-
-    <section class="hero">
-      <div class="hero-content">
-        <img src="assets/logo-aci-uni1.png" alt="ACI UNI Logo" class="hero-logo">
-        <h1>Always Advancing</h1>
-        <p>Bienvenido al Capítulo Estudiantil ACI UNI — fomentando la innovación, la investigación y el liderazgo en ingeniería del concreto.</p>
-        <div class="hero-buttons">
-          <a href="join.html" class="button">Únete</a>
-          <a href="events.html" class="button-outline">Próximos eventos</a>
-        </div>
+      <div class="nav-cta">
+        <a href="inscripciones.html" class="btn-cta"><i class="fas fa-user-plus"></i> Regístrate</a>
       </div>
+    </div>
+  </nav>
 
-      <div class="hero-image">
-        <div class="carousel-container">
-          <div class="carousel-inner" id="carouselInner">
-            <div class="carousel-item"><img src="assets/index/1.jpeg" alt="Foto 1"></div>
-            <div class="carousel-item"><img src="assets/index/2.jpeg" alt="Foto 2"></div>
-            <div class="carousel-item"><img src="assets/index/3.jpeg" alt="Foto 3"></div>
-          </div>
-          <div class="carousel-indicators" id="carouselIndicators"></div>
-        </div>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>CIDETIC 2025</h1>
+    <p>Congreso de Innovación, Desarrollo y Tecnología en la Ingeniería Civil<br><strong>24 al 28 de noviembre | Lima, Perú</strong></p>
+    <a href="inscripciones.html" class="btn"><i class="fas fa-arrow-right"></i> Regístrate ahora</a>
+  </section>
+
+  <!-- Sobre el evento -->
+  <section id="about" class="fade-in">
+    <h2>Sobre el Evento</h2>
+    <p>El CIDETIC 2025, organizado por el <strong>Student Chapter ACI UNI</strong>, reúne a investigadores, profesionales y estudiantes de ingeniería civil para compartir los últimos avances en innovación, desarrollo y tecnología aplicada a la construcción y gestión de infraestructuras.</p>
+    <p>Los participantes disfrutarán de conferencias magistrales, talleres prácticos y espacios de networking con líderes del sector, fomentando colaboraciones que impulsen el futuro de la ingeniería civil en Perú y Latinoamérica.</p>
+    <div class="teasers">
+      <div class="teaser-card fade-in">
+        <i class="fas fa-calendar-alt"></i>
+        <h3>Programa Detallado</h3>
+        <p>Descubre el itinerario completo con conferencias, talleres y más.</p>
+        <a href="programa.html">Ver Programa <i class="fas fa-arrow-right"></i></a>
       </div>
-    </section>
-  </header>
+      <div class="teaser-card fade-in">
+        <i class="fas fa-users"></i>
+        <h3>Ponentes Destacados</h3>
+        <p>Conoce a expertos internacionales en ingeniería civil.</p>
+        <a href="ponentes.html">Ver Ponentes <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="teaser-card fade-in">
+        <i class="fas fa-user-plus"></i>
+        <h3>Inscripciones Abiertas</h3>
+        <p>Únete ahora y asegura tu lugar en el evento.</p>
+        <a href="inscripciones.html">Inscribirse <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
+    Organizado por el <strong>Student Chapter ACI UNI</strong> | © 2025 Todos los derechos reservados | <a href="mailto:cidetic@aciuni.pe">cidetic@aciuni.pe</a>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const carouselInner = document.getElementById('carouselInner');
-      const carouselIndicators = document.getElementById('carouselIndicators');
-      const items = carouselInner.children;
-      const totalItems = items.length;
-      let currentIndex = 0;
-      let autoSlideInterval;
-
-      for (let i = 0; i < totalItems; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('indicator');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(i));
-        carouselIndicators.appendChild(dot);
+    // Efecto scroll para navbar
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
       }
+    });
 
-      const indicators = carouselIndicators.children;
-
-      function updateCarousel() {
-        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-        for (let i = 0; i < totalItems; i++) {
-          indicators[i].classList.toggle('active', i === currentIndex);
-        }
-      }
-
-      function goToSlide(index) {
-        currentIndex = index;
-        updateCarousel();
-        resetAutoSlide();
-      }
-
-      function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalItems;
-        updateCarousel();
-      }
-
-      function resetAutoSlide() {
-        clearInterval(autoSlideInterval);
-        autoSlideInterval = setInterval(nextSlide, 4000);
-      }
-
-      updateCarousel();
-      resetAutoSlide();
+    // Smooth scroll para enlaces internos (si aplica)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
     });
   </script>
 </body>
