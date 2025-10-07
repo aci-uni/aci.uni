@@ -4,187 +4,369 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto | ACI UNI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- 🔹 Fuentes (uniformes con index.html y areas.html) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
   <style>
-    /* ---------- ESTILOS GENERALES ---------- */
+    /* ============================================================
+       🔵 BLOQUE 1: ESTILOS GENERALES (uniformes con areas.html)
+    ============================================================ */
+    :root {
+      --primary: #0a2342; /* Azul oscuro original */
+      --secondary: #102f60; /* Azul medio para gradientes */
+      --accent: #ffc107; /* Dorado original para hovers y active */
+      --dark: #1E293B;
+      --light: #F8FAFC;
+      --text: #334155;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fafafa;
-      color: #333;
+      background-color: var(--light);
+      color: var(--text);
+      scroll-behavior: smooth;
     }
 
-    header {
-      background-color: #0a2342;
-      padding: 15px 0;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    }
-
-    nav {
+    /* ============================================================
+       🔵 BLOQUE 2: HEADER Y NAVEGACIÓN (exactamente como en areas.html)
+    ============================================================ */
+    header nav {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      width: 90%;
-      margin: auto;
+      background-color: var(--primary); /* Azul oscuro original */
+      padding: 0.75rem 3rem; /* Mantiene compacto y uniforme */
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
     }
 
-    nav .logo {
-      height: 45px;
-      margin-right: 40px;
+    .logo {
+      height: 45px; /* Como en el original */
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
+      gap: 1rem; /* Uniforme: gap optimizado para horizontal */
       margin: 0;
       padding: 0;
+      flex-wrap: nowrap;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: white;
       font-weight: 500;
+      color: #fff; /* Blanco original en navbar azul */
       transition: color 0.3s ease;
+      position: relative;
+      font-size: 1rem; /* Uniforme: más grande para legibilidad */
+      white-space: nowrap;
+      padding: 0.5rem 0; /* Padding mínimo para alineación */
     }
 
-    nav ul li a:hover,
-    nav ul li a.active {
-      color: #ffc107;
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: var(--accent); /* Dorado original para hover y active */
     }
 
-    /* ---------- CONTENIDO PRINCIPAL ---------- */
+    nav ul li a.active::after,
+    nav ul li a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent); /* Dorado para la línea inferior */
+      border-radius: 2px;
+    }
+
+    /* ============================================================
+       🔵 BLOQUE 3: HERO PRINCIPAL (estilo original azul oscuro, como en areas.html)
+    ============================================================ */
+    .hero-small {
+      text-align: center;
+      padding: 8.5rem 3rem 4rem; /* Uniforme: padding-top ajustado para navbar fija */
+      background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%); /* Gradiente original azul oscuro */
+      color: #fff;
+      margin-top: 0; /* Asegura que no haya gap con navbar */
+    }
+
+    .hero-small h1 {
+      font-family: 'Montserrat', sans-serif; /* Uniforme: Montserrat para títulos */
+      font-size: 2.8rem; /* Similar al hero principal */
+      margin: 0.5rem 0;
+      color: #fff;
+    }
+
+    .hero-small p {
+      font-size: 1.1rem;
+      margin: 0;
+      line-height: 1.6;
+      color: #ddd; /* Como en el original */
+    }
+
+    /* ============================================================
+       🔵 BLOQUE 4: SECCIÓN PRINCIPAL (colores con azul oscuro)
+    ============================================================ */
     main {
       width: 90%;
       max-width: 1000px;
-      margin: 60px auto;
+      margin: 3rem auto; /* Espaciado uniforme */
       text-align: center;
     }
 
     main h2 {
-      font-size: 2.2em;
-      color: #0a2342;
-      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif; /* Uniforme */
+      font-size: 2.5rem;
+      color: var(--primary); /* Azul oscuro original para títulos */
+      margin-bottom: 1rem;
     }
 
-    main p, main ul {
-      color: #555;
-      font-size: 1.05em;
-      line-height: 1.6;
+    main p {
+      color: var(--text); /* Uniforme */
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      font-size: 1.05rem;
     }
 
-    section ul {
+    /* Contacto: Estilos uniformes para tarjetas/info */
+    .contact-section {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .contact-section h3 {
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .contact-section ul {
       list-style: none;
       padding: 0;
-      margin-top: 25px;
+      margin: 0;
     }
 
-    section ul li {
-      margin: 15px 0;
-      background: #fff;
-      padding: 18px 25px;
-      border-radius: 14px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: left;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .contact-section li {
+      margin: 1rem 0;
+      padding: 1rem;
+      background: var(--light);
+      border-radius: var(--radius);
+      transition: all 0.3s ease;
+      border-left: 4px solid var(--primary);
     }
 
-    section ul li:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    .contact-section li:hover {
+      transform: translateX(5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    section ul li a {
-      color: #0a2342;
-      text-decoration: none;
+    .contact-section strong {
+      color: var(--primary);
       font-weight: 600;
     }
 
-    section ul li a:hover {
-      color: #ffc107;
+    .contact-section a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
 
-    /* ---------- REDES SOCIALES ---------- */
-    .social-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem;
-      margin: 1.5rem 0 0 0;
-      padding: 0;
-      list-style: none;
+    .contact-section a:hover {
+      color: var(--accent);
     }
 
-    .social-list li a {
+    /* Redes sociales: Grid uniforme */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-item {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.25rem;
+      text-align: center;
+      transition: all 0.3s ease;
       display: flex;
       align-items: center;
-      color: #0a2342;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .social-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .social-item:hover i {
+      color: var(--accent);
+    }
+
+    .social-item i {
+      font-size: 1.5rem;
+      color: var(--primary);
+      transition: color 0.3s ease;
+    }
+
+    .social-item a {
+      color: var(--primary);
       text-decoration: none;
-      font-size: 1.05rem;
       font-weight: 500;
-      transition: all 0.3s ease;
-      background: #fff;
-      padding: 12px 18px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: color 0.3s ease;
     }
 
-    .social-list li a:hover {
-      background-color: #0a2342;
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    .social-item:hover a {
+      color: #fff;
     }
 
-    .social-list li i {
-      font-size: 1.4rem;
-      margin-right: 0.6rem;
-    }
-
-    /* ---------- FOOTER ---------- */
+    /* ============================================================
+       🔵 BLOQUE 5: FOOTER (estilo original azul oscuro)
+    ============================================================ */
     footer {
+      background-color: var(--primary); /* Azul oscuro original */
+      color: #fff; /* Blanco original */
       text-align: center;
-      padding: 25px;
-      background-color: #0a2342;
-      color: white;
-      margin-top: 50px;
-      font-size: 0.9rem;
+      padding: 2rem 1rem;
+      font-size: 0.95rem;
+      margin-top: 3rem;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-      }
+    footer p {
+      margin: 0;
+    }
 
-      nav .logo {
-        margin-right: 0;
-        margin-bottom: 10px;
+    /* ============================================================
+       🔵 BLOQUE 6: RESPONSIVE (uniforme, con ajustes para estilo original)
+    ============================================================ */
+    @media (max-width: 1200px) {
+      header nav {
+        padding: 0.75rem 2rem;
       }
 
       nav ul {
-        justify-content: center;
+        gap: 0.8rem;
       }
 
-      section ul li {
-        text-align: center;
+      nav ul li a {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-small {
+        padding: 7.5rem 1.5rem 3rem;
       }
 
-      .social-list {
+      main h2 {
+        font-size: 2.2rem;
+      }
+
+      header nav {
+        padding: 0.75rem 1.5rem;
+      }
+
+      nav ul {
+        gap: 0.7rem;
+      }
+
+      nav ul li a {
+        font-size: 0.9rem;
+      }
+
+      .contact-section {
+        padding: 2rem;
+      }
+
+      .social-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 0.75rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header nav {
+        flex-direction: row;
+        padding: 0.75rem 1rem;
+        justify-content: space-between;
+      }
+
+      nav ul {
+        gap: 0.5rem;
+        flex: 1;
+        justify-content: flex-end;
+        margin-left: 1rem;
+      }
+
+      nav ul li a {
+        font-size: 0.85rem;
+        padding: 0 0.2rem;
+      }
+
+      .hero-small h1 {
+        font-size: 2.2rem;
+      }
+
+      main {
+        width: 95%;
+        margin: 2rem auto;
+      }
+
+      nav ul {
+        flex-wrap: wrap; /* Como en el original para móviles */
         justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .contact-section {
+        padding: 1.5rem;
+      }
+
+      .social-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .social-item {
+        justify-content: flex-start;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
-      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
+      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo" /></a>
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="about.html">Sobre Nosotros</a></li>
@@ -198,26 +380,84 @@
         <li><a href="sponsors.html">Patrocinadores</a></li>
       </ul>
     </nav>
+
+    <section class="hero-small">
+      <h1>Contacto</h1>
+      <p>Conéctate con nosotros para consultas, colaboraciones o para unirte a la comunidad ACI UNI.</p>
+    </section>
   </header>
 
   <main>
-    <section>
-      <h2>Contacto y Redes Sociales</h2>
+    <section class="contact-section">
+      <h2>Información de Contacto</h2>
+      <p>Estamos aquí para responder tus preguntas y fomentar el avance en la ingeniería del concreto.</p>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:aci@uni.edu.pe">aci@uni.edu.pe</a></li>
-        <li><strong>Ubicación:</strong> Universidad Nacional de Ingeniería (UNI)</li>
         <li>
-          <strong>Redes:</strong>
-          <ul class="social-list">
-            <li><a href="https://www.instagram.com/aciuniperuoficial" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-            <li><a href="https://www.tiktok.com/@aci.uni?_t=zs-901ajm08tiz&_r=1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
-            <li><a href="https://www.facebook.com/aciuniperu" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-            <li><a href="https://www.linkedin.com/in/aci-uni-oficial-2651b1264/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-            <li><a href="https://youtube.com/@aci_uni?si=UvlfLUo4jm9wJnpE" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
-            <li><a href="https://whatsapp.com/channel/0029VbBM55C17En53jwnJo1I" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Canal</a></li>
-          </ul>
+          <strong>Email:</strong> <a href="mailto:aci@uni.edu.pe">aci@uni.edu.pe</a>
+        </li>
+        <li>
+          <strong>Ubicación:</strong> Universidad Nacional de Ingeniería (UNI), Av. Túpac Amaru 210, Rímac, Lima, Perú
         </li>
       </ul>
+    </section>
+
+    <section class="contact-section">
+      <h3>Síguenos en Redes Sociales</h3>
+      <p>Únete a nuestra comunidad en línea para actualizaciones, eventos y más.</p>
+      <div class="social-grid">
+        <div class="social-item">
+          <a href="https://www.instagram.com/aciuniperuoficial" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+          </a>
+        </div>
+        <div class="social-item">
+          <a href="https://www.tiktok.com/@aci.uni?_t=zs-901ajm08tiz&_r=1" target="_blank">
+            <i class="fab fa-tiktok"></i>
+            <span>TikTok</span>
+          </a>
+        </div>
+        <div class="social-item">
+          <a href="https://www.facebook.com/aciuniperu" target="_blank">
+            <i class="fab fa-facebook"></i>
+            <span>Facebook</span>
+          </a>
+        </div>
+        <div class="social-item">
+          <a href="https://www.linkedin.com/in/aci-uni-oficial-2651b1264/" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+        <div class="social-item">
+          <a href="https://youtube.com/@aci_uni?si=UvlfLUo4jm9wJnpE" target="_blank">
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+        </div>
+        <div class="social-item">
+          <a href="https://whatsapp.com/channel/0029VbBM55C17En53jwnJo1I" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp Canal</span>
+          </a>
+        </div>
+
+        <!-- Atom Bio agregada -->
+        <div class="social-item">
+          <a href="https://www.atom.bio/aci_uni" target="_blank">
+            <i class="fas fa-link"></i>
+            <span>Atom Bio</span>
+          </a>
+        </div>
+
+        <!-- X (Twitter) actualizada -->
+        <div class="social-item">
+          <a href="https://x.com/aci_uni" target="_blank">
+            <i class="fab fa-x-twitter"></i>
+            <span>X (Twitter)</span>
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
