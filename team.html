@@ -4,129 +4,229 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equipo Directivo 2025 | ACI UNI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- 🔹 Fuentes (uniformes con index.html y areas.html) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
   <style>
-    /* ---------- ESTILO CLEAN INSTITUTIONAL BLUE-GOLD ---------- */
+    /* ============================================================
+       🔵 BLOQUE 1: ESTILOS GENERALES (uniformes con areas.html)
+    ============================================================ */
+    :root {
+      --primary: #0a2342; /* Azul oscuro original */
+      --secondary: #102f60; /* Azul medio para gradientes */
+      --accent: #ffc107; /* Dorado original para hovers y active */
+      --dark: #1E293B;
+      --light: #F8FAFC;
+      --text: #334155;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fafafa;
-      color: #333;
+      background-color: var(--light);
+      color: var(--text);
+      scroll-behavior: smooth;
     }
 
-    /* ---------- HEADER Y NAVBAR ---------- */
-    header {
-      background-color: #0a2342;
-      padding: 15px 0;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav {
+    /* ============================================================
+       🔵 BLOQUE 2: HEADER Y NAVEGACIÓN (exactamente como en areas.html)
+    ============================================================ */
+    header nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      width: 90%;
-      margin: auto;
+      align-items: center;
+      background-color: var(--primary); /* Azul oscuro original */
+      padding: 0.75rem 3rem; /* Mantiene compacto y uniforme */
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
     }
 
-    nav .logo {
-      height: 50px;
+    .logo {
+      height: 45px; /* Como en el original */
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 1rem; /* Uniforme: gap optimizado para horizontal */
       margin: 0;
       padding: 0;
+      flex-wrap: nowrap;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: white;
       font-weight: 500;
+      color: #fff; /* Blanco original en navbar azul */
       transition: color 0.3s ease;
+      position: relative;
+      font-size: 1rem; /* Uniforme: más grande para legibilidad */
+      white-space: nowrap;
+      padding: 0.5rem 0; /* Padding mínimo para alineación */
     }
 
-    nav ul li a:hover,
-    nav ul li a.active {
-      color: #ffc107;
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: var(--accent); /* Dorado original para hover y active */
     }
 
-    /* ---------- HERO ---------- */
+    nav ul li a.active::after,
+    nav ul li a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent); /* Dorado para la línea inferior */
+      border-radius: 2px;
+    }
+
+    /* Dropdown para Equipo (integrado uniformemente) */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 180px;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 0.5rem 0;
+      z-index: 20; /* Superior al navbar */
+      top: 100%;
+      left: 0;
+      margin-top: 0.5rem;
+    }
+
+    .dropdown-content li {
+      list-style: none;
+    }
+
+    .dropdown-content li a {
+      display: block;
+      color: var(--primary);
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .dropdown-content li a:hover {
+      background-color: var(--light);
+      color: var(--accent);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown i {
+      margin-left: 0.25rem;
+      font-size: 0.8em;
+      transition: transform 0.3s ease;
+    }
+
+    .dropdown:hover i {
+      transform: rotate(180deg);
+    }
+
+    /* ============================================================
+       🔵 BLOQUE 3: HERO PRINCIPAL (estilo original azul oscuro, como en areas.html)
+    ============================================================ */
     .hero-small {
       text-align: center;
-      padding: 60px 20px 40px;
-      background: linear-gradient(120deg, #0a2342, #102f60);
+      padding: 8.5rem 3rem 4rem; /* Uniforme: padding-top ajustado para navbar fija */
+      background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%); /* Gradiente original azul oscuro */
       color: #fff;
+      margin-top: 0; /* Asegura que no haya gap con navbar */
     }
 
     .hero-small h1 {
-      font-size: 2.4em;
-      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif; /* Uniforme: Montserrat para títulos */
+      font-size: 2.8rem; /* Similar al hero principal */
+      margin: 0.5rem 0;
+      color: #fff;
     }
 
     .hero-small p {
-      color: #ddd;
-      font-size: 1.1em;
+      font-size: 1.1rem;
       margin: 0;
+      line-height: 1.6;
+      color: #ddd; /* Como en el original */
     }
 
-    /* ---------- SECCIÓN EQUIPO ---------- */
-    .team-section {
+    /* ============================================================
+       🔵 BLOQUE 4: SECCIÓN PRINCIPAL (colores con azul oscuro)
+    ============================================================ */
+    main {
+      width: 90%;
       max-width: 1200px;
-      margin: 60px auto;
-      padding: 0 20px;
+      margin: 3rem auto; /* Espaciado uniforme */
       text-align: center;
     }
 
     .team-section h2 {
-      font-size: 2em;
-      color: #0a2342;
-      margin-bottom: 15px;
+      font-family: 'Montserrat', sans-serif; /* Uniforme */
+      font-size: 2.5rem;
+      color: var(--primary); /* Azul oscuro original para títulos */
+      margin-bottom: 1rem;
     }
 
     .team-intro {
-      color: #555;
+      color: var(--text); /* Uniforme */
       max-width: 800px;
-      margin: 0 auto 40px;
-      font-size: 1em;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      font-size: 1.05rem;
     }
 
-    /* ---------- TARJETAS DE EQUIPO ---------- */
+    /* Tarjetas de equipo: Grid uniforme */
     .top-row {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 40px;
-      margin-bottom: 50px;
+      gap: 2rem; /* Uniforme */
+      margin-bottom: 3rem;
     }
 
     .team-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      gap: 2rem; /* Gap uniforme */
       justify-items: center;
     }
 
     .team-member {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      padding: 25px 15px;
+      background: #fff;
+      border-radius: var(--radius); /* Uniforme */
+      box-shadow: var(--shadow); /* Uniforme */
+      padding: 1.5rem;
       text-align: center;
       transition: all 0.3s ease;
       max-width: 270px;
     }
 
     .team-member:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      transform: translateY(-5px); /* Efecto sutil uniforme */
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     }
 
     .team-member img {
@@ -134,53 +234,109 @@
       height: 140px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid #ffc107;
+      border: 3px solid var(--accent); /* Dorado uniforme */
+      margin-bottom: 0.75rem;
     }
 
     .team-member h3 {
-      margin: 12px 0 4px;
+      color: var(--primary); /* Azul oscuro original */
       font-size: 1.1rem;
-      color: #0a2342;
+      margin: 0.5rem 0 0.25rem;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .team-member p {
+      color: var(--text);
       font-size: 0.95rem;
-      color: #555;
-      margin-bottom: 10px;
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
     }
 
-    /* ---------- ICONOS DE REDES ---------- */
+    /* Iconos de redes: Colores uniformes */
     .social-links a {
-      color: #0a2342;
+      color: var(--primary);
       font-size: 1.3rem;
-      margin: 0 6px;
+      margin: 0 0.375rem;
       transition: color 0.3s ease;
     }
 
     .social-links a:hover {
-      color: #ffc107;
+      color: var(--accent);
     }
 
-    /* ---------- FOOTER ---------- */
+    /* ============================================================
+       🔵 BLOQUE 5: FOOTER (estilo original azul oscuro)
+    ============================================================ */
     footer {
+      background-color: var(--primary); /* Azul oscuro original */
+      color: #fff; /* Blanco original */
       text-align: center;
-      padding: 25px;
-      background-color: #0a2342;
-      color: white;
-      margin-top: 50px;
+      padding: 2rem 1rem;
+      font-size: 0.95rem;
+      margin-top: 3rem;
     }
 
     footer p {
       margin: 0;
-      font-size: 0.95em;
     }
 
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 768px) {
+    /* ============================================================
+       🔵 BLOQUE 6: RESPONSIVE (uniforme, con ajustes para estilo original)
+    ============================================================ */
+    @media (max-width: 1200px) {
+      header nav {
+        padding: 0.75rem 2rem;
+      }
+
       nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+        gap: 0.8rem;
+      }
+
+      nav ul li a {
+        font-size: 0.95rem;
+      }
+
+      .top-row {
+        gap: 1.5rem;
+      }
+
+      .team-grid {
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-small {
+        padding: 7.5rem 1.5rem 3rem;
+      }
+
+      .team-section h2 {
+        font-size: 2.2rem;
+      }
+
+      header nav {
+        padding: 0.75rem 1.5rem;
+      }
+
+      nav ul {
+        gap: 0.7rem;
+      }
+
+      nav ul li a {
+        font-size: 0.9rem;
+      }
+
+      .top-row {
+        gap: 1rem;
+      }
+
+      .team-grid {
+        gap: 1rem;
+      }
+
+      .team-member {
+        padding: 1.25rem;
+        max-width: 100%;
       }
 
       .team-member img {
@@ -189,86 +345,104 @@
       }
     }
 
-    /* ---------- MENÚ DESPLEGABLE ---------- */
-.dropdown {
-  position: relative;
-}
+    @media (max-width: 600px) {
+      header nav {
+        flex-direction: row;
+        padding: 0.75rem 1rem;
+        justify-content: space-between;
+      }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 180px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  padding: 10px 0;
-  z-index: 1000;
-}
+      nav ul {
+        gap: 0.5rem;
+        flex: 1;
+        justify-content: flex-end;
+        margin-left: 1rem;
+      }
 
-.dropdown-content li {
-  list-style: none;
-}
+      nav ul li a {
+        font-size: 0.85rem;
+        padding: 0 0.2rem;
+      }
 
-.dropdown-content li a {
-  display: block;
-  color: #0a2342;
-  text-decoration: none;
-  padding: 10px 15px;
-  font-weight: 500;
-}
+      .hero-small h1 {
+        font-size: 2.2rem;
+      }
 
-.dropdown-content li a:hover {
-  background-color: #f1f1f1;
-  color: #ffc107;
-}
+      main {
+        width: 95%;
+        margin: 2rem auto;
+      }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+      nav ul {
+        flex-wrap: wrap; /* Como en el original para móviles */
+        justify-content: center;
+        gap: 0.5rem;
+      }
 
-.dropdown i {
-  margin-left: 6px;
-  font-size: 0.8em;
-}
+      .top-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background: var(--primary);
+        margin-top: 0;
+      }
+
+      .dropdown-content li a {
+        color: #fff;
+        padding: 0.5rem 1rem;
+      }
+
+      .dropdown-content li a:hover {
+        background: var(--secondary);
+        color: var(--accent);
+      }
+    }
   </style>
 </head>
 
 <body>
-<header>
-  <nav>
-    <a href="index.html">
-      <img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo" />
-    </a>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="about.html">Sobre Nosotros</a></li>
-      <li><a href="areas.html">Áreas</a></li>
-      <li><a href="events.html">Eventos</a></li>
-      <li><a href="projects.html">Proyectos</a></li>
+  <header>
+    <nav>
+      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo" /></a>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="about.html">Sobre Nosotros</a></li>
+        <li><a href="areas.html">Áreas</a></li>
+        <li><a href="events.html">Eventos</a></li>
+        <li><a href="projects.html">Proyectos</a></li>
 
-      <!-- 🔽 MENÚ DESPLEGABLE EQUIPO -->
-      <li class="dropdown">
-        <a href="team.html" class="active">Equipo <i class="fa-solid fa-caret-down"></i></a>
-        <ul class="dropdown-content">
-          <li><a href="team.html">Directiva 2025</a></li>
-          <li><a href="team2024.html">Directiva 2024</a></li>
-        </ul>
-      </li>
-      <!-- 🔼 -->
+        <!-- 🔽 MENÚ DESPLEGABLE EQUIPO -->
+        <li class="dropdown">
+          <a href="team.html" class="active">Equipo <i class="fa-solid fa-caret-down"></i></a>
+          <ul class="dropdown-content">
+            <li><a href="team.html">Directiva 2025</a></li>
+            <li><a href="team2024.html">Directiva 2024</a></li>
+          </ul>
+        </li>
+        <!-- 🔼 -->
 
-      <li><a href="gallery.html">Galería</a></li>
-      <li><a href="join.html">Únete</a></li>
-      <li><a href="contact.html">Contacto</a></li>
-      <li><a href="sponsors.html">Patrocinadores</a></li>
-    </ul>
-  </nav>
+        <li><a href="gallery.html">Galería</a></li>
+        <li><a href="join.html">Únete</a></li>
+        <li><a href="contact.html">Contacto</a></li>
+        <li><a href="sponsors.html">Patrocinadores</a></li>
+      </ul>
+    </nav>
 
-  <section class="hero-small">
-    <h1>Equipo Directivo 2025</h1>
-    <p>Conoce a quienes lideran el Capítulo Estudiantil ACI UNI en el año 2025</p>
-  </section>
-</header>
-
+    <section class="hero-small">
+      <h1>Equipo Directivo 2025</h1>
+      <p>Conoce a quienes lideran el Capítulo Estudiantil ACI UNI en el año 2025</p>
+    </section>
+  </header>
 
   <main>
     <section class="team-section">
@@ -398,4 +572,3 @@
   </footer>
 </body>
 </html>
-
