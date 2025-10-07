@@ -56,7 +56,8 @@
       transition: opacity 0.3s ease, transform 0.3s ease;
       margin-top: 0.5rem;
     }
-    .dropdown:hover .dropdown-content {
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
       display: block;
       opacity: 1;
       transform: translateY(0);
@@ -82,16 +83,19 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      outline: none; /* Para mejor accesibilidad en focus */
     }
-    .dropdown .dropdown-toggle::after {
-      content: '\f107'; /* Icono de flecha hacia abajo de Font Awesome */
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
+    .dropdown .dropdown-toggle:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .dropdown .dropdown-toggle i {
+      transition: transform 0.3s ease; /* Efecto de giro restaurado para el ícono */
       font-size: 0.8rem;
-      transition: transform 0.3s ease;
     }
-    .dropdown:hover .dropdown-toggle::after {
-      transform: rotate(180deg); /* Rotar flecha al hover */
+    .dropdown:hover .dropdown-toggle i,
+    .dropdown:focus-within .dropdown-toggle i {
+      transform: rotate(180deg); /* Rotar el ícono al hover/focus */
     }
 
     main { width:90%; max-width:1200px; margin:5.5rem auto 0; text-align:center;}
@@ -162,10 +166,31 @@
     @media (max-width:700px) {
       .team-member { padding: 16px 8px; }
       main { width:98%;}
-      /* Ajuste para dropdown en móvil: mostrar siempre o usar JS, pero por simplicidad, lo mantenemos hover (puede necesitar toque) */
+      /* Ajustes para móvil: dropdown más accesible con focus y posición estática para mejor touch */
       nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
-      .dropdown-content { position: static; display: none; opacity: 1; transform: none; margin-top: 0; box-shadow: none; background: rgba(255,193,7,0.1); }
-      .dropdown:hover .dropdown-content { display: block; }
+      .dropdown-content { 
+        position: static; 
+        display: none; 
+        opacity: 1; 
+        transform: none; 
+        margin-top: 0; 
+        box-shadow: none; 
+        background: rgba(255,193,7,0.1); 
+        border-radius: 0 0 var(--radius) var(--radius);
+        min-width: auto;
+      }
+      .dropdown:focus-within .dropdown-content { 
+        display: block; 
+      }
+      .dropdown .dropdown-toggle {
+        padding: 0.5rem; /* Área de toque más grande en móvil */
+      }
+      .dropdown .dropdown-toggle i {
+        transition: transform 0.3s ease; /* Mantener giro en móvil con focus */
+      }
+      .dropdown:focus-within .dropdown-toggle i {
+        transform: rotate(180deg);
+      }
     }
     @media (max-width: 1200px) {
       header nav { padding: 0.75rem 2rem; }
@@ -184,6 +209,9 @@
       nav ul li a { font-size: 0.85rem; padding: 0 0.2rem; }
       nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
       main { margin-top: 4.5rem; }
+      .dropdown .dropdown-toggle {
+        padding: 0.75rem; /* Aún más grande en pantallas muy pequeñas */
+      }
     }
   </style>
 </head>
@@ -196,7 +224,7 @@
         <li><a href="../about.html">Sobre Nosotros</a></li>
         <li>
           <div class="dropdown">
-            <a href="../areas.html" class="dropdown-toggle active">Áreas <i class="fas fa-chevron-down"></i></a>
+            <a href="../areas.html" class="dropdown-toggle active">Áreas <i class="fas fa-angle-down"></i></a>
             <div class="dropdown-content">
               <a href="relaciones-publicas.html" class="">Relaciones Públicas</a>
               <a href="investigacion.html" class="">Investigación</a>
@@ -358,7 +386,35 @@
         <td>Jesús Velez</td>
         <td>Aspirante</td>
         <td><div class="social-links">
-          <a href="https://www.linkedin.com/in/jesus-alejandro-velez-de-villa-santiago-41742233a/"025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
+          <a href="https://www.linkedin.com/in/jesus-alejandro-velez-de-villa-santiago-41742233a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Isabel Maldonado</td>
+        <td>Aspirante</td>
+        <td><div class="social-links">
+          <a href="http://www.linkedin.com/in/mldnd2000" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Fabrizzio Coba</td>
+        <td>Aspirante</td>
+        <td><div class="social-links">
+          <a href="https://www.linkedin.com/in/fabrizzio-coba-sanchez/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td>Jairo</td>
+        <td>Aspirante</td>
+        <td><div class="social-links">
+          <a href="https://www.linkedin.com/in/elber-rufino-atero-aa61a5265/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div></td>
+      </tr>
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
