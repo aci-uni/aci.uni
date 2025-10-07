@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Relaciones Públicas | ACI UNI</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <style>
-    :root {
+    :root{
       --primary: #0a2342;
       --accent: #ffc107;
       --light: #F8FAFC;
@@ -15,124 +15,167 @@
       --radius: 14px;
       --shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
-    body {
+
+    /* Reset / base */
+    *{box-sizing:border-box}
+    body{
       font-family: 'Inter', sans-serif;
-      margin: 0; padding: 0;
-      background: var(--light);
-      color: var(--text);
+      margin:0; padding:0;
+      background:var(--light);
+      color:var(--text);
       scroll-behavior: smooth;
     }
-    header nav {
-      display: flex; justify-content: space-between; align-items: center;
-      background: var(--primary);
-      padding: 0.75rem 3rem; box-shadow: var(--shadow);
-      position: fixed; top:0; left:0; right:0; z-index:10;
-    }
-    .logo { height: 45px; transition: transform 0.3s;}
-    .logo:hover { transform: scale(1.05);}
-    nav ul { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0;}
-    nav ul li a {
-      text-decoration: none; font-weight: 500; color:#fff;
-      transition: color 0.3s; position: relative; font-size: 1rem; padding: 0.5rem 0;
-    }
-    nav ul li a.active, nav ul li a:hover { color: var(--accent);}
-    nav ul li a.active::after, nav ul li a:hover::after {
-      content: "";position:absolute;bottom:-4px;left:0;width:100%;height:2px;
-      background:var(--accent);border-radius:2px;
-    }
-    main { width:90%; max-width:1200px; margin:5.5rem auto 0; text-align:center;}
-    .section-title { font-family: 'Montserrat',sans-serif; font-size:2.3rem; color:var(--primary); margin-bottom:1rem;}
 
-    /* ACTIVIDADES */
-    .activities-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+    /* NAV */
+    header nav{
+      display:flex; justify-content:space-between; align-items:center;
+      background:var(--primary);
+      padding:0.75rem 3rem;
+      box-shadow:var(--shadow);
+      position:fixed; top:0; left:0; right:0; z-index:10;
     }
-    .activity-card {
-      background: #fff;
+    .logo{ height:45px; transition: transform 0.3s; }
+    .logo:hover{ transform: scale(1.05); }
+    nav ul{ list-style:none; display:flex; gap:1rem; margin:0; padding:0; align-items:center; flex-wrap:nowrap; }
+    nav ul li{ position:relative; }
+    nav ul li a{
+      color:#fff; text-decoration:none; font-weight:500;
+      font-size:1rem; padding:0.5rem 0; display:block;
+      transition: color 0.3s; white-space: nowrap;
+    }
+    nav ul li a:hover, nav ul li a.active{ color:var(--accent); }
+    nav ul li a:hover::after, nav ul li a.active::after{
+      content:""; position:absolute; bottom:-4px; left:0; width:100%; height:2px; background:var(--accent); border-radius:2px;
+    }
+
+    /* DROPDOWN (igual que INV.html) */
+    .dropdown{ position:relative; display:inline-block; }
+    .dropdown .dropdown-toggle{ cursor:pointer; display:flex; align-items:center; gap:0.5rem; color:#fff; text-decoration:none; }
+    .dropdown .dropdown-toggle:focus{ outline:2px solid var(--accent); outline-offset:2px; }
+    .dropdown .dropdown-toggle i{ transition: transform 0.3s ease; font-size:0.9rem; }
+    .dropdown-content{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      background-color: var(--primary);
+      min-width:200px;
+      box-shadow: var(--shadow);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.5rem;
-      text-align: left;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index:11;
+      opacity:0;
+      transform: translateY(-10px);
+      transition: opacity 0.28s ease, transform 0.28s ease;
+      margin-top:0.5rem;
     }
-    .activity-card:hover {
+    .dropdown-content a{
+      display:block;
+      padding:0.75rem 1rem;
+      text-decoration:none;
+      color:#fff;
+      font-size:0.95rem;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .dropdown-content a:last-child{ border-bottom:none; }
+    .dropdown-content a:hover{ background: rgba(255,193,7,0.08); color:var(--accent); }
+
+    /* show / rotate on hover / focus-within */
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content{
+      display:block; opacity:1; transform: translateY(0);
+    }
+    .dropdown:hover .dropdown-toggle i,
+    .dropdown:focus-within .dropdown-toggle i{
+      transform: rotate(180deg);
+    }
+
+    /* MAIN */
+    main{ width:90%; max-width:1200px; margin:5.5rem auto 3rem; text-align:center; }
+    .section-title{ font-family:'Montserrat',sans-serif; font-size:2.3rem; color:var(--primary); margin-bottom:1rem; }
+
+    /* ACTIVIDADES (cards) */
+    .activities-container{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap:1.5rem;
+      margin:1.5rem 0 2rem;
+      text-align:left;
+    }
+    .activity-card{
+      background:#fff;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:1.6rem;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+    .activity-card:hover{
       transform: translateY(-6px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.12);
     }
-    .activity-icon {
-      font-size: 2rem;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
+    .activity-icon{ font-size:2rem; color:var(--accent); margin-bottom:0.6rem; }
+    .activity-card h3{
+      font-family:'Montserrat',sans-serif;
+      font-size:1.15rem; color:var(--primary); margin:0 0 0.6rem;
     }
-    .activity-card h3 {
-      color: var(--primary);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-    .activity-card p {
-      font-size: 0.95rem;
-      color: var(--text);
-      line-height: 1.6;
+    .activity-card p{
+      margin:0; font-size:0.97rem; line-height:1.6; color: #444;
     }
 
-    /* DIRECTORES */
-    .directors-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-    .team-member {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      padding: 30px 20px;
-      text-align: center;
-      width: 260px;
-      transition: all 0.3s ease;
-    }
-    .team-member:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    }
-    .team-member img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #ffc107;
-      transition: transform 0.3s ease;
-    }
-    .team-member:hover img { transform: scale(1.05); }
-    .team-member h3 { margin: 12px 0 4px; font-size: 1.1rem; color: var(--primary);}
-    .team-member p { font-size: 0.95rem; color: #555; margin-bottom: 10px;}
-    .social-links a { color: var(--primary); font-size: 1.3rem; margin: 0 6px; transition: color 0.3s ease; text-decoration: none;}
-    .social-links a:hover { color: var(--accent); }
+    /* DIRECTORES / MIEMBROS */
+    .directors-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; margin:2rem 0; }
+    .team-member{ background:#fff; border-radius:16px; box-shadow:var(--shadow); padding:28px 18px; width:260px; text-align:center; transition:all .28s ease; }
+    .team-member img{ width:120px; height:120px; object-fit:cover; border-radius:50%; border:3px solid var(--accent); transition: transform .25s ease; }
+    .team-member:hover{ transform: translateY(-6px); box-shadow: 0 10px 28px rgba(0,0,0,0.12); }
+    .team-member:hover img{ transform: scale(1.05); }
+    .team-member h3{ margin:12px 0 6px; font-size:1.05rem; color:var(--primary); }
+    .team-member p{ margin:0; color:#555; font-size:0.95rem; }
 
-    /* TABLA */
-    .members-table { width:100%; max-width:700px; margin:2rem auto; border-collapse:collapse; background:#fff; box-shadow:var(--shadow); border-radius:var(--radius); overflow:hidden;}
-    .members-table th, .members-table td { padding:0.75rem 1rem; border-bottom:1px solid #eee;}
-    .members-table th { background:var(--primary); color:#fff;}
-    .members-table tr:last-child td { border-bottom:none;}
+    .members-table{ width:100%; max-width:700px; margin:2rem auto; border-collapse:collapse; background:#fff; box-shadow:var(--shadow); border-radius:var(--radius); overflow:hidden; }
+    .members-table th, .members-table td{ padding:0.75rem 1rem; border-bottom:1px solid #eee; text-align:left; }
+    .members-table th{ background:var(--primary); color:#fff; }
+    .members-table tr:last-child td{ border-bottom:none; }
 
-    footer { background:var(--primary); color:#fff; text-align:center; padding:2rem 1rem; font-size:0.95rem; margin-top:3rem;}
+    footer{ background:var(--primary); color:#fff; text-align:center; padding:2rem 1rem; font-size:0.95rem; margin-top:2rem; }
+
+    /* RESPONSIVE dropdown adjustments for touch */
+    @media (max-width:700px){
+      nav ul{ flex-wrap:wrap; justify-content:center; gap:0.5rem; }
+      .dropdown-content{
+        position:static; display:none; opacity:1; transform:none; margin-top:0;
+        box-shadow:none; background: rgba(255,193,7,0.08); border-radius: 0 0 var(--radius) var(--radius); min-width:auto;
+      }
+      .dropdown:focus-within .dropdown-content{ display:block; }
+      .activities-container{ grid-template-columns: 1fr; }
+      .team-member{ max-width:90%; }
+      main{ width:96%; margin-top:5rem; }
+    }
   </style>
 </head>
-
 <body>
   <header>
     <nav>
       <a href="../index.html"><img src="../assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
+
       <ul>
         <li><a href="../index.html">Inicio</a></li>
         <li><a href="../about.html">Sobre Nosotros</a></li>
-        <li><a href="../areas.html" class="active">Áreas</a></li>
+
+        <!-- DROPDOWN "Áreas" con efecto giratorio en el icono -->
+        <li class="dropdown">
+          <a href="../areas.html" class="dropdown-toggle active" aria-haspopup="true" aria-expanded="false">
+            Áreas <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-content" role="menu" aria-label="Áreas">
+            <a href="RRPP.html" class="active" role="menuitem">Relaciones Públicas</a>
+            <a href="INV.html" role="menuitem">Investigación</a>
+            <a href="LOG.html" role="menuitem">Logística</a>
+            <a href="RRHH.html" role="menuitem">Recursos Humanos</a>
+            <a href="MKT.html" role="menuitem">Marketing</a>
+            <a href="FIN.html" role="menuitem">Finanzas</a>
+          </div>
+        </li>
+
         <li><a href="../events.html">Eventos</a></li>
         <li><a href="../projects.html">Proyectos</a></li>
         <li><a href="../team.html">Equipo</a></li>
@@ -147,50 +190,62 @@
   <main>
     <h1 class="section-title">Área de Relaciones Públicas</h1>
 
-    <section>
-      <h2>Actividades</h2>
+    <section aria-labelledby="actividades-title">
+      <h2 id="actividades-title" style="text-align:left; margin:0 0 0.6rem;">Actividades</h2>
+
       <div class="activities-container">
-        <div class="activity-card">
-          <div class="activity-icon">🤝</div>
-          <h3>Coordinación de alianzas estratégicas</h3>
-          <p>Nos encargamos de establecer vínculos con instituciones, empresas y entidades del sector construcción, fortaleciendo la presencia del Capítulo en el ámbito académico y profesional. Promovemos colaboraciones que impulsen proyectos y oportunidades para nuestros miembros.</p>
-        </div>
+        <article class="activity-card" aria-labelledby="act1-title">
+          <div class="activity-icon" aria-hidden="true">🤝</div>
+          <h3 id="act1-title">Coordinación de alianzas estratégicas</h3>
+          <p>
+            Buscamos y consolidamos alianzas con empresas del rubro, instituciones académicas, ONG y otros capítulos estudiantiles.
+            Estas colaboraciones incluyen desde charlas técnicas y workshops hasta convenios para prácticas, pasantías y proyectos conjuntos,
+            lo que facilita oportunidades reales de formación y empleo para nuestros miembros.
+          </p>
+        </article>
 
-        <div class="activity-card">
-          <div class="activity-icon">🌎</div>
-          <h3>Representación en eventos nacionales e internacionales</h3>
-          <p>Participamos activamente en encuentros del ACI y otros eventos de ingeniería civil, representando a la UNI y a nuestro Capítulo. Buscamos generar visibilidad y prestigio mediante una comunicación efectiva y una imagen sólida en cada participación.</p>
-        </div>
+        <article class="activity-card" aria-labelledby="act2-title">
+          <div class="activity-icon" aria-hidden="true">🌎</div>
+          <h3 id="act2-title">Representación en eventos nacionales e internacionales</h3>
+          <p>
+            Organizamos la participación y representación del capítulo en congresos, concursos y reuniones del ACI, promoviendo la visibilidad institucional.
+            Preparamos presentaciones, pósters y ponencias, además de coordinar logística y delegaciones para que nuestras propuestas tengan impacto académico.
+          </p>
+        </article>
 
-        <div class="activity-card">
-          <div class="activity-icon">💬</div>
-          <h3>Relación con empresas y otros capítulos</h3>
-          <p>Promovemos la interacción constante con capítulos estudiantiles de otras universidades, tanto nacionales como internacionales. Además, gestionamos vínculos con empresas del rubro para generar convenios, capacitaciones y espacios de aprendizaje colaborativo.</p>
-        </div>
+        <article class="activity-card" aria-labelledby="act3-title">
+          <div class="activity-icon" aria-hidden="true">💬</div>
+          <h3 id="act3-title">Relación con empresas y otros capítulos</h3>
+          <p>
+            Mantenemos una comunicación fluida con empresas y capítulos estudiantiles para generar actividades conjuntas, programas de mentoría y visitas técnicas.
+            También gestionamos comunicaciones oficiales, notas de prensa y materiales informativos para fortalecer la red profesional del Capítulo.
+          </p>
+        </article>
       </div>
     </section>
 
-    <div class="directors-grid">
+    <div class="directors-grid" aria-label="Directores">
       <div class="team-member">
         <img src="../assets/KarolA.png" alt="Karol Agreda">
         <h3>Karol Agreda</h3>
         <p>Directora de Relaciones Públicas</p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/karol-maricruz-agreda-estela-8434511a1/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/karol-maricruz-agreda-estela-8434511a1/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
         </div>
       </div>
+
       <div class="team-member">
         <img src="../assets/JhonnyV.png" alt="Jhonny Valverde">
         <h3>Jhonny Valverde</h3>
         <p>Director de Relaciones Públicas</p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/jhonny-valverde-mori-46078728b/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/jhonny-valverde-mori-46078728b/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
         </div>
       </div>
     </div>
 
-    <h2>Miembros 2025 - 2</h2>
-    <table class="members-table">
+    <h2 style="text-align:left; margin-top:1.5rem;">Miembros 2025 - 2</h2>
+    <table class="members-table" aria-label="Miembros 2025">
       <tr>
         <th>Nombre</th>
         <th>Cargo</th>
@@ -199,32 +254,32 @@
       <tr>
         <td>Aalhi de la Cruz</td>
         <td>Miembro</td>
-        <td><div class="social-links"><a href="https://www.linkedin.com/in/aalhi-yacckelyne-de-la-cruz-vilca-362760311/" target="_blank"><i class="fab fa-linkedin"></i></a></div></td>
+        <td><div class="social-links"><a href="https://www.linkedin.com/in/aalhi-yacckelyne-de-la-cruz-vilca-362760311/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></div></td>
       </tr>
       <tr>
         <td>Oscar Escajadillo</td>
         <td>Miembro</td>
-        <td><div class="social-links"><a href="https://www.linkedin.com/in/oscar-daniel-escajadillo-casimiro-capm%C2%AE-smpc%C2%AE-sfpc%E2%84%A2-368a83221/" target="_blank"><i class="fab fa-linkedin"></i></a></div></td>
+        <td><div class="social-links"><a href="https://www.linkedin.com/in/oscar-daniel-escajadillo-casimiro-capm%C2%AE-smpc%C2%AE-sfpc%E2%84%A2-368a83221/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></div></td>
       </tr>
       <tr>
         <td>Antonio Cortez</td>
         <td>Miembro</td>
-        <td><div class="social-links"><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></div></td>
+        <td><div class="social-links"><a href="#" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></div></td>
       </tr>
       <tr>
         <td>Gonzalo Pajuelo</td>
         <td>Miembro</td>
-        <td><div class="social-links"><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></div></td>
+        <td><div class="social-links"><a href="#" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></div></td>
       </tr>
       <tr>
         <td>Viviana Quispe</td>
         <td>Aspirante</td>
-        <td><div class="social-links"><a href="https://www.linkedin.com/in/viviana-danae-quispe-cerna-463b88289/" target="_blank"><i class="fab fa-linkedin"></i></a></div></td>
+        <td><div class="social-links"><a href="https://www.linkedin.com/in/viviana-danae-quispe-cerna-463b88289/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></div></td>
       </tr>
       <tr>
         <td>Fernanda</td>
         <td>Aspirante</td>
-        <td><div class="social-links"><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></div></td>
+        <td><div class="social-links"><a href="#" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a></div></td>
       </tr>
     </table>
   </main>
