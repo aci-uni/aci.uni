@@ -38,7 +38,7 @@
     .section-title { font-family: 'Montserrat',sans-serif; font-size:2.3rem; color:var(--primary); margin-bottom:0.5rem;}
     .activities-list { text-align:left; margin:2rem 0;}
     .activities-list ul { padding-left:1.5rem;}
-    .directors-grid { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; margin:2rem 0;}
+    .directors-grid { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin:2rem 0;} /* Reducido gap de 2rem a 1rem para acercar los directores */
     .team-member {
       background: #fff;
       border-radius: 16px;
@@ -47,6 +47,11 @@
       text-align: center;
       max-width: 270px;
       margin: 0 auto;
+      transition: all 0.3s ease; /* Agregado para hover sutil */
+    }
+    .team-member:hover {
+      transform: translateY(-5px); /* Efecto hover para dinamismo */
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     }
     .team-member img {
       width: 120px;
@@ -54,6 +59,10 @@
       object-fit: cover;
       border-radius: 50%;
       border: 3px solid #ffc107;
+      transition: transform 0.3s ease; /* Transición para img en hover */
+    }
+    .team-member:hover img {
+      transform: scale(1.05); /* Escala sutil en hover */
     }
     .team-member h3 { margin: 12px 0 4px; font-size: 1.1rem; color: var(--primary);}
     .team-member p { font-size: 0.95rem; color: #555; margin-bottom: 10px;}
@@ -71,9 +80,27 @@
     .members-table tr:last-child td { border-bottom:none;}
     footer { background:var(--primary); color:#fff; text-align:center; padding:2rem 1rem; font-size:0.95rem; margin-top:3rem;}
     @media (max-width:700px) {
-      .directors-grid { flex-direction:column; gap:1.5rem;}
+      .directors-grid { flex-direction:column; gap:1.5rem;} /* Mantiene gap mayor en móvil para legibilidad */
       .team-member { padding: 16px 8px; }
       main { width:98%;}
+    }
+    @media (max-width: 1200px) {
+      header nav { padding: 0.75rem 2rem; }
+      nav ul { gap: 0.8rem; }
+      nav ul li a { font-size: 0.95rem; }
+    }
+    @media (max-width: 900px) {
+      header nav { padding: 0.75rem 1.5rem; }
+      nav ul { gap: 0.7rem; }
+      nav ul li a { font-size: 0.9rem; }
+      .section-title { font-size: 2rem; }
+    }
+    @media (max-width: 600px) {
+      header nav { flex-direction: row; padding: 0.75rem 1rem; justify-content: space-between; }
+      nav ul { gap: 0.5rem; flex: 1; justify-content: flex-end; margin-left: 1rem; }
+      nav ul li a { font-size: 0.85rem; padding: 0 0.2rem; }
+      nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+      main { margin-top: 4.5rem; } /* Ajuste para nav en móvil */
     }
   </style>
 </head>
