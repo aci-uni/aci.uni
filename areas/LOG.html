@@ -40,7 +40,7 @@
     .activities-list h2 { font-family: 'Montserrat', sans-serif; color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; }
     .activities-list ul { padding-left:1.5rem; list-style-type: disc; }
     .activities-list li { margin-bottom: 0.75rem; font-size: 1.05rem; line-height: 1.6; }
-    .directors-grid { display:flex; flex-wrap:wrap; gap:2.5rem; justify-content:center; margin:2rem 0;} /* Gap ajustado a ≈2.5cm (2.5rem ≈40px, escalable y aproximado a 2.5cm en la mayoría de pantallas) */
+    .directors-grid { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin:2rem 0;} /* Gap reducido a 0.5rem ≈0.5cm (8px) para acercar mucho las tarjetas en desktop */
     .team-member {
       background: #fff;
       border-radius: 16px;
@@ -82,7 +82,7 @@
     .members-table tr:last-child td { border-bottom:none;}
     footer { background:var(--primary); color:#fff; text-align:center; padding:2rem 1rem; font-size:0.95rem; margin-top:3rem;}
     @media (max-width:700px) {
-      .directors-grid { flex-direction:column; gap:1.5rem;} /* Gap moderado en móvil para legibilidad (≈1.5cm) */
+      .directors-grid { flex-direction:column; gap:1rem;} /* Gap moderado en móvil (1rem ≈1cm) para evitar apretujamiento en columna */
       .team-member { padding: 20px 15px; max-width: 100%; } /* Ajuste en móvil para no desbordar */
       main { width:98%;}
     }
@@ -90,7 +90,7 @@
       header nav { padding: 0.75rem 2rem; }
       nav ul { gap: 0.8rem; }
       nav ul li a { font-size: 0.95rem; }
-      .directors-grid { gap: 2rem; } /* Ajuste proporcional en tablet */
+      .directors-grid { gap: 0.75rem; } /* Ajuste proporcional en tablet (ligeramente mayor que desktop para espacio) */
     }
     @media (max-width: 900px) {
       header nav { padding: 0.75rem 1.5rem; }
@@ -105,7 +105,7 @@
       nav ul li a { font-size: 0.85rem; padding: 0 0.2rem; }
       nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
       main { margin-top: 4.5rem; } /* Ajuste para nav en móvil */
-      .directors-grid { gap: 1rem; } /* Gap reducido en móvil pequeño */
+      .directors-grid { gap: 0.75rem; } /* Gap reducido en móvil pequeño para consistencia */
     }
   </style>
 </head>
