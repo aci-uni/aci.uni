@@ -45,24 +45,16 @@
     }
 
     /* Dropdown */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: var(--primary);
+      background-color: #fff;
       box-shadow: var(--shadow);
       border-radius: var(--radius);
-      min-width: 200px;
-      z-index: 10;
+      min-width: 220px;
+      z-index: 20;
       top: 100%;
       left: 0;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.3s ease, trasnform 0.3 ease;
-      margin-top: 0.5rem;
     }
     .dropdown-content a {
       color: var(--primary);
