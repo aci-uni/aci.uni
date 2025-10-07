@@ -1,153 +1,390 @@
-   <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eventos, Cursos y Talleres | ACI UNI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>Actividades ACI UNI</title>
+
+  <!-- 🔹 Fuentes (uniformes con index.html y areas.html) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
-    /* ---------- ESTILOS GENERALES ---------- */
+    /* ============================================================
+       🔵 BLOQUE 1: ESTILOS GENERALES (uniformes con areas.html)
+    ============================================================ */
+    :root {
+      --primary: #0a2342; /* Azul oscuro original */
+      --secondary: #102f60; /* Azul medio para gradientes */
+      --accent: #ffc107; /* Dorado original para hovers y active */
+      --dark: #1E293B;
+      --light: #F8FAFC;
+      --text: #334155;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+      /* Nuevas variables para tipos de actividades */
+      --type-curso: #0a2342; /* Azul oscuro para Cursos/Talleres 🟦 */
+      --type-conferencia: #e6b800; /* Dorado sutil para Conferencias (ej. UNICRETO, CIDETIC) 🟨 */
+      --type-evento: #ef4444; /* Rojo sutil para Eventos sociales 🟥 (combina con tema azul-dorado) */
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fafafa;
-      color: #333;
+      background-color: var(--light);
+      color: var(--text);
+      scroll-behavior: smooth;
     }
 
-    header {
-      background-color: #0a2342;
-      padding: 15px 0;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    }
-
-    nav {
+    /* ============================================================
+       🔵 BLOQUE 2: HEADER Y NAVEGACIÓN (exactamente como en areas.html)
+    ============================================================ */
+    header nav {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      width: 90%;
-      margin: auto;
+      align-items: center;
+      background-color: var(--primary); /* Azul oscuro original */
+      padding: 0.75rem 3rem; /* Mantiene compacto y uniforme */
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
     }
 
-    nav .logo {
-      height: 45px;
+    .logo {
+      height: 45px; /* Como en el original */
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 1rem; /* Uniforme: gap optimizado para horizontal */
       margin: 0;
       padding: 0;
+      flex-wrap: nowrap;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: white;
       font-weight: 500;
+      color: #fff; /* Blanco original en navbar azul */
       transition: color 0.3s ease;
+      position: relative;
+      font-size: 1rem; /* Uniforme: más grande para legibilidad */
+      white-space: nowrap;
+      padding: 0.5rem 0; /* Padding mínimo para alineación */
     }
 
-    nav ul li a:hover,
-    nav ul li a.active {
-      color: #ffc107;
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: var(--accent); /* Dorado original para hover y active */
     }
 
-    /* ---------- SECCIÓN PRINCIPAL ---------- */
+    nav ul li a.active::after,
+    nav ul li a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent); /* Dorado para la línea inferior */
+      border-radius: 2px;
+    }
+
+    /* ============================================================
+       🔵 BLOQUE 3: HERO PRINCIPAL (estilo original azul oscuro, como en areas.html)
+    ============================================================ */
+    .hero-small {
+      text-align: center;
+      padding: 8.5rem 3rem 4rem; /* Uniforme: padding-top ajustado para navbar fija */
+      background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%); /* Gradiente original azul oscuro */
+      color: #fff;
+      margin-top: 0; /* Asegura que no haya gap con navbar */
+    }
+
+    .hero-small h1 {
+      font-family: 'Montserrat', sans-serif; /* Uniforme: Montserrat para títulos */
+      font-size: 2.8rem; /* Similar al hero principal */
+      margin: 0.5rem 0;
+      color: #fff;
+    }
+
+    .hero-small p {
+      font-size: 1.1rem;
+      margin: 0;
+      line-height: 1.6;
+      color: #ddd; /* Como en el original */
+    }
+
+    /* ============================================================
+       🔵 BLOQUE 4: SECCIÓN PRINCIPAL (colores con azul oscuro)
+    ============================================================ */
     main {
       width: 90%;
       max-width: 1200px;
-      margin: 60px auto;
+      margin: 3rem auto; /* Espaciado uniforme */
       text-align: center;
     }
 
     main h2 {
-      font-size: 2.2em;
-      color: #0a2342;
-      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif; /* Uniforme */
+      font-size: 2.5rem;
+      color: var(--primary); /* Azul oscuro original para títulos */
+      margin-bottom: 1rem;
     }
 
     main p {
-      color: #555;
-      margin-bottom: 40px;
+      color: var(--text); /* Uniforme */
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      font-size: 1.05rem;
     }
 
-    /* ---------- TARJETAS DE EVENTOS ---------- */
-    .event-grid {
+    /* Tarjetas de actividades: Grid uniforme */
+    .activity-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
+      gap: 2rem; /* Gap uniforme */
+      margin-top: 2rem;
     }
 
-    .event-card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .activity-card {
+      background: #fff;
+      border-radius: var(--radius); /* Uniforme */
+      box-shadow: var(--shadow); /* Uniforme */
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative; /* Para posicionar el badge */
     }
 
-    .event-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    .activity-card:hover {
+      transform: translateY(-5px); /* Efecto sutil uniforme */
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     }
 
-    .event-card img {
+    .activity-card img {
       width: 100%;
-      height: 180px;
+      height: 180px; /* Altura fija para consistencia */
       object-fit: cover;
+      transition: transform 0.3s ease;
     }
 
-    .event-card-content {
-      padding: 20px;
+    .activity-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .activity-card-content {
+      padding: 1.5rem;
       text-align: left;
     }
 
-    .event-card-content h3 {
-      color: #0a2342;
-      margin: 0 0 10px 0;
+    .activity-card-content h3 {
+      color: var(--primary); /* Azul oscuro original */
+      margin: 0 0 0.75rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
     }
 
-    .event-card-content p {
-      font-size: 0.95em;
-      color: #555;
+    .activity-card-content p {
+      color: var(--text);
+      font-size: 0.95rem;
+      margin: 0 0 1rem;
+      line-height: 1.6;
     }
 
-    .event-card-content a {
+    .activity-card-content a {
       display: inline-block;
-      margin-top: 10px;
-      color: #0a2342;
+      color: var(--primary);
       font-weight: 600;
       text-decoration: none;
-      border: 1.5px solid #0a2342;
-      padding: 6px 14px;
-      border-radius: 8px;
+      border: 2px solid var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .activity-card-content a:hover {
+      background-color: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Badge de tipo de actividad (nuevo: colores por tipo) */
+    .type-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: var(--type-curso); /* Default azul */
+      color: #fff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
     }
 
-    .event-card-content a:hover {
-      background-color: #0a2342;
-      color: white;
+    .activity-card:hover .type-badge {
+      transform: scale(1.05);
     }
 
-    /* ---------- FOOTER ---------- */
+    /* Variantes por tipo */
+    .type-curso,
+    .type-taller {
+      background-color: var(--type-curso); /* Azul para Cursos/Talleres 🟦 */
+    }
+
+    .type-conferencia {
+      background-color: var(--type-conferencia); /* Dorado sutil para Conferencias 🟨 */
+    }
+
+    .type-evento {
+      background-color: var(--type-evento); /* Rojo sutil para Eventos sociales 🟥 */
+    }
+
+    /* ============================================================
+       🔵 BLOQUE 5: FOOTER (estilo original azul oscuro)
+    ============================================================ */
     footer {
+      background-color: var(--primary); /* Azul oscuro original */
+      color: #fff; /* Blanco original */
       text-align: center;
-      padding: 25px;
-      background-color: #0a2342;
-      color: white;
-      margin-top: 50px;
+      padding: 2rem 1rem;
+      font-size: 0.95rem;
+      margin-top: 3rem;
     }
 
-    @media (max-width: 768px) {
+    footer p {
+      margin: 0;
+    }
+
+    /* ============================================================
+       🔵 BLOQUE 6: RESPONSIVE (uniforme, con ajustes para estilo original)
+    ============================================================ */
+    @media (max-width: 1200px) {
+      header nav {
+        padding: 0.75rem 2rem;
+      }
+
       nav ul {
-        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      nav ul li a {
+        font-size: 0.95rem;
+      }
+
+      .activity-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-small {
+        padding: 7.5rem 1.5rem 3rem;
+      }
+
+      main h2 {
+        font-size: 2.2rem;
+      }
+
+      header nav {
+        padding: 0.75rem 1.5rem;
+      }
+
+      nav ul {
+        gap: 0.7rem;
+      }
+
+      nav ul li a {
+        font-size: 0.9rem;
+      }
+
+      .activity-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .activity-card-content {
+        padding: 1.25rem;
+      }
+
+      .type-badge {
+        top: 8px;
+        right: 8px;
+        padding: 0.2rem 0.6rem;
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header nav {
+        flex-direction: row;
+        padding: 0.75rem 1rem;
+        justify-content: space-between;
+      }
+
+      nav ul {
+        gap: 0.5rem;
+        flex: 1;
+        justify-content: flex-end;
+        margin-left: 1rem;
+      }
+
+      nav ul li a {
+        font-size: 0.85rem;
+        padding: 0 0.2rem;
+      }
+
+      .hero-small h1 {
+        font-size: 2.2rem;
+      }
+
+      main {
+        width: 95%;
+        margin: 2rem auto;
+      }
+
+      nav ul {
+        flex-wrap: wrap; /* Como en el original para móviles */
         justify-content: center;
-        gap: 15px;
+        gap: 0.5rem;
+      }
+
+      .activity-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .activity-card img {
+        height: 160px;
+      }
+
+      .type-badge {
+        position: static; /* En móvil, mueve el badge al contenido para mejor visibilidad */
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        align-self: flex-start;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
@@ -165,39 +402,63 @@
         <li><a href="sponsors.html">Patrocinadores</a></li>
       </ul>
     </nav>
+
+    <section class="hero-small">
+      <h1>Actividades ACI UNI</h1>
+      <p>Explora nuestras actividades formativas, académicas y de integración para fortalecer la comunidad ACI UNI.</p>
+    </section>
   </header>
 
   <main>
-    <h2>Eventos, Cursos y Talleres</h2>
-    <p>Explora nuestras actividades formativas y de integración para fortalecer la comunidad ACI UNI.</p>
+    <h2>Actividades ACI UNI</h2>
+    <p>Descubre cursos, talleres, conferencias y eventos próximos. Cada actividad está diseñada para avanzar en la ingeniería del concreto.</p>
 
-    <div class="event-grid">
-      <div class="event-card">
-        <img src="assets/evento1.jpg" alt="Curso de Diseño de Mezclas">
-        <div class="event-card-content">
-          <h3>Curso de Durabilidad de Estructuras de Cocnreto</h3>
+    <div class="activity-grid">
+      <!-- Ejemplo: Curso (Azul 🟦) -->
+      <div class="activity-card">
+        <span class="type-badge type-curso">Curso</span>
+        <img src="assets/evento1.jpg" alt="Curso de Durabilidad de Estructuras de Concreto">
+        <div class="activity-card-content">
+          <h3>Curso de Durabilidad de Estructuras de Concreto</h3>
           <p>Aprende los fundamentos y prácticas modernas del diseño de mezclas, bajo la guía de especialistas del ACI UNI.</p>
           <a href="#">Ver detalles</a>
         </div>
       </div>
 
-      <div class="event-card">
+      <!-- Ejemplo: Taller (Azul 🟦) -->
+      <div class="activity-card">
+        <span class="type-badge type-taller">Taller</span>
         <img src="assets/evento2.jpg" alt="Taller FRP">
-        <div class="event-card-content">
-          <h3>Taller FRP </h3>
+        <div class="activity-card-content">
+          <h3>Taller FRP</h3>
           <p>Conoce la aplicación de materiales compuestos para el refuerzo estructural en obras civiles.</p>
           <a href="#">Ver detalles</a>
         </div>
       </div>
 
-      <div class="event-card">
+      <!-- Ejemplo: Evento social (Rojo 🟥) -->
+      <div class="activity-card">
+        <span class="type-badge type-evento">Evento</span>
         <img src="assets/evento3.jpg" alt="ACI Play">
-        <div class="event-card-content">
+        <div class="activity-card-content">
           <h3>ACI Play II Edición</h3>
           <p>Evento de integración entre capítulos ACI de Lima, con dinámicas, networking y actividades recreativas.</p>
           <a href="#">Ver detalles</a>
         </div>
       </div>
+
+      <!-- Ejemplo adicional: Conferencia (Dorado sutil 🟨) - Para eventos académicos grandes como UNICRETO o CIDETIC -->
+      <div class="activity-card">
+        <span class="type-badge type-conferencia">Conferencia</span>
+        <img src="assets/evento4.jpg" alt="UNICRETO 2025"> <!-- Agrega tu imagen real -->
+        <div class="activity-card-content">
+          <h3>UNICRETO 2025</h3>
+          <p>Serie de ponencias sobre innovaciones en concreto, con expertos nacionales e internacionales.</p>
+          <a href="#">Ver detalles</a>
+        </div>
+      </div>
+
+      <!-- Puedes agregar más tarjetas aquí con los tipos correspondientes -->
     </div>
   </main>
 
