@@ -15,7 +15,6 @@
       --radius: 14px;
       --shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
-
     body {
       font-family: 'Inter', sans-serif;
       margin: 0; padding: 0;
@@ -23,129 +22,109 @@
       color: var(--text);
       scroll-behavior: smooth;
     }
-
     header nav {
       display: flex; justify-content: space-between; align-items: center;
       background: var(--primary);
       padding: 0.75rem 3rem; box-shadow: var(--shadow);
       position: fixed; top:0; left:0; right:0; z-index:10;
     }
-
     .logo { height: 45px; transition: transform 0.3s;}
     .logo:hover { transform: scale(1.05);}
-
-    nav ul { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; flex-wrap: nowrap; align-items: center; }
-    nav ul li { position: relative; }
+    nav ul { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0;}
     nav ul li a {
-      text-decoration: none; font-weight: 500; color:#fff; transition: color 0.3s;
-      position: relative; font-size: 1rem; white-space: nowrap; padding: 0.5rem 0; display: block;
+      text-decoration: none; font-weight: 500; color:#fff;
+      transition: color 0.3s; position: relative; font-size: 1rem; padding: 0.5rem 0;
     }
     nav ul li a.active, nav ul li a:hover { color: var(--accent);}
     nav ul li a.active::after, nav ul li a:hover::after {
-      content: "";position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:var(--accent);border-radius:2px;
+      content: "";position:absolute;bottom:-4px;left:0;width:100%;height:2px;
+      background:var(--accent);border-radius:2px;
     }
-
-    /* Estilos menú desplegable */
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: var(--primary);
-      min-width: 200px;
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      z-index: 11;
-      top: 100%;
-      left: 0;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      margin-top: 0.5rem;
-    }
-    .dropdown:hover .dropdown-content,
-    .dropdown:focus-within .dropdown-content {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .dropdown-content a {
-      color: #fff;
-      padding: 0.75rem 1rem;
-      text-decoration: none;
-      display: block;
-      font-size: 0.95rem;
-      transition: background 0.3s ease, color 0.3s ease;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .dropdown-content a:last-child {
-      border-bottom: none;
-    }
-    .dropdown-content a:hover {
-      background: rgba(255,193,7,0.1);
-      color: var(--accent);
-    }
-    .dropdown .dropdown-toggle {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      outline: none;
-    }
-    .dropdown .dropdown-toggle i {
-      transition: transform 0.3s ease;
-      font-size: 0.8rem;
-    }
-    .dropdown:hover .dropdown-toggle i,
-    .dropdown:focus-within .dropdown-toggle i {
-      transform: rotate(180deg);
-    }
-
     main { width:90%; max-width:1200px; margin:5.5rem auto 0; text-align:center;}
-    .section-title { font-family: 'Montserrat',sans-serif; font-size:2.3rem; color:var(--primary); margin-bottom:0.5rem;}
+    .section-title { font-family: 'Montserrat',sans-serif; font-size:2.3rem; color:var(--primary); margin-bottom:1rem;}
 
-    .activities-list { text-align:left; margin:2rem 0;}
-    .activities-list ul { padding-left:1.5rem;}
+    /* ACTIVIDADES */
+    .activities-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .activity-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .activity-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    .activity-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .activity-card h3 {
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .activity-card p {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-    .directors-grid { display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:1.5rem; margin:2rem 0;}
+    /* DIRECTORES */
+    .directors-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
     .team-member {
-      background:#fff; border-radius:16px; box-shadow:var(--shadow);
-      padding:30px 20px; text-align:center; width:260px;
-      transition:all 0.3s ease;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 30px 20px;
+      text-align: center;
+      width: 260px;
+      transition: all 0.3s ease;
     }
     .team-member:hover {
-      transform:translateY(-5px);
-      box-shadow:0 8px 25px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     }
     .team-member img {
-      width:120px; height:120px; object-fit:cover; border-radius:50%;
-      border:3px solid var(--accent); transition:transform 0.3s ease;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #ffc107;
+      transition: transform 0.3s ease;
     }
-    .team-member:hover img { transform:scale(1.05); }
-    .team-member h3 { margin:12px 0 4px; font-size:1.1rem; color:var(--primary); font-family:'Montserrat',sans-serif;}
-    .team-member p { font-size:0.95rem; color:#555; margin-bottom:10px;}
-    .social-links a { color:var(--primary); font-size:1.3rem; margin:0 6px; transition:color 0.3s ease; text-decoration:none;}
-    .social-links a:hover { color:var(--accent); }
+    .team-member:hover img { transform: scale(1.05); }
+    .team-member h3 { margin: 12px 0 4px; font-size: 1.1rem; color: var(--primary);}
+    .team-member p { font-size: 0.95rem; color: #555; margin-bottom: 10px;}
+    .social-links a { color: var(--primary); font-size: 1.3rem; margin: 0 6px; transition: color 0.3s ease; text-decoration: none;}
+    .social-links a:hover { color: var(--accent); }
 
+    /* TABLA */
     .members-table { width:100%; max-width:700px; margin:2rem auto; border-collapse:collapse; background:#fff; box-shadow:var(--shadow); border-radius:var(--radius); overflow:hidden;}
     .members-table th, .members-table td { padding:0.75rem 1rem; border-bottom:1px solid #eee;}
     .members-table th { background:var(--primary); color:#fff;}
     .members-table tr:last-child td { border-bottom:none;}
 
     footer { background:var(--primary); color:#fff; text-align:center; padding:2rem 1rem; font-size:0.95rem; margin-top:3rem;}
-
-    @media (max-width:700px) {
-      .directors-grid { flex-direction:column; gap:1rem;}
-      .team-member { padding:16px 8px; max-width:100%; }
-      main { width:98%;}
-      nav ul { flex-wrap:wrap; justify-content:center; gap:0.5rem; }
-      .dropdown-content { position:static; opacity:1; transform:none; display:none; box-shadow:none; background:rgba(255,193,7,0.1); border-radius:0 0 var(--radius) var(--radius);}
-      .dropdown:focus-within .dropdown-content { display:block; }
-    }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
@@ -153,19 +132,7 @@
       <ul>
         <li><a href="../index.html">Inicio</a></li>
         <li><a href="../about.html">Sobre Nosotros</a></li>
-        <li>
-          <div class="dropdown">
-            <a href="../areas.html" class="dropdown-toggle active">Áreas <i class="fas fa-angle-down"></i></a>
-            <div class="dropdown-content">
-              <a href="RRPP.html" class="active">Relaciones Públicas</a>
-              <a href="INV.html">Investigación</a>
-              <a href="LOG.html">Logística</a>
-              <a href="RRHH.html">Recursos Humanos</a>
-              <a href="MKT.html">Marketing</a>
-              <a href="FIN.html">Finanzas</a>
-            </div>
-          </div>
-        </li>
+        <li><a href="../areas.html" class="active">Áreas</a></li>
         <li><a href="../events.html">Eventos</a></li>
         <li><a href="../projects.html">Proyectos</a></li>
         <li><a href="../team.html">Equipo</a></li>
@@ -180,14 +147,28 @@
   <main>
     <h1 class="section-title">Área de Relaciones Públicas</h1>
 
-    <div class="activities-list">
+    <section>
       <h2>Actividades</h2>
-      <ul>
-        <li>🤝 Coordinación de alianzas estratégicas</li>
-        <li>🌎 Representación en eventos nacionales e internacionales</li>
-        <li>🏢 Relación con empresas y otros capítulos</li>
-      </ul>
-    </div>
+      <div class="activities-container">
+        <div class="activity-card">
+          <div class="activity-icon">🤝</div>
+          <h3>Coordinación de alianzas estratégicas</h3>
+          <p>Nos encargamos de establecer vínculos con instituciones, empresas y entidades del sector construcción, fortaleciendo la presencia del Capítulo en el ámbito académico y profesional. Promovemos colaboraciones que impulsen proyectos y oportunidades para nuestros miembros.</p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-icon">🌎</div>
+          <h3>Representación en eventos nacionales e internacionales</h3>
+          <p>Participamos activamente en encuentros del ACI y otros eventos de ingeniería civil, representando a la UNI y a nuestro Capítulo. Buscamos generar visibilidad y prestigio mediante una comunicación efectiva y una imagen sólida en cada participación.</p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-icon">💬</div>
+          <h3>Relación con empresas y otros capítulos</h3>
+          <p>Promovemos la interacción constante con capítulos estudiantiles de otras universidades, tanto nacionales como internacionales. Además, gestionamos vínculos con empresas del rubro para generar convenios, capacitaciones y espacios de aprendizaje colaborativo.</p>
+        </div>
+      </div>
+    </section>
 
     <div class="directors-grid">
       <div class="team-member">
