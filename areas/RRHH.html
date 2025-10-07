@@ -36,8 +36,36 @@
     nav ul li a.active::after, nav ul li a:hover::after { content: "";position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:var(--accent);border-radius:2px;}
     main { width:90%; max-width:1200px; margin:5.5rem auto 0; text-align:center;}
     .section-title { font-family: 'Montserrat',sans-serif; font-size:2.3rem; color:var(--primary); margin-bottom:0.5rem;}
-    .activities-list { text-align:left; margin:2rem 0;}
-    .activities-list ul { padding-left:1.5rem;}
+
+    /* Tarjetas de actividades */
+    .activity-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .activity-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+    .activity-card:hover {
+      transform: translateY(-4px);
+    }
+    .activity-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .activity-card p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
     .team-member {
       background: #fff;
       border-radius: 16px;
@@ -64,10 +92,12 @@
       text-decoration: none;
     }
     .social-links a:hover { color: var(--accent); }
+
     .members-table { width:100%; max-width:700px; margin:2rem auto; border-collapse:collapse; background:#fff; box-shadow:var(--shadow); border-radius:var(--radius); overflow:hidden;}
     .members-table th, .members-table td { padding:0.75rem 1rem; border-bottom:1px solid #eee;}
     .members-table th { background:var(--primary); color:#fff;}
     .members-table tr:last-child td { border-bottom:none;}
+
     footer { background:var(--primary); color:#fff; text-align:center; padding:2rem 1rem; font-size:0.95rem; margin-top:3rem;}
     @media (max-width:700px) {
       .team-member { padding: 16px 8px; }
@@ -96,15 +126,26 @@
 
   <main>
     <h1 class="section-title">Área de Recursos Humanos</h1>
-    <div class="activities-list">
-      <h2>Actividades</h2>
-      <ul>
-        <li>Eventos de integración</li>
-        <li>Desarrollo de soft skills</li>
-        <li>Proyectos solidarios (ChocoACI)</li>
-        <li>Moderaciones</li>
-      </ul>
+
+    <div class="activity-cards">
+      <div class="activity-card">
+        <h3>🧠 Integración y Cultura ACI</h3>
+        <p>Promovemos la integración entre los miembros mediante reuniones, dinámicas y eventos que fortalecen el sentido de pertenencia al capítulo.</p>
+      </div>
+      <div class="activity-card">
+        <h3>❤️ Bienestar y Motivación</h3>
+        <p>Nos enfocamos en el bienestar integral de los miembros, fomentando un ambiente positivo con charlas motivacionales y espacios de recreación.</p>
+      </div>
+      <div class="activity-card">
+        <h3>🌎 Responsabilidad Social</h3>
+        <p>Impulsamos iniciativas solidarias como el <em>ChocoACI</em> y campañas de apoyo social, promoviendo empatía y compromiso con la comunidad.</p>
+      </div>
+      <div class="activity-card">
+        <h3>🚀 Desarrollo Personal y Profesional</h3>
+        <p>Promovemos talleres, mentorías y programas de liderazgo para potenciar las habilidades blandas y el crecimiento profesional de nuestros miembros.</p>
+      </div>
     </div>
+
     <div class="team-member">
       <img src="../assets/KarlaG.png" alt="Karla Galindo" />
       <h3>Karla Galindo</h3>
@@ -113,176 +154,141 @@
         <a href="https://www.linkedin.com/in/karla-del-pilar-galindo-gaspar-39722a2b1/"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
-    <h2>Miembros 2025 - 2</h2>
-    <table class="members-table">
-      <tr>
-        <th>Nombre</th>
-        <th>Cargo</th>
-        <th>LinkedIn</th>
-      </tr>
-      <tr>
-        <td>Pablo Ticona</td>
-        <td>Sub-Director</td>
-        <td>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/pablo-aldair-ticona-farfan-2b439b312/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Peter Roman</td>
-        <td>Miembro</td>
-        <td>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/peter-roman-salazar/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Emerson Vivanco</td>
-        <td>Miembro</td>
-        <td>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/emerson-aaron-vivanco-cueva/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-       <tr>
-        <td>Gamaniel Carrera</td>
-        <td>Miembro</td>
-        <td>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/gamaniel-alipio-carrera-calixto-4920a2271/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Steven Barauna</td>
-        <td>Miembro</td>
-        <td>
-          <div class="social-links">
-            <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Jhoan Fernandez</td>
-        <td>Miembro</td>
-        <td>
-          <div class="social-links">
-            <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Joseph Ccana</td>
-        <td>Miembro</td>
-        <td>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/joseph-leonardo-ccana-ayuque-8852b7290/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Sebastián Chávez</td>
-        <td>Miembro</td>
-        <td>
-          <div class="social-links">
-            <a href="http://linkedin.com/in/sebastian-alonso-chavez-utrilla-870a06268" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Luis Soaña</td>
-        <td>Miembro</td>
-        <td>
-          <div class="social-links">
-            <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>José Rivera</td>
-        <td>Miembro</td>
-        <td>
-          <div class="social-links">
-            <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Elber Rufino</td>
-        <td>Miembro</td>
-        <td>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/elber-rufino-atero-aa61a5265/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Samantha Matos</td>
-        <td>Aspirante</td>
-        <td>
-          <div class="social-links">
-            <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Mathias Chipana</td>
-        <td>Aspirante</td>
-        <td>
-          <div class="social-links">
-            <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Sergio Trujillo</td>
-        <td>Aspirante</td>
-        <td>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/sergio-trujillo-aa3884347/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Jesús Velez</td>
-        <td>Aspirante</td>
-        <td>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/jesus-alejandro-velez-de-villa-santiago-41742233a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Isabel Maldonado</td>
-        <td>Aspirante</td>
-        <td>
-          <div class="social-links">
-            <a href="http://www.linkedin.com/in/mldnd2000" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Fabrizzio Coba</td>
-        <td>Aspirante</td>
-        <td>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/fabrizzio-coba-sanchez/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>Jairo </td>
-        <td>Aspirante</td>
-        <td>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/elber-rufino-atero-aa61a5265/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          </div>
-        </td>
-      </tr>
-    </table>
+<h2>Miembros 2025 - 2</h2>
+<table class="members-table">
+  <tr>
+    <th>Nombre</th>
+    <th>Cargo</th>
+    <th>LinkedIn</th>
+  </tr>
+  <tr>
+    <td>Pablo Ticona</td>
+    <td>Sub-Director</td>
+    <td><div class="social-links">
+      <a href="https://www.linkedin.com/in/pablo-aldair-ticona-farfan-2b439b312/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Peter Roman</td>
+    <td>Miembro</td>
+    <td><div class="social-links">
+      <a href="https://www.linkedin.com/in/peter-roman-salazar/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Emerson Vivanco</td>
+    <td>Miembro</td>
+    <td><div class="social-links">
+      <a href="https://www.linkedin.com/in/emerson-aaron-vivanco-cueva/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Gamaniel Carrera</td>
+    <td>Miembro</td>
+    <td><div class="social-links">
+      <a href="https://www.linkedin.com/in/gamaniel-alipio-carrera-calixto-4920a2271/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Steven Barauna</td>
+    <td>Miembro</td>
+    <td><div class="social-links">
+      <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Jhoan Fernandez</td>
+    <td>Miembro</td>
+    <td><div class="social-links">
+      <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Joseph Ccana</td>
+    <td>Miembro</td>
+    <td><div class="social-links">
+      <a href="https://www.linkedin.com/in/joseph-leonardo-ccana-ayuque-8852b7290/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Sebastián Chávez</td>
+    <td>Miembro</td>
+    <td><div class="social-links">
+      <a href="http://linkedin.com/in/sebastian-alonso-chavez-utrilla-870a06268" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Luis Soaña</td>
+    <td>Miembro</td>
+    <td><div class="social-links">
+      <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>José Rivera</td>
+    <td>Miembro</td>
+    <td><div class="social-links">
+      <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Elber Rufino</td>
+    <td>Miembro</td>
+    <td><div class="social-links">
+      <a href="https://www.linkedin.com/in/elber-rufino-atero-aa61a5265/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Samantha Matos</td>
+    <td>Aspirante</td>
+    <td><div class="social-links">
+      <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Mathias Chipana</td>
+    <td>Aspirante</td>
+    <td><div class="social-links">
+      <a href="https://linkedin.com/in/carlosruiz" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Sergio Trujillo</td>
+    <td>Aspirante</td>
+    <td><div class="social-links">
+      <a href="https://www.linkedin.com/in/sergio-trujillo-aa3884347/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Jesús Velez</td>
+    <td>Aspirante</td>
+    <td><div class="social-links">
+      <a href="https://www.linkedin.com/in/jesus-alejandro-velez-de-villa-santiago-41742233a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Isabel Maldonado</td>
+    <td>Aspirante</td>
+    <td><div class="social-links">
+      <a href="http://www.linkedin.com/in/mldnd2000" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Fabrizzio Coba</td>
+    <td>Aspirante</td>
+    <td><div class="social-links">
+      <a href="https://www.linkedin.com/in/fabrizzio-coba-sanchez/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+  <tr>
+    <td>Jairo</td>
+    <td>Aspirante</td>
+    <td><div class="social-links">
+      <a href="https://www.linkedin.com/in/elber-rufino-atero-aa61a5265/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div></td>
+  </tr>
+</table>
+
   </main>
 
   <footer>
