@@ -18,4 +18,4 @@ Este repositorio contiene la página web institucional del capítulo estudiantil
 
 ## ¿Preguntas?
 
-Puedes contactarnos en aci.uni@uni.edu.pe.
+Puedes contactarnos en aci@uni.edu.pe.
