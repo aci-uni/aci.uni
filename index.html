@@ -21,23 +21,53 @@
       --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     }
 
+    /* Escalado fluido basado en el ancho de la ventana */
+    html {
+      font-size: 14px; /* Base para pantallas pequeñas */
+    }
+
+    @media (min-width: 768px) {
+      html {
+        font-size: 15px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      html {
+        font-size: 16px;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      html {
+        font-size: 17px;
+      }
+    }
+
+    @media (min-width: 1920px) {
+      html {
+        font-size: 18px;
+      }
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
       color: var(--text);
       background-color: var(--light);
       scroll-behavior: smooth;
+      font-size: 1rem; /* Ahora es relativo al html */
     }
 
     /* ============================================================
-       🔵 BLOQUE 2: HEADER Y NAVEGACIÓN (idéntico a sponsors.html)
+       🔵 BLOQUE 2: HEADER Y NAVEGACIÓN
     ============================================================ */
     header nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: var(--primary);
-      padding: 0.75rem 3rem;
+      padding: 0.75rem clamp(1.5rem, 5vw, 3rem); /* Padding adaptativo */
       box-shadow: var(--shadow);
       position: fixed;
       top: 0;
@@ -47,7 +77,7 @@
     }
 
     .logo {
-      height: 45px;
+      height: clamp(35px, 4vw, 50px); /* Escalado fluido */
       transition: transform 0.3s ease;
     }
 
@@ -58,7 +88,7 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 1rem;
+      gap: clamp(0.5rem, 1.5vw, 1.2rem);
       margin: 0;
       padding: 0;
       flex-wrap: nowrap;
@@ -70,7 +100,7 @@
       color: #fff;
       transition: color 0.3s ease;
       position: relative;
-      font-size: 1rem;
+      font-size: clamp(0.85rem, 1vw, 1.05rem); /* Texto adaptativo */
       white-space: nowrap;
       padding: 0.5rem 0;
     }
@@ -100,7 +130,7 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      padding: 8.5rem 3rem 5rem;
+      padding: clamp(6rem, 10vh, 8.5rem) clamp(1.5rem, 5vw, 3rem) clamp(3rem, 6vh, 5rem);
       background: linear-gradient(135deg, var(--light) 0%, #f0f4f8 100%);
       min-height: 90vh;
       overflow: hidden;
@@ -113,7 +143,7 @@
     }
 
     .hero-logo {
-      height: 160px;
+      height: clamp(120px, 15vw, 180px); /* Logo más grande en pantallas grandes */
       margin: 0 auto 1.5rem;
       display: block;
       filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
@@ -126,13 +156,14 @@
 
     .hero h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 2.8rem;
+      font-size: clamp(2rem, 4vw, 3.2rem); /* Título escalable */
       color: var(--primary);
       margin: 0.5rem 0;
+      line-height: 1.2;
     }
 
     .hero p {
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 1.5vw, 1.25rem); /* Párrafo escalable */
       color: var(--dark);
       margin-bottom: 1.8rem;
       line-height: 1.6;
@@ -146,8 +177,9 @@
 
     .button,
     .button-outline {
-      padding: 0.8rem 1.8rem;
+      padding: clamp(0.7rem, 1.2vw, 0.9rem) clamp(1.5rem, 2.5vw, 2rem);
       font-weight: 600;
+      font-size: clamp(0.95rem, 1.2vw, 1.1rem);
       border-radius: var(--radius);
       text-decoration: none;
       transition: all 0.3s ease;
@@ -188,12 +220,12 @@
       align-items: center;
       min-width: 300px;
       position: relative;
-      min-height: 400px;
+      min-height: clamp(350px, 50vh, 450px);
     }
 
     .carousel-container {
       width: 95%;
-      max-width: 580px;
+      max-width: clamp(450px, 40vw, 650px); /* Carrusel más grande en pantallas grandes */
       position: relative;
       overflow: hidden;
       border-radius: var(--radius);
@@ -238,8 +270,8 @@
     }
 
     .indicator {
-      width: 10px;
-      height: 10px;
+      width: clamp(8px, 1vw, 12px);
+      height: clamp(8px, 1vw, 12px);
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.5);
       cursor: pointer;
@@ -258,7 +290,7 @@
       color: #fff;
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.95rem;
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
       margin-top: 3rem;
     }
 
@@ -340,6 +372,19 @@
 
       .hero-image {
         min-height: 250px;
+      }
+    }
+
+    /* ============================================================
+       🔵 NUEVAS REGLAS: PANTALLAS MUY GRANDES
+    ============================================================ */
+    @media (min-width: 1920px) {
+      .hero-content {
+        max-width: 680px;
+      }
+      
+      .carousel-container {
+        max-width: 750px;
       }
     }
   </style>
