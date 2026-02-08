@@ -92,305 +92,367 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background-color: var(--accent); /* Dorado para la línea inferior */
-      border-radius: 2px;
+      background-color: var(--accent);
     }
 
     /* ============================================================
-       🔵 BLOQUE 3: HERO PRINCIPAL (estilo original azul oscuro, como en areas.html)
+       🔵 BLOQUE 3: SECCIÓN PROYECTOS CON DESPLEGABLES
     ============================================================ */
-    .hero-small {
-      text-align: center;
-      padding: 8.5rem 3rem 4rem; /* Uniforme: padding-top ajustado para navbar fija */
-      background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%); /* Gradiente original azul oscuro */
-      color: #fff;
-      margin-top: 0; /* Asegura que no haya gap con navbar */
-    }
-
-    .hero-small h1 {
-      font-family: 'Montserrat', sans-serif; /* Uniforme: Montserrat para títulos */
-      font-size: 2.8rem; /* Similar al hero principal */
-      margin: 0.5rem 0;
-      color: #fff;
-    }
-
-    .hero-small p {
-      font-size: 1.1rem;
-      margin: 0;
-      line-height: 1.6;
-      color: #ddd; /* Como en el original */
-    }
-
-    /* ============================================================
-       🔵 BLOQUE 4: SECCIÓN PRINCIPAL (colores con azul oscuro)
-    ============================================================ */
-    main {
-      width: 90%;
+    .projects-section {
+      padding: 7rem 3rem 4rem;
       max-width: 1200px;
-      margin: 3rem auto; /* Espaciado uniforme */
-      text-align: center;
+      margin: 0 auto;
     }
 
-    main h2 {
-      font-family: 'Montserrat', sans-serif; /* Uniforme */
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
       font-size: 2.5rem;
-      color: var(--primary); /* Azul oscuro original para títulos */
-      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    main p {
-      color: var(--text); /* Uniforme */
-      max-width: 800px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
-      font-size: 1.05rem;
-    }
-
-    /* Tarjetas de proyectos: Grid uniforme */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem; /* Gap uniforme */
-      margin-top: 2rem;
-    }
-
-    .project-card {
-      background: #fff;
-      border-radius: var(--radius); /* Uniforme */
-      box-shadow: var(--shadow); /* Uniforme */
+    /* Acordeón de años */
+    .year-accordion {
+      margin-bottom: 1.5rem;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       overflow: hidden;
+    }
+
+    .year-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      cursor: pointer;
       transition: all 0.3s ease;
+      user-select: none;
     }
 
-    .project-card:hover {
-      transform: translateY(-5px); /* Efecto sutil uniforme */
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    .year-header:hover {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
     }
 
-    .project-card img {
-      width: 100%;
-      height: 180px; /* Altura fija para consistencia */
-      object-fit: cover;
+    .year-header h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .year-header .toggle-icon {
+      font-size: 1.5rem;
+      font-weight: bold;
       transition: transform 0.3s ease;
     }
 
-    .project-card:hover img {
-      transform: scale(1.05);
+    .year-header.active .toggle-icon {
+      transform: rotate(180deg);
     }
 
-    .project-card-content {
-      padding: 1.5rem;
-      text-align: left;
+    /* Contenido desplegable */
+    .year-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 2rem;
     }
 
-    .project-card-content h3 {
-      color: var(--primary); /* Azul oscuro original */
-      margin: 0 0 0.75rem;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
+    .year-content.active {
+      max-height: 5000px; /* Suficientemente grande para el contenido */
+      padding: 2rem;
     }
 
-    .project-card-content p {
-      color: var(--text);
-      font-size: 0.95rem;
-      margin: 0 0 1rem;
-      line-height: 1.6;
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
-    .project-card-content a {
-      display: inline-block;
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-      border: 2px solid var(--primary);
-      padding: 0.5rem 1rem;
+    .project-card {
+      background: #f8fafc;
+      padding: 2rem;
       border-radius: var(--radius);
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 4px solid var(--accent);
     }
 
-    .project-card-content a:hover {
-      background-color: var(--primary);
-      color: #fff;
-      transform: translateY(-2px);
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+
+    .project-card p {
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      background-color: #e0f2fe;
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
     }
 
     /* ============================================================
-       🔵 BLOQUE 5: FOOTER (estilo original azul oscuro)
+       🔵 BLOQUE 4: FOOTER
     ============================================================ */
     footer {
-      background-color: var(--primary); /* Azul oscuro original */
-      color: #fff; /* Blanco original */
+      background-color: var(--primary);
+      color: white;
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.95rem;
-      margin-top: 3rem;
+      margin-top: 4rem;
     }
 
     footer p {
       margin: 0;
+      font-size: 0.95rem;
     }
 
     /* ============================================================
-       🔵 BLOQUE 6: RESPONSIVE (uniforme, con ajustes para estilo original)
+       🔵 RESPONSIVE
     ============================================================ */
-    @media (max-width: 1200px) {
-      header nav {
-        padding: 0.75rem 2rem;
-      }
-
-      nav ul {
-        gap: 0.8rem;
-      }
-
-      nav ul li a {
-        font-size: 0.95rem;
-      }
-
-      .project-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .hero-small {
-        padding: 7.5rem 1.5rem 3rem;
-      }
-
-      main h2 {
-        font-size: 2.2rem;
-      }
-
+    @media (max-width: 768px) {
       header nav {
         padding: 0.75rem 1.5rem;
       }
 
       nav ul {
-        gap: 0.7rem;
+        gap: 0.5rem;
       }
 
       nav ul li a {
         font-size: 0.9rem;
       }
 
-      .project-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1rem;
+      .projects-section {
+        padding: 6rem 1.5rem 3rem;
       }
 
-      .project-card-content {
-        padding: 1.25rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      header nav {
-        flex-direction: row;
-        padding: 0.75rem 1rem;
-        justify-content: space-between;
+      .section-title {
+        font-size: 2rem;
       }
 
-      nav ul {
-        gap: 0.5rem;
-        flex: 1;
-        justify-content: flex-end;
-        margin-left: 1rem;
+      .year-header h3 {
+        font-size: 1.5rem;
       }
 
-      nav ul li a {
-        font-size: 0.85rem;
-        padding: 0 0.2rem;
-      }
-
-      .hero-small h1 {
-        font-size: 2.2rem;
-      }
-
-      main {
-        width: 95%;
-        margin: 2rem auto;
-      }
-
-      nav ul {
-        flex-wrap: wrap; /* Como en el original para móviles */
-        justify-content: center;
-        gap: 0.5rem;
-      }
-
-      .project-grid {
+      .projects-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .project-card img {
-        height: 160px;
       }
     }
   </style>
 </head>
 
 <body>
+  <!-- ============================================================
+       🔵 HEADER Y NAVEGACIÓN
+  ============================================================ -->
   <header>
     <nav>
-      <a href="index.html"><img src="assets/logo-aci-uni.png" alt="ACI UNI Logo" class="logo"></a>
+      <a href="index.html">
+        <img src="assets/logo-aci-uni.png" alt="Logo ACI UNI" class="logo">
+      </a>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="about.html">Sobre Nosotros</a></li>
+        <li><a href="about.html">Nosotros</a></li>
         <li><a href="areas.html">Áreas</a></li>
-        <li><a href="events.html">Eventos</a></li>
         <li><a href="projects.html" class="active">Proyectos</a></li>
-        <li><a href="team.html">Equipo</a></li>
-        <li><a href="gallery.html">Galería</a></li>
-        <li><a href="join.html">Únete</a></li>
+        <li><a href="events.html">Eventos</a></li>
+        <li><a href="resources.html">Recursos</a></li>
         <li><a href="contact.html">Contacto</a></li>
-        <li><a href="sponsors.html">Patrocinadores</a></li>
       </ul>
     </nav>
-
-    <section class="hero-small">
-      <h1>Proyectos e Investigación</h1>
-      <p>Explora los proyectos, publicaciones y prototipos desarrollados por el Capítulo ACI UNI en el ámbito de la ingeniería civil y el concreto.</p>
-    </section>
   </header>
 
-  <main>
-    <h2>Proyectos Destacados</h2>
-    <p>Descubre nuestras iniciativas de investigación y desarrollo que impulsan la innovación en materiales y técnicas de concreto.</p>
+  <!-- ============================================================
+       🔵 SECCIÓN: PROYECTOS E INVESTIGACIÓN POR AÑO
+  ============================================================ -->
+  <section class="projects-section">
+    <h2 class="section-title">Proyectos e Investigación</h2>
 
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="assets/project1.jpg" alt="Paper sobre concreto sostenible">
-        <div class="project-card-content">
-          <h3>Paper: Concreto Sostenible con Materiales Reciclados</h3>
-          <p>Investigación publicada sobre el uso de agregados reciclados en mezclas de concreto estructural.</p>
-          <a href="#">Ver publicación</a>
-        </div>
+    <!-- ACORDEÓN 2026 -->
+    <div class="year-accordion">
+      <div class="year-header" onclick="toggleYear(this)">
+        <h3>2026</h3>
+        <span class="toggle-icon">▼</span>
       </div>
+      <div class="year-content">
+        <div class="projects-grid">
+          <!-- Proyecto ejemplo 2026 #1 -->
+          <div class="project-card">
+            <h4>Sistema de IA para Diagnóstico Médico</h4>
+            <p>Desarrollo de un sistema de inteligencia artificial avanzado para el diagnóstico temprano de enfermedades mediante análisis de imágenes médicas.</p>
+            <div class="project-meta">
+              <span class="tag">IA</span>
+              <span class="tag">Salud</span>
+              <span class="tag">Deep Learning</span>
+            </div>
+          </div>
 
-      <div class="project-card">
-        <img src="assets/project2.jpg" alt="Prototipo de concreto liviano">
-        <div class="project-card-content">
-          <h3>Prototipo: Concreto Liviano Fibroreforzado</h3>
-          <p>Desarrollo experimental de un concreto ligero reforzado con fibras naturales para aplicaciones estructurales.</p>
-          <a href="#">Ver detalles</a>
-        </div>
-      </div>
+          <!-- Proyecto ejemplo 2026 #2 -->
+          <div class="project-card">
+            <h4>Automatización Industrial con Robótica</h4>
+            <p>Implementación de robots colaborativos para optimizar procesos de manufactura en la industria nacional.</p>
+            <div class="project-meta">
+              <span class="tag">Robótica</span>
+              <span class="tag">Automatización</span>
+              <span class="tag">IoT</span>
+            </div>
+          </div>
 
-      <div class="project-card">
-        <img src="assets/project3.jpg" alt="Ensayo de durabilidad">
-        <div class="project-card-content">
-          <h3>Ensayo: Durabilidad ante Ambientes Marinos</h3>
-          <p>Proyecto de laboratorio sobre la resistencia del concreto expuesto a cloruros y ambientes costeros.</p>
-          <a href="#">Ver resultados</a>
+          <!-- Proyecto ejemplo 2026 #3 -->
+          <div class="project-card">
+            <h4>Plataforma de Educación Virtual con IA</h4>
+            <p>Creación de una plataforma educativa que utiliza inteligencia artificial para personalizar el aprendizaje de cada estudiante.</p>
+            <div class="project-meta">
+              <span class="tag">EdTech</span>
+              <span class="tag">IA</span>
+              <span class="tag">Machine Learning</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </main>
 
+    <!-- ACORDEÓN 2025 -->
+    <div class="year-accordion">
+      <div class="year-header" onclick="toggleYear(this)">
+        <h3>2025</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="year-content">
+        <div class="projects-grid">
+          <!-- Proyecto ejemplo 2025 #1 -->
+          <div class="project-card">
+            <h4>Reconocimiento Facial para Seguridad</h4>
+            <p>Sistema de visión por computadora para identificación y control de acceso en instalaciones de alta seguridad.</p>
+            <div class="project-meta">
+              <span class="tag">Visión Artificial</span>
+              <span class="tag">Seguridad</span>
+              <span class="tag">ML</span>
+            </div>
+          </div>
+
+          <!-- Proyecto ejemplo 2025 #2 -->
+          <div class="project-card">
+            <h4>Análisis Predictivo de Datos Climáticos</h4>
+            <p>Herramienta de análisis predictivo para pronosticar patrones climáticos y prevenir desastres naturales.</p>
+            <div class="project-meta">
+              <span class="tag">Data Science</span>
+              <span class="tag">Big Data</span>
+              <span class="tag">Meteorología</span>
+            </div>
+          </div>
+
+          <!-- Proyecto ejemplo 2025 #3 -->
+          <div class="project-card">
+            <h4>Blockchain para Trazabilidad Alimentaria</h4>
+            <p>Sistema blockchain para garantizar la trazabilidad y seguridad en la cadena de suministro de alimentos.</p>
+            <div class="project-meta">
+              <span class="tag">Blockchain</span>
+              <span class="tag">Seguridad</span>
+              <span class="tag">Agricultura</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACORDEÓN 2024 -->
+    <div class="year-accordion">
+      <div class="year-header" onclick="toggleYear(this)">
+        <h3>2024</h3>
+        <span class="toggle-icon">▼</span>
+      </div>
+      <div class="year-content">
+        <div class="projects-grid">
+          <!-- Proyecto ejemplo 2024 #1 -->
+          <div class="project-card">
+            <h4>Chatbot Universitario con NLP</h4>
+            <p>Asistente virtual inteligente para resolver consultas académicas y administrativas de estudiantes universitarios.</p>
+            <div class="project-meta">
+              <span class="tag">NLP</span>
+              <span class="tag">Chatbot</span>
+              <span class="tag">IA</span>
+            </div>
+          </div>
+
+          <!-- Proyecto ejemplo 2024 #2 -->
+          <div class="project-card">
+            <h4>Sistema de Monitoreo Ambiental</h4>
+            <p>Red de sensores IoT para monitorear la calidad del aire y agua en zonas urbanas y rurales.</p>
+            <div class="project-meta">
+              <span class="tag">IoT</span>
+              <span class="tag">Medio Ambiente</span>
+              <span class="tag">Sensores</span>
+            </div>
+          </div>
+
+          <!-- Proyecto ejemplo 2024 #3 -->
+          <div class="project-card">
+            <h4>App de Movilidad Urbana Inteligente</h4>
+            <p>Aplicación móvil para optimizar rutas de transporte público utilizando algoritmos de optimización y datos en tiempo real.</p>
+            <div class="project-meta">
+              <span class="tag">Movilidad</span>
+              <span class="tag">Optimización</span>
+              <span class="tag">Mobile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================================================
+       🔵 FOOTER
+  ============================================================ -->
   <footer>
-    <p>&copy; 2025 Capítulo Estudiantil ACI UNI. Todos los derechos reservados.</p>
+    <p>&copy; 2026 ACI UNI - Asociación Científica de Informática de la Universidad Nacional de Ingeniería</p>
   </footer>
+
+  <!-- ============================================================
+       🔵 JAVASCRIPT PARA DESPLEGABLES
+  ============================================================ -->
+  <script>
+    function toggleYear(header) {
+      // Toggle active class en el header
+      header.classList.toggle('active');
+      
+      // Obtener el contenido siguiente
+      const content = header.nextElementSibling;
+      
+      // Toggle active class en el contenido
+      content.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
-
