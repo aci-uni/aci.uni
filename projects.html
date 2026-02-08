@@ -24,17 +24,11 @@
       --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
       
       /* Variables modernas para proyectos */
-      --primary-modern: #6366f1;
-      --primary-dark: #4f46e5;
-      --secondary-modern: #8b5cf6;
-      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
       --card-bg: #ffffff;
       --text-light: #64748b;
       --radius-modern: 20px;
       --radius-sm: 12px;
-      --shadow-hover: 0 20px 60px rgba(99, 102, 241, 0.25);
+      --shadow-hover: 0 20px 60px rgba(10, 35, 66, 0.25);
     }
 
     * {
@@ -45,7 +39,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom, #f8fafc 0%, #e0e7ff 100%);
+      background-color: var(--light);
       color: var(--text);
       scroll-behavior: smooth;
       overflow-x: hidden;
@@ -119,7 +113,7 @@
     .hero-section {
       padding: 10rem 3rem 3rem;
       text-align: center;
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       position: relative;
       overflow: hidden;
     }
@@ -132,8 +126,8 @@
       right: 0;
       bottom: 0;
       background: 
-        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(255, 193, 7, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 193, 7, 0.1) 0%, transparent 50%);
       pointer-events: none;
     }
 
@@ -169,7 +163,7 @@
       margin: 0 auto;
     }
 
-    /* Acordeón moderno */
+    /* Acordeón moderno con colores originales */
     .year-accordion {
       margin-bottom: 2rem;
       background: var(--card-bg);
@@ -181,7 +175,7 @@
     }
 
     .year-accordion:hover {
-      border-color: rgba(99, 102, 241, 0.2);
+      border-color: rgba(255, 193, 7, 0.3);
       transform: translateY(-2px);
     }
 
@@ -190,7 +184,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 2rem 2.5rem;
-      background: var(--gradient-1);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: white;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -206,12 +200,16 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.2), transparent);
       transition: left 0.5s ease;
     }
 
     .year-header:hover::before {
       left: 100%;
+    }
+
+    .year-header:hover {
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
     }
 
     .year-header h3 {
@@ -225,19 +223,20 @@
     }
 
     .year-badge {
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 193, 7, 0.25);
       padding: 0.5rem 1.25rem;
       border-radius: 50px;
       font-size: 1rem;
       font-weight: 600;
       backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 193, 7, 0.3);
     }
 
     .toggle-icon {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 193, 7, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -245,11 +244,13 @@
       font-weight: bold;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 193, 7, 0.3);
     }
 
     .year-header.active .toggle-icon {
       transform: rotate(180deg);
-      background: rgba(255, 255, 255, 0.3);
+      background: var(--accent);
+      color: var(--primary);
     }
 
     /* Contenido desplegable */
@@ -273,7 +274,7 @@
       gap: 2.5rem;
     }
 
-    /* Tarjetas de proyectos ULTRA MODERNAS */
+    /* Tarjetas de proyectos */
     .project-card {
       background: white;
       padding: 0;
@@ -292,7 +293,7 @@
       left: 0;
       right: 0;
       height: 6px;
-      background: var(--gradient-1);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.4s ease;
@@ -305,12 +306,12 @@
     .project-card:hover {
       transform: translateY(-12px);
       box-shadow: var(--shadow-hover);
-      border-color: rgba(99, 102, 241, 0.2);
+      border-color: rgba(255, 193, 7, 0.3);
     }
 
     .project-header {
       padding: 2rem 2rem 1.5rem;
-      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+      background: linear-gradient(135deg, #f8fafc 0%, #e8f1ff 100%);
     }
 
     .project-card h4 {
@@ -318,7 +319,7 @@
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
-      color: var(--dark);
+      color: var(--primary);
       line-height: 1.3;
     }
 
@@ -333,7 +334,7 @@
       font-size: 0.95rem;
     }
 
-    /* Tags modernos con gradientes */
+    /* Tags con colores originales */
     .project-meta {
       display: flex;
       flex-wrap: wrap;
@@ -341,42 +342,49 @@
     }
 
     .tag {
-      background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 100%);
-      color: var(--primary-dark);
+      background: linear-gradient(135deg, #e8f1ff 0%, #d4e4ff 100%);
+      color: var(--primary);
       padding: 0.5rem 1rem;
       border-radius: 50px;
       font-size: 0.8rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+      box-shadow: 0 2px 8px rgba(10, 35, 66, 0.15);
       transition: all 0.3s ease;
+      border: 1px solid rgba(10, 35, 66, 0.1);
     }
 
     .tag:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+      box-shadow: 0 4px 12px rgba(10, 35, 66, 0.25);
+      background: var(--accent);
+      color: var(--primary);
     }
 
-    /* Diferentes colores para tags */
+    /* Diferentes colores para tags (con paleta original) */
     .tag.ai {
-      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-      color: #92400e;
+      background: linear-gradient(135deg, #fff9e6 0%, #ffeaa7 100%);
+      color: #856404;
+      border-color: rgba(255, 193, 7, 0.3);
     }
 
     .tag.robotica {
-      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-      color: #1e40af;
+      background: linear-gradient(135deg, #e8f1ff 0%, #bdd9ff 100%);
+      color: var(--primary);
+      border-color: rgba(10, 35, 66, 0.2);
     }
 
     .tag.web {
-      background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
-      color: #9f1239;
+      background: linear-gradient(135deg, #f3e8ff 0%, #ddc3ff 100%);
+      color: #4a148c;
+      border-color: rgba(74, 20, 140, 0.2);
     }
 
     .tag.data {
-      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-      color: #065f46;
+      background: linear-gradient(135deg, #e6f7ed 0%, #b3e0cc 100%);
+      color: #0d5c2e;
+      border-color: rgba(13, 92, 46, 0.2);
     }
 
     /* ============================================================
