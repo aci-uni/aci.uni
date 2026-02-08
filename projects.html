@@ -339,6 +339,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
+      margin-bottom: 1.5rem;
     }
 
     .tag {
@@ -385,6 +386,38 @@
       background: linear-gradient(135deg, #e6f7ed 0%, #b3e0cc 100%);
       color: #0d5c2e;
       border-color: rgba(13, 92, 46, 0.2);
+    }
+
+    /* ============================================================
+       📄 BOTÓN VER PDF
+    ============================================================ */
+    .pdf-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 15px rgba(10, 35, 66, 0.2);
+    }
+
+    .pdf-button:hover {
+      background: linear-gradient(135deg, var(--accent) 0%, #ffb300 100%);
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 193, 7, 0.4);
+      border-color: var(--accent);
+    }
+
+    .pdf-button::before {
+      content: "📄";
+      font-size: 1.2rem;
     }
 
     /* ============================================================
@@ -544,6 +577,7 @@
                 <span class="tag data">Salud</span>
                 <span class="tag ai">Deep Learning</span>
               </div>
+              <a href="pdfs/2026/proyecto-ia-diagnostico.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -558,6 +592,7 @@
                 <span class="tag data">Automatización</span>
                 <span class="tag robotica">IoT</span>
               </div>
+              <a href="pdfs/2026/proyecto-robotica-industrial.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -572,6 +607,7 @@
                 <span class="tag ai">IA</span>
                 <span class="tag ai">Machine Learning</span>
               </div>
+              <a href="pdfs/2026/proyecto-educacion-virtual.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -600,6 +636,7 @@
                 <span class="tag data">Tecnol. Concreto</span>
                 <span class="tag robotica">Materiales</span>
               </div>
+              <a href="pdfs/2025/proyecto-01-diseno-mezclas.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -613,6 +650,7 @@
                 <span class="tag data">Prop. Físicas</span>
                 <span class="tag data">Sostenibilidad</span>
               </div>
+              <a href="pdfs/2025/proyecto-02-reemplazo-eps.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -626,6 +664,7 @@
                 <span class="tag robotica">Mecánica Mat.</span>
                 <span class="tag data">Microsílice</span>
               </div>
+              <a href="pdfs/2025/proyecto-03-microsilice.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -639,6 +678,7 @@
                 <span class="tag robotica">Mecánica Mat.</span>
                 <span class="tag data">Ensayos</span>
               </div>
+              <a href="pdfs/2025/proyecto-04-traccion-indirecta.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -652,6 +692,7 @@
                 <span class="tag robotica">Diseño Estruc.</span>
                 <span class="tag data">Elasticidad</span>
               </div>
+              <a href="pdfs/2025/proyecto-05-modulo-elasticidad.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -665,6 +706,7 @@
                 <span class="tag ai">Microestructura</span>
                 <span class="tag data">ITZ</span>
               </div>
+              <a href="pdfs/2025/proyecto-06-itz.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -678,6 +720,7 @@
                 <span class="tag data">Tecnol. Concreto</span>
                 <span class="tag robotica">Curado</span>
               </div>
+              <a href="pdfs/2025/proyecto-07-resistencia-tempranas.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -691,6 +734,7 @@
                 <span class="tag web">Gestión Proyectos</span>
                 <span class="tag data">Economía</span>
               </div>
+              <a href="pdfs/2025/proyecto-08-costos-unitarios.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -704,6 +748,7 @@
                 <span class="tag ai">Química Cemento</span>
                 <span class="tag data">Aditivos</span>
               </div>
+              <a href="pdfs/2025/proyecto-09-incompatibilidad-quimica.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -717,6 +762,7 @@
                 <span class="tag ai">Reología Avanz.</span>
                 <span class="tag data">Polímeros</span>
               </div>
+              <a href="pdfs/2025/proyecto-10-optimizacion-agua.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -730,6 +776,7 @@
                 <span class="tag data">Eficiencia Energ.</span>
                 <span class="tag robotica">Térmico</span>
               </div>
+              <a href="pdfs/2025/proyecto-11-concreto-termico.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -743,6 +790,7 @@
                 <span class="tag data">Sostenibilidad</span>
                 <span class="tag web">Economía Circular</span>
               </div>
+              <a href="pdfs/2025/proyecto-12-valorizacion-eps.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -756,6 +804,7 @@
                 <span class="tag robotica">Durabilidad</span>
                 <span class="tag data">Microsílice</span>
               </div>
+              <a href="pdfs/2025/proyecto-13-permeabilidad.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -769,6 +818,7 @@
                 <span class="tag ai">Física Const.</span>
                 <span class="tag data">Térmico</span>
               </div>
+              <a href="pdfs/2025/proyecto-14-radiacion-solar.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -782,6 +832,7 @@
                 <span class="tag web">Ing. Comput.</span>
                 <span class="tag ai">Machine Learning</span>
               </div>
+              <a href="pdfs/2025/proyecto-15-modelado-matematico.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -795,6 +846,7 @@
                 <span class="tag ai">Tecnol. Avanz.</span>
                 <span class="tag data">Autocompactante</span>
               </div>
+              <a href="pdfs/2025/proyecto-16-reologia-autocompactante.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -824,6 +876,7 @@
                 <span class="tag web">Chatbot</span>
                 <span class="tag ai">IA</span>
               </div>
+              <a href="pdfs/2024/proyecto-chatbot-nlp.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -838,6 +891,7 @@
                 <span class="tag data">Medio Ambiente</span>
                 <span class="tag robotica">Sensores</span>
               </div>
+              <a href="pdfs/2024/proyecto-monitoreo-ambiental.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
@@ -852,6 +906,7 @@
                 <span class="tag ai">Optimización</span>
                 <span class="tag web">Mobile</span>
               </div>
+              <a href="pdfs/2024/proyecto-movilidad-urbana.pdf" class="pdf-button" target="_blank">Ver PDF</a>
             </div>
           </div>
 
