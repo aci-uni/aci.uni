@@ -7,7 +7,7 @@
   <title>Proyectos e Investigación | ACI UNI</title>
 
   <!-- 🔹 Fuentes (uniformes con index.html y areas.html) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
@@ -22,15 +22,33 @@
       --text: #334155;
       --radius: 14px;
       --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      
+      /* Variables modernas para proyectos */
+      --primary-modern: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary-modern: #8b5cf6;
+      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --card-bg: #ffffff;
+      --text-light: #64748b;
+      --radius-modern: 20px;
+      --radius-sm: 12px;
+      --shadow-hover: 0 20px 60px rgba(99, 102, 241, 0.25);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--light);
+      background: linear-gradient(to bottom, #f8fafc 0%, #e0e7ff 100%);
       color: var(--text);
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     /* ============================================================
@@ -96,132 +114,273 @@
     }
 
     /* ============================================================
-       🔵 BLOQUE 3: SECCIÓN PROYECTOS CON DESPLEGABLES
+       🎨 SECCIÓN HERO
     ============================================================ */
-    .projects-section {
-      padding: 7rem 3rem 4rem;
-      max-width: 1200px;
+    .hero-section {
+      padding: 10rem 3rem 3rem;
+      text-align: center;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 300;
+      max-width: 600px;
       margin: 0 auto;
     }
 
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 3rem;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    /* ============================================================
+       🎨 SECCIÓN PROYECTOS
+    ============================================================ */
+    .projects-section {
+      padding: 5rem 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    /* Acordeón de años */
+    /* Acordeón moderno */
     .year-accordion {
-      margin-bottom: 1.5rem;
-      background: white;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      background: var(--card-bg);
+      border-radius: var(--radius-modern);
       overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .year-accordion:hover {
+      border-color: rgba(99, 102, 241, 0.2);
+      transform: translateY(-2px);
     }
 
     .year-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 2rem;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 2rem 2.5rem;
+      background: var(--gradient-1);
       color: white;
       cursor: pointer;
       transition: all 0.3s ease;
       user-select: none;
+      position: relative;
+      overflow: hidden;
     }
 
-    .year-header:hover {
-      background: linear-gradient(135deg, var(--secondary), var(--primary));
+    .year-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .year-header:hover::before {
+      left: 100%;
     }
 
     .year-header h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.8rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2rem;
       font-weight: 700;
       margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
-    .year-header .toggle-icon {
+    .year-badge {
+      background: rgba(255, 255, 255, 0.25);
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+
+    .toggle-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.5rem;
       font-weight: bold;
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
     }
 
     .year-header.active .toggle-icon {
       transform: rotate(180deg);
+      background: rgba(255, 255, 255, 0.3);
     }
 
     /* Contenido desplegable */
     .year-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-      padding: 0 2rem;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 0 2.5rem;
+      background: linear-gradient(to bottom, #fafafa 0%, white 100%);
     }
 
     .year-content.active {
-      max-height: 5000px; /* Suficientemente grande para el contenido */
-      padding: 2rem;
+      max-height: 5000px;
+      padding: 3rem 2.5rem;
     }
 
+    /* Grid de proyectos */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
     }
 
+    /* Tarjetas de proyectos ULTRA MODERNAS */
     .project-card {
-      background: #f8fafc;
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-left: 4px solid var(--accent);
+      background: white;
+      padding: 0;
+      border-radius: var(--radius-modern);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--gradient-1);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
     }
 
     .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(99, 102, 241, 0.2);
+    }
+
+    .project-header {
+      padding: 2rem 2rem 1.5rem;
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
     }
 
     .project-card h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.4rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
       margin-bottom: 0.75rem;
-      color: var(--primary);
+      color: var(--dark);
+      line-height: 1.3;
+    }
+
+    .project-body {
+      padding: 0 2rem 2rem;
     }
 
     .project-card p {
-      color: var(--text);
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
     }
 
+    /* Tags modernos con gradientes */
     .project-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
+      gap: 0.75rem;
     }
 
     .tag {
-      background-color: #e0f2fe;
-      color: var(--primary);
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.875rem;
-      font-weight: 500;
+      background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 100%);
+      color: var(--primary-dark);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    }
+
+    /* Diferentes colores para tags */
+    .tag.ai {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      color: #92400e;
+    }
+
+    .tag.robotica {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      color: #1e40af;
+    }
+
+    .tag.web {
+      background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+      color: #9f1239;
+    }
+
+    .tag.data {
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+      color: #065f46;
     }
 
     /* ============================================================
-       🔵 BLOQUE 4: FOOTER
+       🔵 FOOTER
     ============================================================ */
     footer {
       background-color: var(--primary);
@@ -237,8 +396,15 @@
     }
 
     /* ============================================================
-       🔵 RESPONSIVE
+       📱 RESPONSIVE DESIGN
     ============================================================ */
+    @media (max-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+    }
+
     @media (max-width: 768px) {
       header nav {
         padding: 0.75rem 1.5rem;
@@ -246,34 +412,75 @@
 
       nav ul {
         gap: 0.5rem;
+        flex-wrap: wrap;
       }
 
       nav ul li a {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+      }
+
+      .hero-section {
+        padding: 8rem 1.5rem 2rem;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
       }
 
       .projects-section {
-        padding: 6rem 1.5rem 3rem;
-      }
-
-      .section-title {
-        font-size: 2rem;
+        padding: 3rem 1.5rem;
       }
 
       .year-header h3 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+      }
+
+      .year-header,
+      .year-content {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
       }
 
       .projects-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
     }
+
+    /* ============================================================
+       ✨ ANIMACIONES EXTRAS
+    ============================================================ */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-card {
+      animation: fadeInUp 0.6s ease backwards;
+    }
+
+    .project-card:nth-child(1) { animation-delay: 0.1s; }
+    .project-card:nth-child(2) { animation-delay: 0.2s; }
+    .project-card:nth-child(3) { animation-delay: 0.3s; }
+    .project-card:nth-child(4) { animation-delay: 0.4s; }
+    .project-card:nth-child(5) { animation-delay: 0.5s; }
+    .project-card:nth-child(6) { animation-delay: 0.6s; }
   </style>
 </head>
 
 <body>
   <!-- ============================================================
-       🔵 HEADER Y NAVEGACIÓN
+       🔵 HEADER Y NAVEGACIÓN (EXACTO COMO EN AREAS.HTML)
   ============================================================ -->
   <header>
     <nav>
@@ -293,51 +500,73 @@
   </header>
 
   <!-- ============================================================
-       🔵 SECCIÓN: PROYECTOS E INVESTIGACIÓN POR AÑO
+       🎨 HERO SECTION
+  ============================================================ -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Proyectos e Investigación</h1>
+      <p class="hero-subtitle">Innovación tecnológica que transforma el futuro</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       🎨 SECCIÓN PROYECTOS CON ACORDEONES
   ============================================================ -->
   <section class="projects-section">
-    <h2 class="section-title">Proyectos e Investigación</h2>
 
     <!-- ACORDEÓN 2026 -->
     <div class="year-accordion">
       <div class="year-header" onclick="toggleYear(this)">
-        <h3>2026</h3>
+        <h3>
+          <span class="year-badge">2026</span>
+        </h3>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="year-content">
         <div class="projects-grid">
-          <!-- Proyecto ejemplo 2026 #1 -->
+          
           <div class="project-card">
-            <h4>Sistema de IA para Diagnóstico Médico</h4>
-            <p>Desarrollo de un sistema de inteligencia artificial avanzado para el diagnóstico temprano de enfermedades mediante análisis de imágenes médicas.</p>
-            <div class="project-meta">
-              <span class="tag">IA</span>
-              <span class="tag">Salud</span>
-              <span class="tag">Deep Learning</span>
+            <div class="project-header">
+              <h4>🧠 Sistema de IA para Diagnóstico Médico</h4>
+            </div>
+            <div class="project-body">
+              <p>Desarrollo de un sistema de inteligencia artificial avanzado para el diagnóstico temprano de enfermedades mediante análisis de imágenes médicas con precisión del 95%.</p>
+              <div class="project-meta">
+                <span class="tag ai">IA</span>
+                <span class="tag data">Salud</span>
+                <span class="tag ai">Deep Learning</span>
+              </div>
             </div>
           </div>
 
-          <!-- Proyecto ejemplo 2026 #2 -->
           <div class="project-card">
-            <h4>Automatización Industrial con Robótica</h4>
-            <p>Implementación de robots colaborativos para optimizar procesos de manufactura en la industria nacional.</p>
-            <div class="project-meta">
-              <span class="tag">Robótica</span>
-              <span class="tag">Automatización</span>
-              <span class="tag">IoT</span>
+            <div class="project-header">
+              <h4>🤖 Automatización Industrial con Robótica</h4>
+            </div>
+            <div class="project-body">
+              <p>Implementación de robots colaborativos para optimizar procesos de manufactura en la industria nacional, aumentando la productividad en un 40%.</p>
+              <div class="project-meta">
+                <span class="tag robotica">Robótica</span>
+                <span class="tag data">Automatización</span>
+                <span class="tag robotica">IoT</span>
+              </div>
             </div>
           </div>
 
-          <!-- Proyecto ejemplo 2026 #3 -->
           <div class="project-card">
-            <h4>Plataforma de Educación Virtual con IA</h4>
-            <p>Creación de una plataforma educativa que utiliza inteligencia artificial para personalizar el aprendizaje de cada estudiante.</p>
-            <div class="project-meta">
-              <span class="tag">EdTech</span>
-              <span class="tag">IA</span>
-              <span class="tag">Machine Learning</span>
+            <div class="project-header">
+              <h4>📚 Plataforma de Educación Virtual con IA</h4>
+            </div>
+            <div class="project-body">
+              <p>Creación de una plataforma educativa que utiliza inteligencia artificial para personalizar el aprendizaje de cada estudiante según su ritmo y estilo.</p>
+              <div class="project-meta">
+                <span class="tag web">EdTech</span>
+                <span class="tag ai">IA</span>
+                <span class="tag ai">Machine Learning</span>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -345,43 +574,56 @@
     <!-- ACORDEÓN 2025 -->
     <div class="year-accordion">
       <div class="year-header" onclick="toggleYear(this)">
-        <h3>2025</h3>
+        <h3>
+          <span class="year-badge">2025</span>
+        </h3>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="year-content">
         <div class="projects-grid">
-          <!-- Proyecto ejemplo 2025 #1 -->
+          
           <div class="project-card">
-            <h4>Reconocimiento Facial para Seguridad</h4>
-            <p>Sistema de visión por computadora para identificación y control de acceso en instalaciones de alta seguridad.</p>
-            <div class="project-meta">
-              <span class="tag">Visión Artificial</span>
-              <span class="tag">Seguridad</span>
-              <span class="tag">ML</span>
+            <div class="project-header">
+              <h4>👁️ Reconocimiento Facial para Seguridad</h4>
+            </div>
+            <div class="project-body">
+              <p>Sistema de visión por computadora para identificación y control de acceso en instalaciones de alta seguridad con tecnología anti-spoofing.</p>
+              <div class="project-meta">
+                <span class="tag ai">Visión Artificial</span>
+                <span class="tag robotica">Seguridad</span>
+                <span class="tag ai">ML</span>
+              </div>
             </div>
           </div>
 
-          <!-- Proyecto ejemplo 2025 #2 -->
           <div class="project-card">
-            <h4>Análisis Predictivo de Datos Climáticos</h4>
-            <p>Herramienta de análisis predictivo para pronosticar patrones climáticos y prevenir desastres naturales.</p>
-            <div class="project-meta">
-              <span class="tag">Data Science</span>
-              <span class="tag">Big Data</span>
-              <span class="tag">Meteorología</span>
+            <div class="project-header">
+              <h4>🌦️ Análisis Predictivo de Datos Climáticos</h4>
+            </div>
+            <div class="project-body">
+              <p>Herramienta de análisis predictivo para pronosticar patrones climáticos y prevenir desastres naturales utilizando modelos de machine learning.</p>
+              <div class="project-meta">
+                <span class="tag data">Data Science</span>
+                <span class="tag data">Big Data</span>
+                <span class="tag ai">Meteorología</span>
+              </div>
             </div>
           </div>
 
-          <!-- Proyecto ejemplo 2025 #3 -->
           <div class="project-card">
-            <h4>Blockchain para Trazabilidad Alimentaria</h4>
-            <p>Sistema blockchain para garantizar la trazabilidad y seguridad en la cadena de suministro de alimentos.</p>
-            <div class="project-meta">
-              <span class="tag">Blockchain</span>
-              <span class="tag">Seguridad</span>
-              <span class="tag">Agricultura</span>
+            <div class="project-header">
+              <h4>🔗 Blockchain para Trazabilidad Alimentaria</h4>
+            </div>
+            <div class="project-body">
+              <p>Sistema blockchain para garantizar la trazabilidad y seguridad en la cadena de suministro de alimentos desde el productor hasta el consumidor.</p>
+              <div class="project-meta">
+                <span class="tag web">Blockchain</span>
+                <span class="tag robotica">Seguridad</span>
+                <span class="tag data">Agricultura</span>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -389,43 +631,56 @@
     <!-- ACORDEÓN 2024 -->
     <div class="year-accordion">
       <div class="year-header" onclick="toggleYear(this)">
-        <h3>2024</h3>
+        <h3>
+          <span class="year-badge">2024</span>
+        </h3>
         <span class="toggle-icon">▼</span>
       </div>
       <div class="year-content">
         <div class="projects-grid">
-          <!-- Proyecto ejemplo 2024 #1 -->
+          
           <div class="project-card">
-            <h4>Chatbot Universitario con NLP</h4>
-            <p>Asistente virtual inteligente para resolver consultas académicas y administrativas de estudiantes universitarios.</p>
-            <div class="project-meta">
-              <span class="tag">NLP</span>
-              <span class="tag">Chatbot</span>
-              <span class="tag">IA</span>
+            <div class="project-header">
+              <h4>💬 Chatbot Universitario con NLP</h4>
+            </div>
+            <div class="project-body">
+              <p>Asistente virtual inteligente para resolver consultas académicas y administrativas de estudiantes universitarios con procesamiento de lenguaje natural.</p>
+              <div class="project-meta">
+                <span class="tag ai">NLP</span>
+                <span class="tag web">Chatbot</span>
+                <span class="tag ai">IA</span>
+              </div>
             </div>
           </div>
 
-          <!-- Proyecto ejemplo 2024 #2 -->
           <div class="project-card">
-            <h4>Sistema de Monitoreo Ambiental</h4>
-            <p>Red de sensores IoT para monitorear la calidad del aire y agua en zonas urbanas y rurales.</p>
-            <div class="project-meta">
-              <span class="tag">IoT</span>
-              <span class="tag">Medio Ambiente</span>
-              <span class="tag">Sensores</span>
+            <div class="project-header">
+              <h4>🌱 Sistema de Monitoreo Ambiental</h4>
+            </div>
+            <div class="project-body">
+              <p>Red de sensores IoT para monitorear la calidad del aire y agua en zonas urbanas y rurales en tiempo real con alertas automáticas.</p>
+              <div class="project-meta">
+                <span class="tag robotica">IoT</span>
+                <span class="tag data">Medio Ambiente</span>
+                <span class="tag robotica">Sensores</span>
+              </div>
             </div>
           </div>
 
-          <!-- Proyecto ejemplo 2024 #3 -->
           <div class="project-card">
-            <h4>App de Movilidad Urbana Inteligente</h4>
-            <p>Aplicación móvil para optimizar rutas de transporte público utilizando algoritmos de optimización y datos en tiempo real.</p>
-            <div class="project-meta">
-              <span class="tag">Movilidad</span>
-              <span class="tag">Optimización</span>
-              <span class="tag">Mobile</span>
+            <div class="project-header">
+              <h4>🚌 App de Movilidad Urbana Inteligente</h4>
+            </div>
+            <div class="project-body">
+              <p>Aplicación móvil para optimizar rutas de transporte público utilizando algoritmos de optimización y datos en tiempo real para reducir tiempos de viaje.</p>
+              <div class="project-meta">
+                <span class="tag web">Movilidad</span>
+                <span class="tag ai">Optimización</span>
+                <span class="tag web">Mobile</span>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -440,17 +695,12 @@
   </footer>
 
   <!-- ============================================================
-       🔵 JAVASCRIPT PARA DESPLEGABLES
+       ⚡ JAVASCRIPT
   ============================================================ -->
   <script>
     function toggleYear(header) {
-      // Toggle active class en el header
       header.classList.toggle('active');
-      
-      // Obtener el contenido siguiente
       const content = header.nextElementSibling;
-      
-      // Toggle active class en el contenido
       content.classList.toggle('active');
     }
   </script>
